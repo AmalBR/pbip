@@ -10,7 +10,7 @@
     "tabOrder": 13000
   },
   "visual": {
-    "visualType": "barChart",
+    "visualType": "columnChart",
     "query": {
       "queryState": {
         "Category": {
@@ -50,9 +50,8 @@
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(Sales.Unit Price)",
-              "nativeQueryRef": "Sum of Unit Price",
-              "displayName": "Total Sales"
+              "queryRef": "Sum(Sales.Sum of Unit Price)",
+              "nativeQueryRef": "Sum of Unit Price"
             }
           ]
         }
