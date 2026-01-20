@@ -1,0 +1,10 @@
+// Write your formula below, select 'Run' to try it out. When ready, select 'Update model' to add the measure to your model.
+DEFINE
+	MEASURE 'Software Development Project'[Go Live Target] = DATE(2025, 4, 14)
+
+EVALUATE
+	SUMMARIZECOLUMNS(
+		"New Measure", [Go Live Target]
+	)
+
+	

@@ -1,0 +1,28 @@
+table TAX
+	lineageTag: ab137880-7d92-4535-9e95-5c5aed2cef34
+
+	measure 'TAX Value' = SELECTEDVALUE('TAX'[TAX])
+		lineageTag: 80591fca-5ce9-4819-ae3e-ef8bc37f84d5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TAX
+		lineageTag: 159d794b-c14a-4695-8730-df7ac8e70aea
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition TAX = calculated
+		mode: import
+		source = GENERATESERIES(1, 2, 0.1)
+
+	annotation PBI_Id = e28c80764ee14e27934638b30290825a
+

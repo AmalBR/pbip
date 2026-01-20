@@ -1,0 +1,734 @@
+{
+  "visual": {
+    "name": "gradientCard",
+    "displayName": "Gradient Card",
+    "guid": "gradientCard0614168B0BDC476586916478EE5959D1",
+    "visualClassName": "Visual",
+    "version": "1.2.4.0",
+    "description": "A new card",
+    "supportUrl": "https://datazoepowerbi.com",
+    "gitHubUrl": ""
+  },
+  "author": {
+    "name": "Zoe Douglas",
+    "email": "zoe@datazoepowerbi.com"
+  },
+  "apiVersion": "5.3.0",
+  "style": "style/visual.less",
+  "stringResources": {},
+  "capabilities": {
+    "supportsHighlight": true,
+    "tooltips": {
+      "supportedTypes": {
+        "default": true,
+        "canvas": true
+      },
+      "roles": [
+        "tooltips"
+      ],
+      "supportEnhancedTooltips": true
+    },
+    "dataRoles": [
+      {
+        "displayName": "Primary",
+        "name": "actualValue",
+        "kind": "Measure"
+      },
+      {
+        "displayName": "Comparison",
+        "name": "targetValue",
+        "kind": "Measure"
+      },
+      {
+        "displayName": "Category",
+        "name": "title",
+        "kind": "Grouping"
+      },
+      {
+        "displayName": "Icon",
+        "name": "iconField",
+        "kind": "Grouping"
+      },
+      {
+        "displayName": "Tooltips",
+        "name": "tooltips",
+        "kind": "Measure",
+        "displayNameKey": "Role_Tooltips"
+      }
+    ],
+    "objects": {
+      "generalSettings": {
+        "properties": {
+          "backgroundColor1": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "backgroundColor2": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "gradientAngle": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "borderRadius": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "padding": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "elementSpacing": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "showBorder": {
+            "type": {
+              "bool": true
+            }
+          },
+          "borderWidth": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "borderColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "borderStyle": {
+            "type": {
+              "enumeration": [
+                {
+                  "value": "solid",
+                  "displayName": "Solid"
+                },
+                {
+                  "value": "dashed",
+                  "displayName": "Dashed"
+                },
+                {
+                  "value": "dotted",
+                  "displayName": "Dotted"
+                },
+                {
+                  "value": "double",
+                  "displayName": "Double"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "titleSettings": {
+        "properties": {
+          "show": {
+            "type": {
+              "bool": true
+            }
+          },
+          "titleText": {
+            "type": {
+              "text": true
+            }
+          },
+          "titleColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "titleFontSize": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "titleFontFamily": {
+            "type": {
+              "formatting": {
+                "fontFamily": true
+              }
+            }
+          },
+          "titleBold": {
+            "type": {
+              "bool": true
+            }
+          },
+          "titleItalic": {
+            "type": {
+              "bool": true
+            }
+          }
+        }
+      },
+      "badgeSettings": {
+        "properties": {
+          "show": {
+            "type": {
+              "bool": true
+            }
+          },
+          "badgeLabelText": {
+            "type": {
+              "text": true
+            }
+          },
+          "matchProgressColors": {
+            "type": {
+              "bool": true
+            }
+          },
+          "badgeColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "fillLightness": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "badgeBorderWidth": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "badgeFontSize": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "badgeFontFamily": {
+            "type": {
+              "formatting": {
+                "fontFamily": true
+              }
+            }
+          },
+          "badgeBold": {
+            "type": {
+              "bool": true
+            }
+          },
+          "badgeBorderRadius": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "badgePaddingHorizontal": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "badgePaddingVertical": {
+            "type": {
+              "numeric": true
+            }
+          }
+        }
+      },
+      "mainValueSettings": {
+        "properties": {
+          "mainValueColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "mainValueFontSize": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "mainValueFontFamily": {
+            "type": {
+              "formatting": {
+                "fontFamily": true
+              }
+            }
+          },
+          "mainValueBold": {
+            "type": {
+              "bool": true
+            }
+          },
+          "displayUnits": {
+            "type": {
+              "formatting": {
+                "labelDisplayUnits": true
+              }
+            }
+          },
+          "decimalPlaces": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "showThousandsSeparator": {
+            "type": {
+              "bool": true
+            }
+          }
+        }
+      },
+      "iconSettings": {
+        "properties": {
+          "show": {
+            "type": {
+              "bool": true
+            }
+          },
+          "builtInIcon": {
+            "type": {
+              "enumeration": [
+                {
+                  "value": "none",
+                  "displayName": "None (use custom URL)"
+                },
+                {
+                  "value": "star",
+                  "displayName": "Star"
+                },
+                {
+                  "value": "heart",
+                  "displayName": "Heart"
+                },
+                {
+                  "value": "check",
+                  "displayName": "Checkmark"
+                },
+                {
+                  "value": "trophy",
+                  "displayName": "Trophy"
+                },
+                {
+                  "value": "target",
+                  "displayName": "Target"
+                },
+                {
+                  "value": "chart",
+                  "displayName": "Chart"
+                },
+                {
+                  "value": "dollar",
+                  "displayName": "Dollar"
+                },
+                {
+                  "value": "users",
+                  "displayName": "Users"
+                },
+                {
+                  "value": "thumbsUp",
+                  "displayName": "Thumbs up"
+                },
+                {
+                  "value": "lightning",
+                  "displayName": "Lightning"
+                },
+                {
+                  "value": "fire",
+                  "displayName": "Fire"
+                },
+                {
+                  "value": "rocket",
+                  "displayName": "Rocket"
+                }
+              ]
+            }
+          },
+          "iconFromData": {
+            "type": {
+              "text": true
+            }
+          },
+          "imageUrl": {
+            "type": {
+              "text": true
+            }
+          },
+          "iconColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "iconSize": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "iconSpacing": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "iconBorderRadius": {
+            "type": {
+              "numeric": true
+            }
+          }
+        }
+      },
+      "detailsSettings": {
+        "properties": {
+          "show": {
+            "type": {
+              "bool": true
+            }
+          },
+          "labelColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "valueColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "exceededColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "detailsFontSize": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "detailsFontFamily": {
+            "type": {
+              "formatting": {
+                "fontFamily": true
+              }
+            }
+          },
+          "labelBold": {
+            "type": {
+              "bool": true
+            }
+          },
+          "valueBold": {
+            "type": {
+              "bool": true
+            }
+          },
+          "separatorColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "targetLabel": {
+            "type": {
+              "text": true
+            }
+          },
+          "varianceLabelAbove": {
+            "type": {
+              "text": true
+            }
+          },
+          "varianceLabelAt100": {
+            "type": {
+              "text": true
+            }
+          },
+          "varianceLabelBelow": {
+            "type": {
+              "text": true
+            }
+          },
+          "showVarianceSign": {
+            "type": {
+              "bool": true
+            }
+          },
+          "matchProgressColors": {
+            "type": {
+              "bool": true
+            }
+          }
+        }
+      },
+      "progressBarSettings": {
+        "properties": {
+          "show": {
+            "type": {
+              "bool": true
+            }
+          },
+          "barBackgroundColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "barColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "barColorAt100": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "barColorBelowMarker": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "barHeight": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "barBorderRadius": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "showMarker": {
+            "type": {
+              "bool": true
+            }
+          },
+          "markerPosition": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "markerColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "markerWidth": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "markerHeight": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "showLabel": {
+            "type": {
+              "bool": true
+            }
+          },
+          "labelColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "labelFontSize": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "labelFontFamily": {
+            "type": {
+              "formatting": {
+                "fontFamily": true
+              }
+            }
+          },
+          "labelText": {
+            "type": {
+              "text": true
+            }
+          }
+        }
+      },
+      "tooltipSettings": {
+        "properties": {
+          "showOnlyTooltipFields": {
+            "type": {
+              "bool": true
+            }
+          },
+          "showAnywhere": {
+            "type": {
+              "bool": true
+            }
+          },
+          "showOnPrimaryValue": {
+            "type": {
+              "bool": true
+            }
+          },
+          "showOnIcon": {
+            "type": {
+              "bool": true
+            }
+          },
+          "showOnHeader": {
+            "type": {
+              "bool": true
+            }
+          },
+          "showOnBadge": {
+            "type": {
+              "bool": true
+            }
+          },
+          "showOnComparison": {
+            "type": {
+              "bool": true
+            }
+          },
+          "showOnProgressBar": {
+            "type": {
+              "bool": true
+            }
+          }
+        }
+      },
+      "smallMultiplesSettings": {
+        "properties": {
+          "minCardWidth": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "padding": {
+            "type": {
+              "numeric": true
+            }
+          }
+        }
+      }
+    },
+    "dataViewMappings": [
+      {
+        "categorical": {
+          "categories": {
+            "select": [
+              {
+                "for": {
+                  "in": "title"
+                }
+              },
+              {
+                "for": {
+                  "in": "iconField"
+                }
+              }
+            ],
+            "dataReductionAlgorithm": {
+              "top": {}
+            }
+          },
+          "values": {
+            "select": [
+              {
+                "for": {
+                  "in": "actualValue"
+                }
+              },
+              {
+                "for": {
+                  "in": "targetValue"
+                }
+              },
+              {
+                "for": {
+                  "in": "tooltips"
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "supportsLandingPage": false,
+    "supportsEmptyDataView": true,
+    "supportsKeyboardFocus": true,
+    "privileges": []
+  },
+  "content": {
+    "js": "var gradientCard0614168B0BDC476586916478EE5959D1;(()=>{\"use strict\";var e={373:(e,a,t)=>{t.d(a,{S:()=>g});var i=t(674),l=i.z.Tn,s=i.z.Kx;class n extends l{backgroundColor1=new i.z.sk({name:\"backgroundColor1\",displayName:\"Start color\",value:{value:\"#E8D5F0\"},instanceKind:3});backgroundColor2=new i.z.sk({name:\"backgroundColor2\",displayName:\"End color\",value:{value:\"#D4F0F0\"},instanceKind:3});gradientAngle=new i.z.iB({name:\"gradientAngle\",displayName:\"Gradient direction\",value:135,instanceKind:3});borderRadius=new i.z.iB({name:\"borderRadius\",displayName:\"Corner roundness\",value:12,instanceKind:3});padding=new i.z.iB({name:\"padding\",displayName:\"Inner spacing\",value:20,instanceKind:3});elementSpacing=new i.z.iB({name:\"elementSpacing\",displayName:\"Element spacing\",value:10,instanceKind:3});showBorder=new i.z.jF({name:\"showBorder\",displayName:\"Show border\",value:!1});borderWidth=new i.z.iB({name:\"borderWidth\",displayName:\"Border width\",value:1,instanceKind:3});borderColor=new i.z.sk({name:\"borderColor\",displayName:\"Border color\",value:{value:\"#CCCCCC\"},instanceKind:3});borderStyle=new i.z.PA({name:\"borderStyle\",displayName:\"Border style\",items:[{value:\"solid\",displayName:\"Solid\"},{value:\"dashed\",displayName:\"Dashed\"},{value:\"dotted\",displayName:\"Dotted\"},{value:\"double\",displayName:\"Double\"}],value:{value:\"solid\",displayName:\"Solid\"}});name=\"generalSettings\";displayName=\"Appearance\";slices=[this.backgroundColor1,this.backgroundColor2,this.gradientAngle,this.borderRadius,this.padding,this.elementSpacing,this.showBorder,this.borderWidth,this.borderColor,this.borderStyle]}class o extends l{show=new i.z.jF({name:\"show\",displayName:\"Show\",value:!0});titleText=new i.z.ks({name:\"titleText\",displayName:\"Text\",value:\"Units\",placeholder:\"Enter header\"});titleColor=new i.z.sk({name:\"titleColor\",displayName:\"Color\",value:{value:\"#333333\"},instanceKind:3});titleFontSize=new i.z.iB({name:\"titleFontSize\",displayName:\"Text size\",value:20,instanceKind:3});titleFontFamily=new i.z.Cx({name:\"titleFontFamily\",displayName:\"Font\",value:\"Segoe UI\"});titleBold=new i.z.jF({name:\"titleBold\",displayName:\"Bold\",value:!1});titleItalic=new i.z.jF({name:\"titleItalic\",displayName:\"Italic\",value:!1});name=\"titleSettings\";displayName=\"Category\";topLevelSlice=this.show;slices=[this.titleColor,this.titleFontSize,this.titleFontFamily,this.titleBold,this.titleItalic]}class r extends l{show=new i.z.jF({name:\"show\",displayName:\"Show\",value:!0});badgeColor=new i.z.sk({name:\"badgeColor\",displayName:\"Color\",value:{value:\"#6B2D7B\"},instanceKind:3});fillLightness=new i.z.iB({name:\"fillLightness\",displayName:\"Fill lightness %\",value:85,instanceKind:3});badgeBorderWidth=new i.z.iB({name:\"badgeBorderWidth\",displayName:\"Outline thickness\",value:2,instanceKind:3});badgeFontSize=new i.z.iB({name:\"badgeFontSize\",displayName:\"Text size\",value:15,instanceKind:3});badgeFontFamily=new i.z.Cx({name:\"badgeFontFamily\",displayName:\"Font\",value:\"Segoe UI\"});badgeBold=new i.z.jF({name:\"badgeBold\",displayName:\"Bold\",value:!0});badgeLabelText=new i.z.ks({name:\"badgeLabelText\",displayName:\"Label\",value:\"Achieved:\",placeholder:\"Enter label\"});badgeBorderRadius=new i.z.iB({name:\"badgeBorderRadius\",displayName:\"Corner roundness\",value:25,instanceKind:3});badgePaddingHorizontal=new i.z.iB({name:\"badgePaddingHorizontal\",displayName:\"Horizontal spacing\",value:20,instanceKind:3});badgePaddingVertical=new i.z.iB({name:\"badgePaddingVertical\",displayName:\"Vertical spacing\",value:4,instanceKind:3});matchProgressColors=new i.z.jF({name:\"matchProgressColors\",displayName:\"Match progress bar colors\",value:!1});name=\"badgeSettings\";displayName=\"Status badge\";topLevelSlice=this.show;slices=[this.badgeLabelText,this.badgeColor,this.matchProgressColors,this.fillLightness,this.badgeBorderWidth,this.badgeFontSize,this.badgeFontFamily,this.badgeBold,this.badgeBorderRadius,this.badgePaddingHorizontal,this.badgePaddingVertical]}class d extends l{mainValueColor=new i.z.sk({name:\"mainValueColor\",displayName:\"Color\",value:{value:\"#1a1a1a\"},instanceKind:3});mainValueFontSize=new i.z.iB({name:\"mainValueFontSize\",displayName:\"Text size\",value:40,instanceKind:3});mainValueFontFamily=new i.z.Cx({name:\"mainValueFontFamily\",displayName:\"Font\",value:\"Segoe UI\"});mainValueBold=new i.z.jF({name:\"mainValueBold\",displayName:\"Bold\",value:!0});displayUnits=new i.z.lp({name:\"displayUnits\",displayName:\"Display units\",value:\"auto\"});decimalPlaces=new i.z.iB({name:\"decimalPlaces\",displayName:\"Decimal places\",value:0,instanceKind:3});showThousandsSeparator=new i.z.jF({name:\"showThousandsSeparator\",displayName:\"Use thousand separators\",value:!0});name=\"mainValueSettings\";displayName=\"Primary value\";slices=[this.mainValueColor,this.mainValueFontSize,this.mainValueFontFamily,this.mainValueBold,this.decimalPlaces,this.showThousandsSeparator]}class c extends l{show=new i.z.jF({name:\"show\",displayName:\"Show\",value:!1});currentIconSource=new i.z.uI({name:\"currentIconSource\",displayName:\"Current source\",value:\"Not configured\"});builtInIcon=new i.z.PA({name:\"builtInIcon\",displayName:\"Built-in icon\",items:[{value:\"none\",displayName:\"None (use custom URL)\"},{value:\"star\",displayName:\"Star\"},{value:\"heart\",displayName:\"Heart\"},{value:\"check\",displayName:\"Checkmark\"},{value:\"trophy\",displayName:\"Trophy\"},{value:\"target\",displayName:\"Target\"},{value:\"chart\",displayName:\"Chart\"},{value:\"dollar\",displayName:\"Dollar\"},{value:\"users\",displayName:\"Users\"},{value:\"thumbsUp\",displayName:\"Thumbs up\"},{value:\"lightning\",displayName:\"Lightning\"},{value:\"fire\",displayName:\"Fire\"},{value:\"rocket\",displayName:\"Rocket\"}],value:{value:\"none\",displayName:\"None (use custom URL)\"}});iconFromData=new i.z.ks({name:\"iconFromData\",displayName:\"Icon from data\",description:\"Use conditional formatting (fx) to set icon name from a data column. Valid values: star, heart, check, trophy, target, chart, dollar, users, thumbsUp, lightning, fire, rocket\",value:\"\",placeholder:\"Use fx button →\",instanceKind:3});imageUrl=new i.z.ks({name:\"imageUrl\",displayName:\"Custom image URL\",value:\"\",placeholder:\"Enter image URL\"});iconColor=new i.z.sk({name:\"iconColor\",displayName:\"Icon color\",value:{value:\"#6B2D7B\"},instanceKind:3});iconSize=new i.z.iB({name:\"iconSize\",displayName:\"Size\",value:48,instanceKind:3});iconSpacing=new i.z.iB({name:\"iconSpacing\",displayName:\"Spacing\",value:12,instanceKind:3});iconBorderRadius=new i.z.iB({name:\"iconBorderRadius\",displayName:\"Corner roundness\",value:0,instanceKind:3});name=\"iconSettings\";displayName=\"Icon\";topLevelSlice=this.show;slices=[this.currentIconSource,this.builtInIcon,this.iconFromData,this.imageUrl,this.iconColor,this.iconSize,this.iconSpacing,this.iconBorderRadius]}class u extends l{show=new i.z.jF({name:\"show\",displayName:\"Show\",value:!0});labelColor=new i.z.sk({name:\"labelColor\",displayName:\"Label color\",value:{value:\"#333333\"},instanceKind:3});valueColor=new i.z.sk({name:\"valueColor\",displayName:\"Value color\",value:{value:\"#666666\"},instanceKind:3});exceededColor=new i.z.sk({name:\"exceededColor\",displayName:\"Variance color\",value:{value:\"#6B2D7B\"},instanceKind:3});detailsFontSize=new i.z.iB({name:\"detailsFontSize\",displayName:\"Text size\",value:15,instanceKind:3});detailsFontFamily=new i.z.Cx({name:\"detailsFontFamily\",displayName:\"Font\",value:\"Segoe UI\"});labelBold=new i.z.jF({name:\"labelBold\",displayName:\"Bold labels\",value:!0});valueBold=new i.z.jF({name:\"valueBold\",displayName:\"Bold values\",value:!1});separatorColor=new i.z.sk({name:\"separatorColor\",displayName:\"Divider color\",value:{value:\"#333333\"},instanceKind:3});targetLabel=new i.z.ks({name:\"targetLabel\",displayName:\"Goal label\",value:\"Target:\",placeholder:\"Enter label\"});varianceLabelAbove=new i.z.ks({name:\"varianceLabelAbove\",displayName:\"Variance label (at/above target %)\",value:\"On track:\",placeholder:\"Label when at or above target %\"});varianceLabelAt100=new i.z.ks({name:\"varianceLabelAt100\",displayName:\"Variance label (at/above 100%)\",value:\"Exceeded:\",placeholder:\"Label when at or above 100%\"});varianceLabelBelow=new i.z.ks({name:\"varianceLabelBelow\",displayName:\"Variance label (below target %)\",value:\"To go:\",placeholder:\"Label when below target %\"});showVarianceSign=new i.z.jF({name:\"showVarianceSign\",displayName:\"Show +/- sign\",value:!1});matchProgressColors=new i.z.jF({name:\"matchProgressColors\",displayName:\"Match progress bar colors\",value:!1});name=\"detailsSettings\";displayName=\"Comparison values\";topLevelSlice=this.show;slices=[this.targetLabel,this.varianceLabelAbove,this.varianceLabelAt100,this.varianceLabelBelow,this.showVarianceSign,this.labelColor,this.valueColor,this.exceededColor,this.matchProgressColors,this.detailsFontSize,this.detailsFontFamily,this.labelBold,this.valueBold,this.separatorColor]}class m extends i.z.St{show=new i.z.jF({name:\"show\",displayName:\"Show\",value:!0});barBackgroundColor=new i.z.sk({name:\"barBackgroundColor\",displayName:\"Track color\",value:{value:\"#E0E0E0\"},instanceKind:3});barColor=new i.z.sk({name:\"barColor\",displayName:\"Fill color (at/above target %)\",value:{value:\"#DAA520\"},instanceKind:3});barColorAt100=new i.z.sk({name:\"barColorAt100\",displayName:\"Fill color (at/above 100%)\",value:{value:\"#6B2D7B\"},instanceKind:3});barColorBelowMarker=new i.z.sk({name:\"barColorBelowMarker\",displayName:\"Fill color (below target %)\",value:{value:\"#CD5C5C\"},instanceKind:3});barHeight=new i.z.iB({name:\"barHeight\",displayName:\"Thickness\",value:16,instanceKind:3});barBorderRadius=new i.z.iB({name:\"barBorderRadius\",displayName:\"Corner roundness\",value:10,instanceKind:3});showMarker=new i.z.jF({name:\"showMarker\",displayName:\"Show\",value:!0});markerPosition=new i.z.iB({name:\"markerPosition\",displayName:\"Position\",value:80,instanceKind:3});markerColor=new i.z.sk({name:\"markerColor\",displayName:\"Color\",value:{value:\"#000000\"},instanceKind:3});markerWidth=new i.z.iB({name:\"markerWidth\",displayName:\"Width\",value:4,instanceKind:3});markerHeight=new i.z.iB({name:\"markerHeight\",displayName:\"Height\",value:24,instanceKind:3});showLabel=new i.z.jF({name:\"showLabel\",displayName:\"Show\",value:!0});labelText=new i.z.ks({name:\"labelText\",displayName:\"Text\",value:\"% of Target\",placeholder:\"Enter suffix\"});labelColor=new i.z.sk({name:\"labelColor\",displayName:\"Color\",value:{value:\"#333333\"},instanceKind:3});labelFontSize=new i.z.iB({name:\"labelFontSize\",displayName:\"Size\",value:10,instanceKind:3});labelFontFamily=new i.z.Cx({name:\"labelFontFamily\",displayName:\"Font\",value:\"Segoe UI\"});barGroup=new i.z.YJ({name:\"barGroup\",displayName:\"Bar\",slices:[this.barBackgroundColor,this.barColorAt100,this.barColor,this.barColorBelowMarker,this.barHeight,this.barBorderRadius]});markerGroup=new i.z.YJ({name:\"markerGroup\",displayName:\"Target % marker\",topLevelSlice:this.showMarker,slices:[this.markerPosition,this.markerColor,this.markerWidth,this.markerHeight]});captionGroup=new i.z.YJ({name:\"captionGroup\",displayName:\"Caption\",topLevelSlice:this.showLabel,slices:[this.labelText,this.labelColor,this.labelFontSize,this.labelFontFamily]});name=\"progressBarSettings\";displayName=\"Progress indicator\";topLevelSlice=this.show;groups=[this.barGroup,this.markerGroup,this.captionGroup]}class h extends i.z.St{showOnlyTooltipFields=new i.z.jF({name:\"showOnlyTooltipFields\",displayName:\"Show only tooltip fields\",value:!1});showAnywhere=new i.z.jF({name:\"showAnywhere\",displayName:\"Show anywhere on card\",value:!1});showOnPrimaryValue=new i.z.jF({name:\"showOnPrimaryValue\",displayName:\"Show on primary value\",value:!0});showOnIcon=new i.z.jF({name:\"showOnIcon\",displayName:\"Show on icon\",value:!0});showOnHeader=new i.z.jF({name:\"showOnHeader\",displayName:\"Show on header\",value:!1});showOnBadge=new i.z.jF({name:\"showOnBadge\",displayName:\"Show on badge\",value:!1});showOnComparison=new i.z.jF({name:\"showOnComparison\",displayName:\"Show on comparison values\",value:!1});showOnProgressBar=new i.z.jF({name:\"showOnProgressBar\",displayName:\"Show on progress bar\",value:!1});generalGroup=new i.z.YJ({name:\"generalGroup\",displayName:void 0,slices:[this.showOnlyTooltipFields,this.showAnywhere]});elementsGroup=new i.z.YJ({name:\"elementsGroup\",displayName:\"Show on specific elements\",slices:[this.showOnPrimaryValue,this.showOnIcon,this.showOnHeader,this.showOnBadge,this.showOnComparison,this.showOnProgressBar]});name=\"tooltipSettings\";displayName=\"Tooltips\";groups=[this.generalGroup,this.elementsGroup]}class p extends l{minCardWidth=new i.z.iB({name:\"minCardWidth\",displayName:\"Minimum card width\",value:200,instanceKind:3});padding=new i.z.iB({name:\"padding\",displayName:\"Padding\",value:10,instanceKind:3});name=\"smallMultiplesSettings\";displayName=\"Small multiples\";slices=[this.minCardWidth,this.padding]}class g extends s{generalSettingsCard=new n;titleSettingsCard=new o;badgeSettingsCard=new r;mainValueSettingsCard=new d;iconSettingsCard=new c;detailsSettingsCard=new u;progressBarSettingsCard=new m;tooltipSettingsCard=new h;smallMultiplesSettingsCard=new p;cards=[this.generalSettingsCard,this.titleSettingsCard,this.badgeSettingsCard,this.mainValueSettingsCard,this.iconSettingsCard,this.detailsSettingsCard,this.progressBarSettingsCard,this.tooltipSettingsCard,this.smallMultiplesSettingsCard]}},639:(e,a,t)=>{function i(e,a){return{objectName:e,propertyName:a.name,selector:a.selector,altConstantValueSelector:a.altConstantSelector,instanceKind:a.instanceKind}}function l(e,a,t){return null==a||\"object\"==typeof a&&!a.solid?t:a.solid?{value:null==a?void 0:a.solid.color}:\"Dropdown\"===(null==e?void 0:e.type)&&e.items?e.items.find(e=>e.value==a):a}t.d(a,{D:()=>l,y:()=>i})},667:(e,a,t)=>{t.d(a,{A:()=>l});var i=t(754);const l=class{constructor(e){this.localizationManager=e}populateFormattingSettingsModel(e,a){var t,l;const s=new e,n=null===(t=null==a?void 0:a.metadata)||void 0===t?void 0:t.objects;return n&&(null===(l=s.cards)||void 0===l||l.forEach(e=>{var a;e instanceof i.St&&(null===(a=e.topLevelSlice)||void 0===a||a.setPropertiesValues(n,e.name)),(e instanceof i.Tn?[e]:e.groups).forEach(a=>{var t,i,l,s;null===(t=a.topLevelSlice)||void 0===t||t.setPropertiesValues(n,e.name),null===(i=null==a?void 0:a.slices)||void 0===i||i.forEach(a=>{null==a||a.setPropertiesValues(n,e.name)}),null===(s=null===(l=null==a?void 0:a.container)||void 0===l?void 0:l.containerItems)||void 0===s||s.forEach(a=>{var t;null===(t=null==a?void 0:a.slices)||void 0===t||t.forEach(a=>{null==a||a.setPropertiesValues(n,e.name)})})})})),s}buildFormattingModel(e){const a={cards:[]};return e.cards.filter(({visible:e=!0})=>e).forEach(e=>{var t;const l={displayName:this.localizationManager&&e.displayNameKey?this.localizationManager.getDisplayName(e.displayNameKey):e.displayName,description:this.localizationManager&&e.descriptionKey?this.localizationManager.getDisplayName(e.descriptionKey):e.description,groups:[],uid:e.name+\"-card\",analyticsPane:e.analyticsPane},s=e.name;if(e.topLevelSlice){const a=e.topLevelSlice.getFormattingSlice(s,this.localizationManager);a.suppressDisplayName=!0,l.topLevelToggle=a}null===(t=e.onPreProcess)||void 0===t||t.call(e);const n=e instanceof i.Tn;(n?[e].filter(({visible:e=!0})=>e):e.groups.filter(({visible:e=!0})=>e)).forEach(e=>{const a=e.name+\"-group\",t={displayName:n?void 0:this.localizationManager&&e.displayNameKey?this.localizationManager.getDisplayName(e.displayNameKey):e.displayName,description:n?void 0:this.localizationManager&&e.descriptionKey?this.localizationManager.getDisplayName(e.descriptionKey):e.description,slices:[],uid:a,collapsible:e.collapsible,delaySaveSlices:e.delaySaveSlices,disabled:e.disabled,disabledReason:e.disabledReason};l.groups.push(t);const i={};if(e.container){const l=e.container,n=a+\"-container\",o={displayName:this.localizationManager&&l.displayNameKey?this.localizationManager.getDisplayName(l.displayNameKey):l.displayName,description:this.localizationManager&&l.descriptionKey?this.localizationManager.getDisplayName(l.descriptionKey):l.description,containerItems:[],uid:n};l.containerItems.forEach(e=>{const a=e.displayNameKey?e.displayNameKey:e.displayName,t=n+a,l={displayName:this.localizationManager&&e.displayNameKey?this.localizationManager.getDisplayName(e.displayNameKey):e.displayName,slices:[],uid:t};this.buildFormattingSlices({slices:e.slices,objectName:s,sliceNames:i,formattingSlices:l.slices}),o.containerItems.push(l)}),t.container=o}if(e.slices){if(e.topLevelSlice){const a=e.topLevelSlice.getFormattingSlice(s,this.localizationManager);a.suppressDisplayName=!0,(null==t.displayName?l:t).topLevelToggle=a}this.buildFormattingSlices({slices:e.slices,objectName:s,sliceNames:i,formattingSlices:t.slices})}}),l.revertToDefaultDescriptors=this.getRevertToDefaultDescriptor(e),a.cards.push(l)}),a}buildFormattingSlices({slices:e,objectName:a,sliceNames:t,formattingSlices:i}){null==e||e.filter(({visible:e=!0})=>e).forEach(e=>{const l=null==e?void 0:e.getFormattingSlice(a,this.localizationManager);l&&(void 0===t[e.name]?t[e.name]=0:(t[e.name]++,l.uid=`${l.uid}-${t[e.name]}`),i.push(l))})}getRevertToDefaultDescriptor(e){var a;const t={},l=[];let s,n=[];return e instanceof i.St&&e.topLevelSlice&&l.push(...null===(a=e.topLevelSlice)||void 0===a?void 0:a.getRevertToDefaultDescriptor(e.name)),(e instanceof i.Tn?[e].filter(({visible:e=!0})=>e):e.groups.filter(({visible:e=!0})=>e)).forEach(a=>{var i,o;s=this.getSlicesRevertToDefaultDescriptor(e.name,a.slices,t,a.topLevelSlice),null===(o=null===(i=a.container)||void 0===i?void 0:i.containerItems)||void 0===o||o.forEach(a=>{n=n.concat(this.getSlicesRevertToDefaultDescriptor(e.name,a.slices,t))}),l.push(...s.concat(n))}),l}getSlicesRevertToDefaultDescriptor(e,a,t,i){let l=[];return i&&(t[i.name]=!0,l=l.concat(i.getRevertToDefaultDescriptor(e))),null==a||a.forEach(a=>{a&&!t[a.name]&&(t[a.name]=!0,l=l.concat(a.getRevertToDefaultDescriptor(e)))}),l}}},674:(e,a,t)=>{t.d(a,{O:()=>l.A,z:()=>i});var i=t(754),l=t(667)},754:(e,a,t)=>{t.d(a,{Cx:()=>y,Kx:()=>n,PA:()=>p,St:()=>o,Tn:()=>d,YJ:()=>r,iB:()=>h,jF:()=>u,ks:()=>v,lp:()=>g,sk:()=>m,uI:()=>w});var i=t(639);class l{}class s extends l{}class n{}class o extends l{}class r extends s{constructor(e){super(),Object.assign(this,e)}}class d extends s{}class c extends l{constructor(e){super(),Object.assign(this,e)}getFormattingSlice(e,a){const t=this.type,i=this.name,l={displayName:a&&this.displayNameKey?a.getDisplayName(this.displayNameKey):this.displayName,description:a&&this.descriptionKey?a.getDisplayName(this.descriptionKey):this.description,uid:e+\"-\"+i};return Object.assign(Object.assign({},l),{control:{type:t,properties:this.getFormattingComponent(e,a)}})}getFormattingComponent(e,a){return{descriptor:i.y(e,this),value:this.value}}getRevertToDefaultDescriptor(e){return[{objectName:e,propertyName:this.name}]}setPropertiesValues(e,a){var t;const l=null===(t=null==e?void 0:e[a])||void 0===t?void 0:t[this.name];this.value=i.D(this,l,this.value)}}class u extends c{constructor(e){super(e),this.type=\"ToggleSwitch\"}}class m extends c{constructor(e){super(e),this.type=\"ColorPicker\"}getFormattingComponent(e){return Object.assign(Object.assign({},super.getFormattingComponent(e)),{defaultColor:this.defaultColor,isNoFillItemSupported:this.isNoFillItemSupported})}}class h extends c{constructor(e){super(e),this.type=\"NumUpDown\"}getFormattingComponent(e){return Object.assign(Object.assign({},super.getFormattingComponent(e)),{options:this.options})}}class p extends c{constructor(e){super(e),this.type=\"Dropdown\"}getFormattingComponent(e){return Object.assign(Object.assign({},super.getFormattingComponent(e)),{items:this.items})}}class g extends c{constructor(e){super(e),this.type=\"Dropdown\"}getFormattingComponent(e){return Object.assign(Object.assign({},super.getFormattingComponent(e)),{mergeValues:this.mergeValues,filterValues:this.filterValues})}}class v extends c{constructor(e){super(e),this.type=\"TextInput\"}getFormattingComponent(e){return Object.assign(Object.assign({},super.getFormattingComponent(e)),{placeholder:this.placeholder})}}class y extends c{constructor(){super(...arguments),this.type=\"FontPicker\"}}class w extends c{constructor(){super(...arguments),this.type=\"ReadOnlyText\"}}},900:(e,a,t)=>{t.d(a,{b:()=>s});var i=t(674),l=t(373);class s{target;container;formattingSettings;formattingSettingsService;host;selectionManager;tooltipService;cardElements=new Map;isHighContrast=!1;foregroundColor=\"\";backgroundColor=\"\";foregroundSelectedColor=\"\";constructor(e){this.formattingSettingsService=new i.O,this.host=e.host,this.selectionManager=this.host.createSelectionManager(),this.tooltipService=this.host.tooltipService,this.target=e.element,this.container=document.createElement(\"div\"),this.container.className=\"cards-grid\",this.target.appendChild(this.container),this.container.addEventListener(\"click\",e=>{e.target===this.container&&this.selectionManager.clear().then(()=>{this.updateSelectionState([])})})}updateSelectionState(e){const a=e&&e.length>0;this.cardElements.forEach(({element:t,selectionId:i})=>{a&&i&&e.some(e=>e.getKey()===i.getKey())?(t.style.outline=\"3px solid #6B2D7B\",t.style.outlineOffset=\"2px\",t.style.opacity=\"1\"):a?(t.style.outline=\"none\",t.style.outlineOffset=\"0\",t.style.opacity=\"0.4\"):(t.style.outline=\"none\",t.style.outlineOffset=\"0\",t.style.opacity=\"1\")})}extractData(e,a,t){const i=[];if(!e||!e.categorical)return[];const l=e.categorical,s=l.categories,n=l.values;if(!n||0===n.length)return[];let o,r;if(s&&s.length>0){for(const e of s)e.source.roles?.title&&(o=e),e.source.roles?.iconField&&(r=e);o||(o=s[0],s.length>1&&!r&&(r=s[1]))}let d=[],c=[],u=[];for(const e of n){const a=e.source.roles;a?.actualValue&&d.push(e),a?.targetValue&&c.push(e),a?.tooltips&&u.push(e)}if(0===d.length)for(let e=0;e<n.length;e++)0===e?d.push(n[e]):1===e?c.push(n[e]):u.push(n[e]);if(0===d.length)return[];const m=1===c.length;if(o&&o.values.length>0){const e=o.values.length,a=d.length;if(a>1)for(let l=0;l<e;l++){const e=o.values[l];for(let s=0;s<a;s++){const a=d[s],n=a?.values?.[l],m=\"number\"==typeof n?n:0;let h=0;if(c.length>0)if(1===c.length){const e=c[0]?.values?.[l];h=\"number\"==typeof e?e:0}else{const e=Math.min(s,c.length-1),a=c[e]?.values?.[l];h=\"number\"==typeof a?a:0}const p=a?.source?.displayName||`Measure ${s+1}`,g=`${String(e)} - ${p}`;let v=null;try{v=this.host.createSelectionIdBuilder().withCategory(o,l).createSelectionId()}catch(e){v=null}const y=[];if(!t&&(y.push({displayName:o.source.displayName||\"Category\",value:String(e)}),y.push({displayName:a?.source.displayName||\"Primary\",value:String(m)}),c.length>0)){const e=Math.min(s,c.length-1);y.push({displayName:c[e]?.source.displayName||\"Comparison\",value:String(h)})}for(const e of u)y.push({displayName:e.source.displayName||\"Tooltip\",value:String(e.values[l]||\"\")});const w=r?String(r.values[l]||\"\"):\"\";i.push({title:g,actualValue:m,targetValue:h,selectionId:v,tooltipData:y,iconName:w,cardKey:`card-${l}-${s}`})}}else for(let a=0;a<e;a++){const e=o.values[a],l=d[0]?.values?.[a],s=\"number\"==typeof l?l:0;let n=0;if(c.length>0)if(m){const e=c[0]?.values,t=1===e?.length?e[0]:e?.[a];n=\"number\"==typeof t?t:0}else{const e=Math.min(a,c.length-1),t=c[e]?.values?.[0];n=\"number\"==typeof t?t:0}const h=String(e);let p=null;try{p=this.host.createSelectionIdBuilder().withCategory(o,a).createSelectionId()}catch(e){p=null}const g=[];t||(g.push({displayName:o.source.displayName||\"Category\",value:String(e)}),g.push({displayName:d[0]?.source.displayName||\"Primary\",value:String(s)}),c.length>0&&g.push({displayName:c[0]?.source.displayName||\"Comparison\",value:String(n)}));for(const e of u)g.push({displayName:e.source.displayName||\"Tooltip\",value:String(e.values[a]||\"\")});const v=r?String(r.values[a]||\"\"):\"\";i.push({title:h,actualValue:s,targetValue:n,selectionId:p,tooltipData:g,iconName:v,cardKey:`card-${a}`})}}else if(d.length>0||c.length>0){const e=Math.max(d.length,c.length);for(let l=0;l<e;l++){let e=0,s=d[0];if(d.length>1&&(s=d[Math.min(l,d.length-1)]),s){const a=s?.values?.[0];e=\"number\"==typeof a?a:0}let n=0,o=c[0];if(c.length>0&&(c.length>1&&(o=c[Math.min(l,c.length-1)]),o)){const e=o?.values?.[0];n=\"number\"==typeof e?e:0}let r=a;c.length>d.length&&o?r=o?.source?.displayName||a:s&&(r=s?.source?.displayName||a);const m=null,h=[];t||(s&&h.push({displayName:s?.source.displayName||\"Primary\",value:String(e)}),o&&h.push({displayName:o?.source.displayName||\"Comparison\",value:String(n)}));for(const e of u)h.push({displayName:e.source.displayName||\"Tooltip\",value:String(e.values[0]||\"\")});i.push({title:r,actualValue:e,targetValue:n,selectionId:m,tooltipData:h,iconName:\"\",cardKey:`card-measure-${l}`})}}return i}update(e){for(;this.container.firstChild;)this.container.removeChild(this.container.firstChild);if(this.cardElements.clear(),e.dataViews&&e.dataViews[0]&&(this.formattingSettings=this.formattingSettingsService.populateFormattingSettingsModel(l.S,e.dataViews[0])),!e.dataViews||0===e.dataViews.length||!e.dataViews[0]){this.container.style.display=\"flex\",this.container.style.alignItems=\"center\",this.container.style.justifyContent=\"center\",this.container.style.height=\"100%\";const e=document.createElement(\"div\");return e.style.color=this.isHighContrast?this.foregroundColor:\"#888\",e.style.fontSize=\"14px\",e.style.textAlign=\"center\",e.textContent=\"Add data fields to display cards\",void this.container.appendChild(e)}const a=this.formattingSettings.generalSettingsCard,t=this.formattingSettings.titleSettingsCard,i=this.formattingSettings.badgeSettingsCard,s=this.formattingSettings.mainValueSettingsCard,n=this.formattingSettings.iconSettingsCard,o=this.formattingSettings.detailsSettingsCard,r=this.formattingSettings.progressBarSettingsCard,d=this.formattingSettings.tooltipSettingsCard,c=this.formattingSettings.smallMultiplesSettingsCard,u=e.dataViews?.[0],m=t.titleText.value||\"Units\",h=d.showOnlyTooltipFields.value,p=this.extractData(u,m,h);if(n.show.value){const e=p.some(e=>e.iconName&&\"\"!==e.iconName.trim()),a=n.iconFromData.value&&\"\"!==n.iconFromData.value.trim(),t=n.builtInIcon.value?.value&&\"none\"!==n.builtInIcon.value.value,i=n.imageUrl.value&&\"\"!==n.imageUrl.value.trim();if(e){const e=p.find(e=>e.iconName)?.iconName||\"\",a=e.trim().startsWith(\"<svg\")||e.trim().startsWith(\"<?xml\");n.currentIconSource.value=a?\"Icon field (custom SVG)\":`Icon field: \"${e}\"`}else n.currentIconSource.value=a?`Conditional: \"${n.iconFromData.value}\"`:t?`Built-in: \"${n.builtInIcon.value.displayName}\"`:i?\"Custom URL\":\"Not configured\"}else n.currentIconSource.value=\"Icons disabled\";const g=d.showAnywhere.value;d.elementsGroup.disabled=g,d.elementsGroup.disabledReason=g?\"Disabled when 'Show anywhere on card' is enabled\":void 0;const v=this.host.colorPalette;this.isHighContrast=v.isHighContrast||!1,this.isHighContrast&&(this.foregroundColor=v.foreground?.value||\"#ffffff\",this.backgroundColor=v.background?.value||\"#000000\",this.foregroundSelectedColor=v.foregroundSelected?.value||\"#00ff00\");let y=a.backgroundColor1.value.value||\"#E8D5F0\",w=a.backgroundColor2.value.value||\"#D4F0F0\";const C=a.gradientAngle.value||135;this.isHighContrast&&(y=this.backgroundColor,w=this.backgroundColor);const b=e=>{const a=s.decimalPlaces.value||0;return s.showThousandsSeparator.value?e.toLocaleString(\"en-US\",{minimumFractionDigits:a,maximumFractionDigits:a}):e.toFixed(a)};if(0===p.length){this.container.style.display=\"flex\",this.container.style.alignItems=\"center\",this.container.style.justifyContent=\"center\",this.container.style.height=\"100%\";const e=document.createElement(\"div\");return e.style.color=this.isHighContrast?this.foregroundColor:\"#888\",e.style.fontSize=\"14px\",e.style.textAlign=\"center\",e.textContent=\"Add data fields to display cards\",void this.container.appendChild(e)}const S=c.padding.value||10,f=c.minCardWidth.value||200;this.container.style.display=\"grid\",this.container.style.gridTemplateColumns=`repeat(auto-fit, minmax(${f}px, 1fr))`,this.container.style.gridAutoRows=\"min-content\",this.container.style.gap=`${S}px`,this.container.style.padding=`${S}px`,this.container.style.width=\"100%\",this.container.style.height=\"100%\",this.container.style.boxSizing=\"border-box\",this.container.style.overflow=\"auto\",this.container.style.alignContent=\"start\";for(const e of p){const l=this.createCard(e,b,a,t,i,s,n,o,r,d,y,w,C);this.container.appendChild(l),this.cardElements.set(e.cardKey,{element:l,selectionId:e.selectionId})}const N=this.selectionManager.getSelectionIds();this.updateSelectionState(N)}createCard(e,a,t,i,l,s,n,o,r,d,c,u,m){const{title:h,actualValue:p,targetValue:g,selectionId:v,tooltipData:y,iconName:w}=e,C=p-g,b=g>0?Math.round(p/g*100):0,S=g>0?g:100,f=Math.min(100,p/S*100),N=r.show.value,z=r.showMarker.value,x=N&&z?r.markerPosition.value||80:100,F=f>=100,B=f>=x,k=r.barColorAt100?.value?.value||\"#6B2D7B\",D=r.barColor?.value?.value||\"#DAA520\",M=r.barColorBelowMarker?.value?.value||\"#CD5C5C\",E=document.createElement(\"div\");if(E.className=\"card-container\",E.style.background=`linear-gradient(${m}deg, ${c} 0%, ${u} 100%)`,E.style.borderRadius=`${t.borderRadius.value||12}px`,E.style.padding=`${t.padding.value||20}px`,E.style.transition=\"opacity 0.2s ease, transform 0.1s ease, outline 0.1s ease\",t.showBorder?.value){const e=t.borderWidth?.value||1,a=t.borderColor?.value?.value||\"#CCCCCC\",i=t.borderStyle?.value?.value||\"solid\";E.style.border=`${e}px ${i} ${a}`}if(E.style.display=\"flex\",E.style.flexDirection=\"column\",E.style.gap=`${t.elementSpacing?.value||10}px`,v){E.setAttribute(\"tabindex\",\"0\"),E.style.outline=\"none\";let e=!0;E.addEventListener(\"mousedown\",()=>{e=!1}),E.addEventListener(\"focus\",()=>{e&&(E.style.outline=`3px solid ${this.isHighContrast?this.foregroundSelectedColor:\"#0078D4\"}`,E.style.outlineOffset=\"2px\")}),E.addEventListener(\"blur\",()=>{E.style.outline=\"none\",e=!0}),E.addEventListener(\"keydown\",e=>{\"Enter\"!==e.key&&\" \"!==e.key||(e.preventDefault(),this.selectionManager.select(v).then(e=>{this.updateSelectionState(e)}))})}this.isHighContrast&&(E.style.border=`2px solid ${this.foregroundColor}`),v?(E.style.cursor=\"pointer\",E.addEventListener(\"click\",e=>{e.stopPropagation(),e.preventDefault();const a=e.ctrlKey||e.metaKey,t=this.selectionManager.getSelectionIds();t.some(e=>e.getKey()===v.getKey())&&!a&&1===t.length?this.selectionManager.clear().then(()=>{this.updateSelectionState([])}):a?this.selectionManager.select(v,!0).then(e=>{this.updateSelectionState(e)}):this.selectionManager.clear().then(()=>{this.selectionManager.select(v,!1).then(e=>{this.updateSelectionState(e)})})}),E.addEventListener(\"contextmenu\",e=>{e.preventDefault(),e.stopPropagation(),this.selectionManager.showContextMenu(v,{x:e.clientX,y:e.clientY})}),E.addEventListener(\"mouseenter\",()=>{E.style.transform=\"scale(1.02)\"}),E.addEventListener(\"mouseleave\",()=>{E.style.transform=\"scale(1)\"})):E.style.cursor=\"default\";const L=e=>{this.tooltipService.enabled()&&(e.addEventListener(\"mouseover\",e=>{e.stopPropagation();const a=e;this.tooltipService.show({dataItems:y,identities:v?[v]:[],coordinates:[a.clientX,a.clientY],isTouchEvent:!1})}),e.addEventListener(\"mousemove\",e=>{const a=e;this.tooltipService.move({dataItems:y,identities:v?[v]:[],coordinates:[a.clientX,a.clientY],isTouchEvent:!1})}),e.addEventListener(\"mouseout\",e=>{e.stopPropagation(),this.tooltipService.hide({immediately:!0,isTouchEvent:!1})}))},V=d.showAnywhere.value;V&&L(E);const I=document.createElement(\"div\");if(I.className=\"header\",i.show.value){const e=document.createElement(\"span\");e.className=\"title\",e.textContent=h,e.style.color=this.isHighContrast?this.foregroundColor:i.titleColor.value.value||\"#333333\",e.style.fontSize=`${i.titleFontSize.value||24}px`,e.style.fontFamily=i.titleFontFamily.value||\"Segoe UI\",e.style.fontWeight=i.titleBold.value?\"700\":\"400\",e.style.fontStyle=i.titleItalic.value?\"italic\":\"normal\",!V&&d.showOnHeader.value&&L(e),I.appendChild(e)}if(l.show.value){const e=document.createElement(\"span\");e.className=\"badge\";const a=(e,a)=>{e=e.replace(/^#/,\"\");let t=parseInt(e.substring(0,2),16),i=parseInt(e.substring(2,4),16),l=parseInt(e.substring(4,6),16);const s=a/100;return t=Math.round(t+(255-t)*s),i=Math.round(i+(255-i)*s),l=Math.round(l+(255-l)*s),`#${t.toString(16).padStart(2,\"0\")}${i.toString(16).padStart(2,\"0\")}${l.toString(16).padStart(2,\"0\")}`};let t=l.badgeColor.value.value||\"#6B2D7B\";l.matchProgressColors.value&&(t=F?k:B?D:M);const i=a(t,l.fillLightness.value??85);this.isHighContrast?(e.style.backgroundColor=this.backgroundColor,e.style.color=this.foregroundColor,e.style.border=`${l.badgeBorderWidth.value||2}px solid ${this.foregroundColor}`):(e.style.backgroundColor=i,e.style.color=t,e.style.border=`${l.badgeBorderWidth.value||2}px solid ${t}`),e.style.fontSize=`${l.badgeFontSize.value||18}px`,e.style.fontFamily=l.badgeFontFamily.value||\"Segoe UI\",e.style.fontWeight=l.badgeBold.value?\"600\":\"400\",e.style.borderRadius=`${l.badgeBorderRadius.value||25}px`,e.style.padding=`${l.badgePaddingVertical.value||8}px ${l.badgePaddingHorizontal.value||20}px`;const s=l.badgeLabelText.value||\"Achieved:\";e.textContent=`${s} ${b}%`,!V&&d.showOnBadge.value&&L(e),I.appendChild(e)}E.appendChild(I);const K=document.createElement(\"div\");if(K.className=\"main-value-row\",K.style.display=\"flex\",K.style.alignItems=\"center\",K.style.gap=`${n.iconSpacing.value||12}px`,n.show.value){const e=w||\"\",a=n.iconFromData.value||\"\",t=n.builtInIcon.value?.value||\"none\",i=n.imageUrl.value,l=this.isHighContrast?this.foregroundColor:n.iconColor.value.value||\"#6B2D7B\",s=e||a||(\"none\"!==t?t:\"\"),o={star:`<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"${l}\"><path d=\"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z\"/></svg>`,heart:`<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"${l}\"><path d=\"M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z\"/></svg>`,check:`<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"${l}\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"/></svg>`,trophy:`<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"${l}\"><path d=\"M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z\"/></svg>`,target:`<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"${l}\"><path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z\"/></svg>`,chart:`<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"${l}\"><path d=\"M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z\"/></svg>`,dollar:`<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"${l}\"><path d=\"M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z\"/></svg>`,users:`<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"${l}\"><path d=\"M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z\"/></svg>`,thumbsUp:`<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"${l}\"><path d=\"M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z\"/></svg>`,lightning:`<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"${l}\"><path d=\"M7 2v11h3v9l7-12h-4l4-8z\"/></svg>`,fire:`<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"${l}\"><path d=\"M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z\"/></svg>`,rocket:`<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"${l}\"><path d=\"M12 2.5s-5 6-5 11.5c0 3.03 2.24 5.5 5 5.5s5-2.47 5-5.5c0-5.5-5-11.5-5-11.5zm0 14.5c-1.38 0-2.5-1.12-2.5-2.5 0-1.67 1.12-4.17 2.5-6.08 1.38 1.91 2.5 4.41 2.5 6.08 0 1.38-1.12 2.5-2.5 2.5zM5.5 8C4.67 8 4 8.67 4 9.5S4.67 11 5.5 11 7 10.33 7 9.5 6.33 8 5.5 8zm13 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zM12 19.5c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1z\"/></svg>`};let r=\"\";const c=s.trim();if(c.startsWith(\"<svg\")||c.startsWith(\"<?xml\")){let e=c;e=e.replace(/currentColor/gi,l),r=`data:image/svg+xml,${encodeURIComponent(e)}`}else s&&o[s]?r=`data:image/svg+xml,${encodeURIComponent(o[s])}`:i&&(r=i);if(r){const e=document.createElement(\"img\");e.className=\"card-icon\",e.src=r,e.style.width=`${n.iconSize.value||48}px`,e.style.height=`${n.iconSize.value||48}px`,e.style.objectFit=\"contain\",e.style.borderRadius=`${n.iconBorderRadius.value||0}px`,e.style.flexShrink=\"0\",e.onerror=()=>{e.style.display=\"none\"},!V&&d.showOnIcon.value&&L(e),K.appendChild(e)}}const $=document.createElement(\"div\");if($.className=\"main-value\",$.textContent=a(p),$.style.color=this.isHighContrast?this.foregroundColor:s.mainValueColor.value.value||\"#1a1a1a\",$.style.fontSize=`${s.mainValueFontSize.value||72}px`,$.style.fontFamily=s.mainValueFontFamily.value||\"Segoe UI\",$.style.fontWeight=s.mainValueBold.value?\"700\":\"400\",$.style.lineHeight=\"1\",!V&&d.showOnPrimaryValue.value&&L($),K.appendChild($),E.appendChild(K),o.show.value){const e=document.createElement(\"div\");e.className=\"details\",e.style.fontSize=`${o.detailsFontSize.value||20}px`,e.style.fontFamily=o.detailsFontFamily.value||\"Segoe UI\";const t=document.createElement(\"span\");t.className=\"target-label\",t.textContent=o.targetLabel.value||\"Target:\",t.style.color=this.isHighContrast?this.foregroundColor:o.labelColor.value.value||\"#333333\",t.style.fontWeight=o.labelBold.value?\"700\":\"400\",e.appendChild(t);const i=document.createElement(\"span\");i.className=\"target-value\",i.textContent=` ${a(g)}`,i.style.color=this.isHighContrast?this.foregroundColor:o.valueColor.value.value||\"#666666\",i.style.fontWeight=o.valueBold.value?\"700\":\"400\",e.appendChild(i);const l=document.createElement(\"span\");l.className=\"separator\",l.textContent=\" | \",l.style.color=this.isHighContrast?this.foregroundColor:o.separatorColor.value.value||\"#333333\",e.appendChild(l);const s=document.createElement(\"span\");let n;s.className=\"variance-label\",n=F?o.varianceLabelAt100?.value||\"Exceeded:\":B?o.varianceLabelAbove?.value||\"On track:\":o.varianceLabelBelow?.value||\"To go:\",s.textContent=n,s.style.color=this.isHighContrast?this.foregroundColor:o.labelColor.value.value||\"#333333\",s.style.fontWeight=o.labelBold.value?\"700\":\"400\",e.appendChild(s);const r=document.createElement(\"span\");r.className=\"exceeded-value\";let c=o.exceededColor.value.value||\"#6B2D7B\";o.matchProgressColors.value&&(c=F?k:B?D:M),r.style.color=this.isHighContrast?this.foregroundColor:c,r.style.fontWeight=o.valueBold.value?\"700\":\"400\";const u=o.showVarianceSign?.value?C:Math.abs(C);r.textContent=` ${a(u)}`,e.appendChild(r),!V&&d.showOnComparison.value&&L(e),E.appendChild(e)}if(r.show.value){const e=document.createElement(\"div\");e.className=\"progress-container\";const a=document.createElement(\"div\");a.className=\"progress-bar\",a.style.backgroundColor=r.barBackgroundColor.value.value||\"#E0E0E0\",a.style.height=`${r.barHeight.value||16}px`,a.style.borderRadius=`${r.barBorderRadius.value||10}px`,a.style.position=\"relative\",a.style.overflow=\"visible\";const t=document.createElement(\"div\");let i;if(t.className=\"progress-fill\",i=F?k:B?D:M,t.style.backgroundColor=i,t.style.height=\"100%\",t.style.width=`${f}%`,t.style.borderRadius=`${r.barBorderRadius.value||10}px`,t.style.transition=\"width 0.3s ease, background-color 0.3s ease\",a.appendChild(t),z&&x<=100){const e=document.createElement(\"div\");e.className=\"marker\",e.style.left=`${x}%`,e.style.backgroundColor=r.markerColor.value.value||\"#000000\",e.style.width=`${r.markerWidth.value||4}px`,e.style.height=`${r.markerHeight.value||24}px`,this.isHighContrast&&(e.style.backgroundColor=this.foregroundSelectedColor),a.appendChild(e)}if(!V&&d.showOnProgressBar.value&&L(a),e.appendChild(a),r.showLabel.value){const a=document.createElement(\"div\");a.className=\"progress-label\";const t=Math.round(x);a.textContent=`${t}${r.labelText.value||\"% of Target\"}`,a.style.color=r.labelColor.value.value||\"#333333\",a.style.fontSize=`${r.labelFontSize.value||18}px`,a.style.fontFamily=r.labelFontFamily.value||\"Segoe UI\",a.style.position=\"relative\",a.style.width=\"fit-content\",a.style.marginTop=\"4px\";const i=Math.max(0,Math.min(100,x));a.style.left=`${i}%`,a.style.transform=`translateX(-${i}%)`,this.isHighContrast&&(a.style.color=this.foregroundColor),e.appendChild(a)}this.isHighContrast&&(a.style.backgroundColor=this.backgroundColor,a.style.border=`2px solid ${this.foregroundColor}`,t.style.backgroundColor=this.foregroundColor),E.appendChild(e)}return E}getFormattingModel(){return this.formattingSettings||(this.formattingSettings=new l.S),this.formattingSettingsService.buildFormattingModel(this.formattingSettings)}}}},a={};function t(i){var l=a[i];if(void 0!==l)return l.exports;var s=a[i]={exports:{}};return e[i](s,s.exports,t),s.exports}t.d=(e,a)=>{for(var i in a)t.o(a,i)&&!t.o(e,i)&&Object.defineProperty(e,i,{enumerable:!0,get:a[i]})},t.o=(e,a)=>Object.prototype.hasOwnProperty.call(e,a),t.r=e=>{\"undefined\"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:\"Module\"}),Object.defineProperty(e,\"__esModule\",{value:!0})};var i={};t.r(i),t.d(i,{default:()=>o});var l=t(900),s=window.powerbi,n={name:\"cardCard0614168B0BDC476586916478EE5959D1_DEBUG\",displayName:\"Gradient Card\",class:\"Visual\",apiVersion:\"5.3.0\",create:e=>{if(l.b)return new l.b(e);throw\"Visual instance not found\"},createModalDialog:(e,a,t)=>{const i=globalThis.dialogRegistry;e in i&&new i[e](a,t)},custom:!0};void 0!==s&&(s.visuals=s.visuals||{},s.visuals.plugins=s.visuals.plugins||{},s.visuals.plugins.cardCard0614168B0BDC476586916478EE5959D1_DEBUG=n);const o=n;gradientCard0614168B0BDC476586916478EE5959D1=i})();",
+    "css": ".cards-grid {\n  width: 100%;\n  height: 100%;\n  box-sizing: border-box;\n  display: grid;\n  overflow: auto;\n  padding: 10px;\n  align-content: start;\n  grid-auto-rows: min-content;\n}\n.card-container {\n  box-sizing: border-box;\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n  border-radius: 12px;\n  display: flex;\n  flex-direction: column;\n  min-width: 200px;\n  height: auto;\n}\n.card-container .header {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  flex-wrap: wrap;\n  gap: 8px;\n  margin: 0;\n  padding: 0;\n  line-height: 1.2;\n}\n.card-container .header .title {\n  font-size: 24px;\n  color: #333;\n  font-weight: 400;\n  margin: 0;\n  padding: 0;\n  line-height: 1.2;\n}\n.card-container .header .badge {\n  padding: 8px 20px;\n  border-radius: 25px;\n  font-size: 18px;\n  font-weight: 600;\n  white-space: nowrap;\n  margin: 0;\n  line-height: 1.2;\n}\n.card-container .main-value {\n  font-size: 72px;\n  font-weight: 700;\n  color: #1a1a1a;\n  word-break: break-word;\n  margin: 0;\n  padding: 0;\n  line-height: 1;\n}\n.card-container .details {\n  font-size: 20px;\n  flex-wrap: wrap;\n  margin: 0;\n  padding: 0;\n  line-height: 1.2;\n}\n.card-container .details .target-label {\n  font-weight: 700;\n  color: #333;\n}\n.card-container .details .target-value {\n  color: #666;\n}\n.card-container .details .separator {\n  margin: 0 8px;\n  color: #333;\n}\n.card-container .details .exceeded-label {\n  font-weight: 700;\n  color: #333;\n}\n.card-container .details .exceeded-value {\n  font-weight: 400;\n}\n.card-container .progress-container {\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n}\n.card-container .progress-container .progress-bar {\n  position: relative;\n  height: 16px;\n  border-radius: 10px;\n  overflow: visible;\n  margin-bottom: 10px;\n}\n.card-container .progress-container .progress-bar .progress-fill {\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n.card-container .progress-container .progress-bar .marker {\n  position: absolute;\n  top: -4px;\n  width: 4px;\n  height: 24px;\n  background-color: #000;\n  border-radius: 2px;\n  transform: translateX(-50%);\n}\n.card-container .progress-container .progress-label {\n  margin-top: 8px;\n  font-size: 18px;\n  color: #333;\n}\n\n",
+    "iconBase64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEaSURBVDhPrdNZbsJAEATQPofvkJPlCLld9oXswRiMwZg1e92govoYKep4JoD8UT+W+6mne8Y2fXCdg6scXA7ARQHOC7AZgrMRWJfgtAQnY7CqwHEFlhNwNAWHNVjU4GAG5g3Yb0DrEnuZg7YPdnhw9CfCnheg7YqpM48pwp4E7orpmB5ThD0uQQtYlmVbRTPzmCLsYQVa6MwXxqIFeEwRdi8wHNMXxhK2GWYWOhN2twYtzMwXxpLCbjeghQX4wlhSWO8VtNQ2/aX9D7sR2CV2/QZal9jVO2j7YGbWil0KTD2nWAT6b8IuPkBLPadY2kBh55+ghWP6H1JpA4WdfYG2zcz8AgSGmYXOhJ0K3BX7vQCPnXyD1iV2DPAHcWjC06b1zTsAAAAASUVORK5CYII="
+  },
+  "visualEntryPoint": "",
+  "externalJS": [],
+  "assets": {
+    "icon": "assets/icon.png"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "version": "2.2.0.0",
+  "author": {
+    "name": "Zoe Douglas",
+    "email": "zoe@datazoepowerbi.com"
+  },
+  "resources": [
+    {
+      "resourceId": "rId0",
+      "sourceType": 5,
+      "file": "resources/gantt51446F686266453390398E5631FF15A1.pbiviz.json"
+    }
+  ],
+  "visual": {
+    "guid": "gantt51446F686266453390398E5631FF15A1",
+    "name": "gantt",
+    "displayName": "Gantt",
+    "version": "2.2.0.0",
+    "description": "A gantt chart visual for Power BI.",
+    "supportUrl": "https://datazoepowerbi.com",
+    "gitHubUrl": "",
+    "visualClassName": "Visual"
+  },
+  "metadata": {
+    "pbivizjson": {
+      "resourceId": "rId0"
+    }
+  }
+}

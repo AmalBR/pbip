@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "131eb31fadc86da0d490",
+  "position": {
+    "x": 11.743119266055047,
+    "y": 153.56386732533522,
+    "z": 10000,
+    "height": 161.69371912491181,
+    "width": 467.91813690896265,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "htmlContent443BE3AD55E043BF878BED274D3A6855",
+    "query": {
+      "queryState": {
+        "content": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Products"
+                    }
+                  },
+                  "Property": "buildcard"
+                }
+              },
+              "queryRef": "Products.buildcards",
+              "nativeQueryRef": "buildcard"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

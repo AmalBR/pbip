@@ -1,0 +1,27 @@
+table DISCOUNT
+	lineageTag: ea74cce3-15dd-4bf6-b255-3925650817f2
+
+	measure 'Dsicount Value' = SELECTEDVALUE('DISCOUNT'[DISCOUNT])
+		formatString: 0.00
+		lineageTag: 56578b03-f35a-4529-b359-0932755ccd1d
+
+	column DISCOUNT
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 94bb1e52-5054-4d90-a94a-1c7b31e5a66b
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition DISCOUNT = calculated
+		mode: import
+		source = GENERATESERIES(0, 1, 0.1)
+
+	annotation PBI_Id = 917c20db3ecb4f508195d65d60dd9a82
+

@@ -1,0 +1,103 @@
+table 'Software Development Project'
+	lineageTag: 9a5b01af-4fc1-473a-a861-b09646f189c3
+
+	measure 'Project Start' = DATE(2025, 1, 6)
+		formatString: General Date
+		lineageTag: 14d80abe-6fc6-4a0b-afa1-c2c03c97ffc1
+
+	measure 'Phase 2 Strat ' = DATE(2025, 1, 28)
+		formatString: Short Date
+		lineageTag: cb03cd26-66d5-489a-ac6e-641fbee43286
+
+	measure 'Go Live Target' = DATE(2025, 4, 14)
+		formatString: Short Date
+		lineageTag: e0754976-be0b-405c-8b42-63a1d2d2b5d9
+
+	column TaskID
+		dataType: int64
+		formatString: 0
+		lineageTag: d694391d-8db7-4383-bbeb-ec4245a2cfce
+		summarizeBy: count
+		sourceColumn: TaskID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: fbd9bda2-abbb-4700-91ad-99850a470a83
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Task
+		dataType: string
+		lineageTag: 90f2b139-24f4-4fc0-95de-4250c727084f
+		summarizeBy: none
+		sourceColumn: Task
+		sortByColumn: TaskID
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 1ebcbf22-9c30-4b28-abf3-319c480afe41
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		variation Variation
+			isDefault
+			relationship: bcb9cae5-2d85-45af-b1c1-379aef5f8e90
+			defaultHierarchy: LocalDateTable_d42182eb-145d-4f56-b212-2c708877a392.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column EndDate
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 88c47900-73bc-4e1d-ada4-78cc8e1e33cc
+		summarizeBy: none
+		sourceColumn: EndDate
+
+		variation Variation
+			isDefault
+			relationship: 987ba74f-9be3-4736-b872-2515cc01a0b8
+			defaultHierarchy: LocalDateTable_3ffab6d2-433b-41a1-97d0-60582f816440.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Dependencies
+		dataType: string
+		lineageTag: 9f8616b8-917a-4c1c-a955-17a7cd10b227
+		summarizeBy: none
+		sourceColumn: Dependencies
+
+		annotation SummarizationSetBy = Automatic
+
+	column Progress
+		dataType: int64
+		formatString: 0
+		lineageTag: 1854d447-6649-4742-8834-a13a82e82f5e
+		summarizeBy: none
+		sourceColumn: Progress
+
+		annotation SummarizationSetBy = User
+
+	partition 'Software Development Project' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("dZNdb4IwGIX/SsM1JrSA4KWJmTHbhXHblfGiq6/ajbWsVJf9+/WD1AJb0pKekvfJOYew3yc4SZNtQ4Xg4myPSr4D0+iRsw95OpkbkpFyluFZNh8Ls3CWJYd0n5AhZQdfV67gE4Tu0JrqCyj/IsxXkcBW4IiWD2kvwC6CM9qg5xYYP5mj5lLEhDwSpLDC7Kp0tGJIWyp24dpkvCpAO7hx+I6Hq7GwaG+rNKcV3KCRrU1mFdX0jXaAVtDxc+yI1EEQn9baKD1oPgEttxs0vAmzeSSIbcnaID5aNQE9KCk0iOM/NJzFtLqnYW+rntA2hnVWw7ZJX7ATuc82T1EValq4T9ZpX/er4BrdZTBSTRgB4EzeRyITE1AeJ8p9P3WKFncWHrrpQKElY9BqKhj8wYvCFWb5dgKNuIraRv70DZn/5XhlztvgPhCqSDgz7tHj8jFuLdETv0E8U4yFM2EAh18=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [TaskID = _t, Category = _t, Task = _t, StartDate = _t, EndDate = _t, Dependencies = _t, Progress = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"TaskID", Int64.Type}, {"Category", type text}, {"Task", type text}, {"StartDate", type date}, {"EndDate", type date}, {"Dependencies", type text}, {"Progress", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

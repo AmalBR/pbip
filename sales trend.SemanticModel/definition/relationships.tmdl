@@ -1,0 +1,32 @@
+relationship e0c6a594-2df4-4fa6-b4ac-32129965813b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Sales.'Order Date'
+	toColumn: LocalDateTable_0738d114-d431-41f5-b273-bcd0534cb58b.Date
+
+relationship 887a5464-4488-476a-82fc-39affc1a8f9d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Sales.'Ship Date'
+	toColumn: LocalDateTable_038b907f-44bc-4e2f-ad09-fc56aff08e95.Date
+
+relationship fbe7b9c4-a5f7-40f6-92f6-6d9816db94e9
+	fromColumn: ProductModelProductDescription.ProductDescriptionID
+	toColumn: ProductDescription.ProductDescriptionID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 657fea5d-4bdc-4af6-8393-0c4a1572d90f
+	fromColumn: ProductModelProductDescription.ProductModelID
+	toColumn: ProductModel.ProductModelID
+
+	annotation PBI_IsFromSource = FS
+
+relationship bcb9cae5-2d85-45af-b1c1-379aef5f8e90
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Software Development Project'.StartDate
+	toColumn: LocalDateTable_d42182eb-145d-4f56-b212-2c708877a392.Date
+
+relationship 987ba74f-9be3-4736-b872-2515cc01a0b8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Software Development Project'.EndDate
+	toColumn: LocalDateTable_3ffab6d2-433b-41a1-97d0-60582f816440.Date
+

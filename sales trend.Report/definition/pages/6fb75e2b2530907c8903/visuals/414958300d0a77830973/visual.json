@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "414958300d0a77830973",
+  "position": {
+    "x": 0,
+    "y": 381.59712421781387,
+    "z": 7000,
+    "height": 251.53508187990948,
+    "width": 1012.2753295167089,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "htmlContent443BE3AD55E043BF878BED274D3A6855",
+    "query": {
+      "queryState": {
+        "content": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Products"
+                    }
+                  },
+                  "Property": "KPI Cards HTML"
+                }
+              },
+              "queryRef": "Products.KPI Cards HTML",
+              "nativeQueryRef": "KPI Cards HTML"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

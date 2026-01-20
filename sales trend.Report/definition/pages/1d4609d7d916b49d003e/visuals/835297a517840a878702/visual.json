@@ -1,0 +1,244 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "835297a517840a878702",
+  "position": {
+    "x": 13.683556947331478,
+    "y": 0,
+    "z": 0,
+    "height": 720.2526793186297,
+    "width": 1257.6432794320115,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "gantt51446F686266453390398E5631FF15A1",
+    "query": {
+      "queryState": {
+        "taskId": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Software Development Project"
+                    }
+                  },
+                  "Property": "TaskID"
+                }
+              },
+              "queryRef": "Software Development Project.TaskID",
+              "nativeQueryRef": "TaskID"
+            }
+          ]
+        },
+        "task": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Software Development Project"
+                    }
+                  },
+                  "Property": "Task"
+                }
+              },
+              "queryRef": "Software Development Project.Task",
+              "nativeQueryRef": "Task"
+            }
+          ]
+        },
+        "category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Software Development Project"
+                    }
+                  },
+                  "Property": "Category"
+                }
+              },
+              "queryRef": "Software Development Project.Category",
+              "nativeQueryRef": "Category"
+            }
+          ]
+        },
+        "dependencies": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Software Development Project"
+                    }
+                  },
+                  "Property": "Dependencies"
+                }
+              },
+              "queryRef": "Software Development Project.Dependencies",
+              "nativeQueryRef": "Dependencies"
+            }
+          ]
+        },
+        "progress": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Software Development Project"
+                        }
+                      },
+                      "Property": "Progress"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Software Development Project.Progress)",
+              "nativeQueryRef": "Sum of Progress"
+            }
+          ]
+        },
+        "startDate": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Software Development Project"
+                    }
+                  },
+                  "Property": "StartDate"
+                }
+              },
+              "queryRef": "Software Development Project.StartDate",
+              "nativeQueryRef": "StartDate"
+            }
+          ]
+        },
+        "endDate": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Software Development Project"
+                    }
+                  },
+                  "Property": "EndDate"
+                }
+              },
+              "queryRef": "Software Development Project.EndDate",
+              "nativeQueryRef": "EndDate"
+            }
+          ]
+        },
+        "markerDate": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Software Development Project"
+                    }
+                  },
+                  "Property": "Project Start"
+                }
+              },
+              "queryRef": "Software Development Project.Project Start",
+              "nativeQueryRef": "Project Start"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Software Development Project"
+                    }
+                  },
+                  "Property": "Phase 2 Strat "
+                }
+              },
+              "queryRef": "Software Development Project.Phase 2 Strat ",
+              "nativeQueryRef": "Phase 2 Strat "
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Software Development Project"
+                    }
+                  },
+                  "Property": "Go Live Target"
+                }
+              },
+              "queryRef": "Software Development Project.Go Live Target",
+              "nativeQueryRef": "Go Live Target"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "taskBars": [
+        {
+          "properties": {}
+        }
+      ],
+      "criticalPath": [
+        {
+          "properties": {}
+        }
+      ],
+      "milestones": [
+        {
+          "properties": {}
+        }
+      ],
+      "taskLabels": [
+        {
+          "properties": {}
+        }
+      ],
+      "gridLines": [
+        {
+          "properties": {}
+        }
+      ],
+      "dateHeader": [
+        {
+          "properties": {}
+        }
+      ],
+      "dependencies": [
+        {
+          "properties": {}
+        }
+      ],
+      "categories": [
+        {
+          "properties": {}
+        }
+      ],
+      "todayLine": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

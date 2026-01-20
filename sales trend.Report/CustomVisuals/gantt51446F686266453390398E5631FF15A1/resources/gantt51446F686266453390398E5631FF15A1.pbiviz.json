@@ -1,0 +1,1701 @@
+{
+  "visual": {
+    "name": "gantt",
+    "displayName": "Gantt",
+    "guid": "gantt51446F686266453390398E5631FF15A1",
+    "visualClassName": "Visual",
+    "version": "2.2.0.0",
+    "description": "A gantt chart visual for Power BI.",
+    "supportUrl": "https://datazoepowerbi.com",
+    "gitHubUrl": ""
+  },
+  "author": {
+    "name": "Zoe Douglas",
+    "email": "zoe@datazoepowerbi.com"
+  },
+  "apiVersion": "5.3.0",
+  "style": "style/visual.less",
+  "stringResources": {
+    "de-DE": {
+      "Role_Category": "Kategorie",
+      "Role_Category_Description": "Optional. Aufgaben nach Kategorie in ausklappbaren Abschnitten gruppieren.",
+      "Role_TaskId": "Aufgaben-ID",
+      "Role_TaskId_Description": "Optional. Eindeutiger Bezeichner für jede Aufgabe, verwendet für Abhängigkeitsverknüpfungen.",
+      "Role_Task": "Aufgabe",
+      "Role_StartDate": "Startdatum",
+      "Role_EndDate": "Enddatum",
+      "Role_EndDate_Description": "Optional. Wenn leer oder gleich dem Startdatum, wird das Element als Meilenstein angezeigt.",
+      "Role_Dependencies": "Abhängigkeiten",
+      "Role_Dependencies_Description": "Optional. Aufgaben-IDs, die zuerst abgeschlossen werden müssen. Verwenden Sie eine einzelne ID oder mehrere durch Kommas getrennt.",
+      "Role_Progress": "Fortschritt %",
+      "Role_Progress_Description": "Optional. Prozent der Aufgabenerledigung (0-100). Wird als Fortschrittsbalken über den Aufgabenbalken angezeigt.",
+      "Role_Tooltips": "QuickInfos",
+      "Visual_TaskBars": "Aufgabenbalken",
+      "Visual_UseColorPalette": "Design-Farbpalette verwenden",
+      "Visual_UseColorPalette_Description": "Farben automatisch aus dem Power BI-Design basierend auf Kategorie oder Aufgabenname zuweisen",
+      "Visual_FillColor": "Füllfarbe",
+      "Visual_Opacity": "Deckkraft",
+      "Visual_ShowBorder": "Rahmen anzeigen",
+      "Visual_BorderColor": "Rahmenfarbe",
+      "Visual_BorderWidth": "Rahmenbreite",
+      "Visual_BarHeight": "Balkenhöhe",
+      "Visual_CornerRadius": "Eckenradius",
+      "Visual_RowSpacing": "Zeilenabstand",
+      "Visual_ShowDuration": "Dauer auf Balken anzeigen",
+      "Visual_DurationFontColor": "Schriftfarbe für Dauer",
+      "Visual_HighlightSlipped": "Verspätete Aufgaben hervorheben",
+      "Visual_SlippedColor": "Farbe für verspätete Aufgaben",
+      "Visual_ShowProgress": "Fortschritt anzeigen",
+      "Visual_ShowProgress_Description": "Fortschrittsprozentsatz als überlagerte Leiste auf Aufgabenbalken anzeigen",
+      "Visual_ProgressColor": "Fortschrittsfarbe",
+      "Visual_Milestones": "Meilensteine",
+      "Visual_Shape": "Form",
+      "Visual_Color": "Farbe",
+      "Visual_Size": "Größe",
+      "Visual_CriticalPath": "Kritischer Pfad",
+      "Visual_Show": "Anzeigen",
+      "Visual_ShowSummary": "Zusammenfassung anzeigen",
+      "Visual_TaskLabels": "Aufgabenbezeichnungen",
+      "Visual_FontSize": "Schriftgröße",
+      "Visual_FontColor": "Schriftfarbe",
+      "Visual_SelectionHighlightColor": "Auswahlhervorhebungsfarbe",
+      "Visual_MaxWidth": "Max. Breite",
+      "Visual_MaxWidth_Description": "Maximale Breite der Aufgabenbezeichnungen in Pixel",
+      "Visual_WordWrap": "Zeilenumbruch",
+      "Visual_WordWrap_Description": "Lange Aufgabennamen auf mehrere Zeilen umbrechen statt abschneiden",
+      "Visual_GridLines": "Gitternetzlinien",
+      "Visual_DateHeader": "Datumskopfzeile",
+      "Visual_Categories": "Kategorien",
+      "Visual_HeaderColor": "Kopfzeilenfarbe",
+      "Visual_HeaderFontSize": "Kopfzeilen-Schriftgröße",
+      "Visual_StartExpanded": "Erweitert starten",
+      "Visual_TodayLine": "Heute-Linie",
+      "Visual_LineColor": "Linienfarbe",
+      "Visual_LineWidth": "Linienbreite",
+      "Visual_LineStyle": "Linienstil",
+      "Visual_LineStyle_Solid": "Durchgezogen",
+      "Visual_LineStyle_Dashed": "Gestrichelt",
+      "Visual_LineStyle_Dotted": "Gepunktet",
+      "Visual_ShowLabel": "Beschriftung anzeigen",
+      "Visual_LabelText": "Beschriftungstext",
+      "Visual_DayOffset": "Tagesverschiebung",
+      "Visual_DayOffset_Description": "Die Markierungslinie um diese Anzahl von Tagen verschieben (positiv = Zukunft, negativ = Vergangenheit)",
+      "Role_MarkerDate": "Markierungsdaten",
+      "Role_MarkerDate_Description": "Optional. Benutzerdefinierte Daten für vertikale Markierungslinien. Fügen Sie mehrere Measures hinzu, die Daten zurückgeben.",
+      "Tooltip_TaskId": "Aufgaben-ID",
+      "Tooltip_StartDate": "Startdatum",
+      "Tooltip_EndDate": "Enddatum",
+      "Tooltip_Duration": "Dauer",
+      "Tooltip_Days": "Tage",
+      "Landing_Title": "Gantt-Diagramm",
+      "Landing_Instructions": "Fügen Sie Datenfelder hinzu, um Ihre Projektzeitleiste zu visualisieren:",
+      "Landing_Required": "erforderlich",
+      "Landing_Optional": "optional",
+      "Landing_Task_Desc": "Aufgabenname oder -beschreibung",
+      "Landing_StartDate_Desc": "Wann die Aufgabe beginnt",
+      "Landing_EndDate_Desc": "Wann die Aufgabe endet. Aufgaben ohne Enddatum erscheinen als Meilensteine",
+      "Landing_Category_Desc": "Aufgaben in ausklappbare Abschnitte gruppieren",
+      "Landing_TaskId_Desc": "Eindeutiger Bezeichner für Abhängigkeitsverknüpfungen",
+      "Landing_Dependencies_Desc": "Durch Kommas getrennte Aufgaben-IDs, die zuerst abgeschlossen werden müssen",
+      "Landing_Progress_Desc": "Prozentsatz der Aufgabenerfüllung (0-100)",
+      "Landing_MarkerDate_Desc": "Datumsmeasures für vertikale Markierungslinien",
+      "Landing_Features": "Funktionen: Kritischer-Pfad-Analyse • Abhängigkeitspfeile • Fortschrittsverfolgung • Benutzerdefinierte Markierungen • Interaktive Auswahl",
+      "CriticalPath_Toggle": "Kritischer Pfad",
+      "CriticalPath_Summary": "Kritischer Pfad: {0} Aufgaben, {1} Tage insgesamt ({2} - {3})",
+      "Slippage_Toggle": "Verzug",
+      "Slippage_Summary": "Verzug: {0} Aufgaben betroffen"
+    },
+    "en-US": {
+      "Role_Category": "Category",
+      "Role_Category_Description": "Optional. Group tasks by category for collapsible sections.",
+      "Role_TaskId": "Task ID",
+      "Role_TaskId_Description": "Optional. Unique identifier for each task, used for dependency matching.",
+      "Role_Task": "Task",
+      "Role_StartDate": "Start date",
+      "Role_EndDate": "End date",
+      "Role_EndDate_Description": "Optional. If empty or same as start date, the item is treated as a milestone.",
+      "Role_Dependencies": "Dependencies",
+      "Role_Dependencies_Description": "Optional. Reference Task IDs that this task depends on. Use a single Task ID or multiple IDs separated by commas (e.g., '1, 2, 3' or 'T1, T2').",
+      "Role_Progress": "Progress %",
+      "Role_Progress_Description": "Optional. Percentage of task completion (0-100). Displays as a progress bar overlay on task bars.",
+      "Role_Tooltips": "Tooltips",
+      "Visual_TaskBars": "Task bars",
+      "Visual_UseColorPalette": "Use theme color palette",
+      "Visual_UseColorPalette_Description": "Automatically assign colors from Power BI theme based on category or task name",
+      "Visual_FillColor": "Fill color",
+      "Visual_Opacity": "Opacity",
+      "Visual_ShowBorder": "Show border",
+      "Visual_BorderColor": "Border color",
+      "Visual_BorderWidth": "Border width",
+      "Visual_BarHeight": "Bar height",
+      "Visual_CornerRadius": "Corner radius",
+      "Visual_RowSpacing": "Row spacing",
+      "Visual_ShowDuration": "Show duration on bars",
+      "Visual_DurationFontColor": "Duration font color",
+      "Visual_HighlightSlipped": "Highlight slipped tasks",
+      "Visual_SlippedColor": "Slipped task color",
+      "Visual_ShowProgress": "Show progress",
+      "Visual_ShowProgress_Description": "Display progress percentage as an overlay bar on task bars",
+      "Visual_ProgressColor": "Progress color",
+      "Visual_Milestones": "Milestones",
+      "Visual_Shape": "Shape",
+      "Visual_Color": "Color",
+      "Visual_Size": "Size",
+      "Visual_CriticalPath": "Critical path",
+      "Visual_Show": "Show",
+      "Visual_ShowSummary": "Show summary",
+      "Visual_TaskLabels": "Task labels",
+      "Visual_FontSize": "Font size",
+      "Visual_FontColor": "Font color",
+      "Visual_SelectionHighlightColor": "Selection highlight color",
+      "Visual_MaxWidth": "Max width",
+      "Visual_MaxWidth_Description": "Maximum width of task labels in pixels",
+      "Visual_WordWrap": "Word wrap",
+      "Visual_WordWrap_Description": "Wrap long task names to multiple lines instead of truncating",
+      "Visual_GridLines": "Grid lines",
+      "Visual_DateHeader": "Date header",
+      "Visual_Categories": "Categories",
+      "Visual_HeaderColor": "Header color",
+      "Visual_HeaderFontSize": "Header font size",
+      "Visual_StartExpanded": "Start expanded",
+      "Visual_TodayLine": "Today line",
+      "Visual_LineColor": "Line color",
+      "Visual_LineWidth": "Line width",
+      "Visual_LineStyle": "Line style",
+      "Visual_LineStyle_Solid": "Solid",
+      "Visual_LineStyle_Dashed": "Dashed",
+      "Visual_LineStyle_Dotted": "Dotted",
+      "Visual_ShowLabel": "Show label",
+      "Visual_LabelText": "Label text",
+      "Visual_DayOffset": "Day offset",
+      "Visual_DayOffset_Description": "Shift the marker line by this number of days (positive = future, negative = past)",
+      "Role_MarkerDate": "Marker dates",
+      "Role_MarkerDate_Description": "Optional. Custom dates to display as vertical marker lines. Add multiple measures that return dates.",
+      "Tooltip_TaskId": "Task ID",
+      "Tooltip_StartDate": "Start date",
+      "Tooltip_EndDate": "End date",
+      "Tooltip_Duration": "Duration",
+      "Tooltip_Days": "days",
+      "Landing_Title": "Gantt Chart",
+      "Landing_Instructions": "Add data fields to visualize your project timeline:",
+      "Landing_Required": "required",
+      "Landing_Optional": "optional",
+      "Landing_Task_Desc": "Task name or description",
+      "Landing_StartDate_Desc": "When the task begins",
+      "Landing_EndDate_Desc": "When the task ends. Tasks without an end date appear as milestones",
+      "Landing_Category_Desc": "Group tasks into collapsible sections",
+      "Landing_TaskId_Desc": "Unique identifier for dependency linking",
+      "Landing_Dependencies_Desc": "Comma-separated Task IDs that must complete first",
+      "Landing_Progress_Desc": "Task completion percentage (0-100)",
+      "Landing_MarkerDate_Desc": "Date measures for vertical marker lines",
+      "Landing_Features": "Features: Critical path analysis • Dependency arrows • Progress tracking • Custom markers • Interactive selection",
+      "CriticalPath_Toggle": "Critical Path",
+      "CriticalPath_Summary": "Critical Path: {0} tasks, {1} days total ({2} - {3})",
+      "Slippage_Toggle": "Slippage",
+      "Slippage_Summary": "Slippage: {0} tasks affected"
+    },
+    "es-ES": {
+      "Role_Category": "Categoría",
+      "Role_Category_Description": "Opcional. Agrupa las tareas por categoría en secciones plegables.",
+      "Role_TaskId": "ID de tarea",
+      "Role_TaskId_Description": "Opcional. Identificador único para cada tarea, utilizado para vincular dependencias.",
+      "Role_Task": "Tarea",
+      "Role_StartDate": "Fecha de inicio",
+      "Role_EndDate": "Fecha de fin",
+      "Role_EndDate_Description": "Opcional. Si está vacío o es igual a la fecha de inicio, el elemento se muestra como hito.",
+      "Role_Dependencies": "Dependencias",
+      "Role_Dependencies_Description": "Opcional. IDs de tareas que deben completarse primero. Use un solo ID o varios separados por comas (ej., '1, 2, 3').",
+      "Role_Progress": "Progreso %",
+      "Role_Progress_Description": "Opcional. Porcentaje de finalización de la tarea (0-100). Se muestra como una barra de progreso sobre las barras de tareas.",
+      "Role_Tooltips": "Información sobre herramientas",
+      "Visual_TaskBars": "Barras de tareas",
+      "Visual_UseColorPalette": "Usar paleta de colores del tema",
+      "Visual_UseColorPalette_Description": "Asignar colores automáticamente del tema de Power BI según categoría o nombre de tarea",
+      "Visual_FillColor": "Color de relleno",
+      "Visual_Opacity": "Opacidad",
+      "Visual_ShowBorder": "Mostrar borde",
+      "Visual_BorderColor": "Color del borde",
+      "Visual_BorderWidth": "Ancho del borde",
+      "Visual_BarHeight": "Altura de la barra",
+      "Visual_CornerRadius": "Radio de esquina",
+      "Visual_RowSpacing": "Espaciado entre filas",
+      "Visual_ShowDuration": "Mostrar duración en las barras",
+      "Visual_DurationFontColor": "Color de fuente de duración",
+      "Visual_HighlightSlipped": "Resaltar tareas retrasadas",
+      "Visual_SlippedColor": "Color de tarea retrasada",
+      "Visual_ShowProgress": "Mostrar progreso",
+      "Visual_ShowProgress_Description": "Mostrar el porcentaje de progreso como una barra superpuesta en las barras de tareas",
+      "Visual_ProgressColor": "Color de progreso",
+      "Visual_Milestones": "Hitos",
+      "Visual_Shape": "Forma",
+      "Visual_Color": "Color",
+      "Visual_Size": "Tamaño",
+      "Visual_CriticalPath": "Ruta crítica",
+      "Visual_Show": "Mostrar",
+      "Visual_ShowSummary": "Mostrar resumen",
+      "Visual_TaskLabels": "Etiquetas de tareas",
+      "Visual_FontSize": "Tamaño de fuente",
+      "Visual_FontColor": "Color de fuente",
+      "Visual_SelectionHighlightColor": "Color de resaltado de selección",
+      "Visual_MaxWidth": "Ancho máximo",
+      "Visual_MaxWidth_Description": "Ancho máximo de las etiquetas de tareas en píxeles",
+      "Visual_WordWrap": "Ajuste de línea",
+      "Visual_WordWrap_Description": "Ajustar nombres de tareas largos a múltiples líneas en lugar de truncar",
+      "Visual_GridLines": "Líneas de cuadrícula",
+      "Visual_DateHeader": "Encabezado de fecha",
+      "Visual_Categories": "Categorías",
+      "Visual_HeaderColor": "Color del encabezado",
+      "Visual_HeaderFontSize": "Tamaño de fuente del encabezado",
+      "Visual_StartExpanded": "Iniciar expandido",
+      "Visual_TodayLine": "Línea de hoy",
+      "Visual_LineColor": "Color de línea",
+      "Visual_LineWidth": "Ancho de línea",
+      "Visual_LineStyle": "Estilo de línea",
+      "Visual_LineStyle_Solid": "Sólido",
+      "Visual_LineStyle_Dashed": "Discontinuo",
+      "Visual_LineStyle_Dotted": "Punteado",
+      "Visual_ShowLabel": "Mostrar etiqueta",
+      "Visual_LabelText": "Texto de etiqueta",
+      "Visual_DayOffset": "Desplazamiento de días",
+      "Visual_DayOffset_Description": "Desplazar la línea marcadora por este número de días (positivo = futuro, negativo = pasado)",
+      "Role_MarkerDate": "Fechas de marcador",
+      "Role_MarkerDate_Description": "Opcional. Fechas personalizadas para mostrar como líneas de marcador verticales. Agregue múltiples medidas que devuelvan fechas.",
+      "Tooltip_TaskId": "ID de tarea",
+      "Tooltip_StartDate": "Fecha de inicio",
+      "Tooltip_EndDate": "Fecha de fin",
+      "Tooltip_Duration": "Duración",
+      "Tooltip_Days": "días",
+      "Landing_Title": "Diagrama de Gantt",
+      "Landing_Instructions": "Agregue campos de datos para visualizar la línea de tiempo de su proyecto:",
+      "Landing_Required": "requerido",
+      "Landing_Optional": "opcional",
+      "Landing_Task_Desc": "Nombre o descripción de la tarea",
+      "Landing_StartDate_Desc": "Cuándo comienza la tarea",
+      "Landing_EndDate_Desc": "Cuándo termina la tarea. Las tareas sin fecha de fin aparecen como hitos",
+      "Landing_Category_Desc": "Agrupar tareas en secciones plegables",
+      "Landing_TaskId_Desc": "Identificador único para vincular dependencias",
+      "Landing_Dependencies_Desc": "IDs de tareas separados por comas que deben completarse primero",
+      "Landing_Progress_Desc": "Porcentaje de finalización de la tarea (0-100)",
+      "Landing_MarkerDate_Desc": "Medidas de fecha para líneas de marcador verticales",
+      "Landing_Features": "Características: Análisis de ruta crítica • Flechas de dependencia • Seguimiento de progreso • Marcadores personalizados • Selección interactiva",
+      "CriticalPath_Toggle": "Ruta Crítica",
+      "CriticalPath_Summary": "Ruta Crítica: {0} tareas, {1} días en total ({2} - {3})",
+      "Slippage_Toggle": "Retraso",
+      "Slippage_Summary": "Retraso: {0} tareas afectadas"
+    },
+    "fr-FR": {
+      "Role_Category": "Catégorie",
+      "Role_Category_Description": "Facultatif. Regrouper les tâches par catégorie dans des sections réductibles.",
+      "Role_TaskId": "ID de tâche",
+      "Role_TaskId_Description": "Facultatif. Identifiant unique pour chaque tâche, utilisé pour lier les dépendances.",
+      "Role_Task": "Tâche",
+      "Role_StartDate": "Date de début",
+      "Role_EndDate": "Date de fin",
+      "Role_EndDate_Description": "Facultatif. Si vide ou identique à la date de début, l'élément s'affiche comme jalon.",
+      "Role_Dependencies": "Dépendances",
+      "Role_Dependencies_Description": "Facultatif. IDs de tâches qui doivent être terminées en premier. Utilisez un seul ID ou plusieurs séparés par des virgules.",
+      "Role_Progress": "Progression %",
+      "Role_Progress_Description": "Facultatif. Pourcentage d'achèvement de la tâche (0-100). S'affiche sous forme de barre de progression sur les barres de tâches.",
+      "Role_Tooltips": "Info-bulles",
+      "Visual_TaskBars": "Barres de tâches",
+      "Visual_UseColorPalette": "Utiliser la palette de couleurs du thème",
+      "Visual_UseColorPalette_Description": "Attribuer automatiquement les couleurs du thème Power BI en fonction de la catégorie ou du nom de la tâche",
+      "Visual_FillColor": "Couleur de remplissage",
+      "Visual_Opacity": "Opacité",
+      "Visual_ShowBorder": "Afficher la bordure",
+      "Visual_BorderColor": "Couleur de bordure",
+      "Visual_BorderWidth": "Largeur de bordure",
+      "Visual_BarHeight": "Hauteur de barre",
+      "Visual_CornerRadius": "Rayon d'angle",
+      "Visual_RowSpacing": "Espacement des lignes",
+      "Visual_ShowDuration": "Afficher la durée sur les barres",
+      "Visual_DurationFontColor": "Couleur de police de durée",
+      "Visual_HighlightSlipped": "Mettre en évidence les tâches en retard",
+      "Visual_SlippedColor": "Couleur de tâche en retard",
+      "Visual_ShowProgress": "Afficher la progression",
+      "Visual_ShowProgress_Description": "Afficher le pourcentage de progression sous forme de barre superposée sur les barres de tâches",
+      "Visual_ProgressColor": "Couleur de progression",
+      "Visual_Milestones": "Jalons",
+      "Visual_Shape": "Forme",
+      "Visual_Color": "Couleur",
+      "Visual_Size": "Taille",
+      "Visual_CriticalPath": "Chemin critique",
+      "Visual_Show": "Afficher",
+      "Visual_ShowSummary": "Afficher le résumé",
+      "Visual_TaskLabels": "Étiquettes de tâches",
+      "Visual_FontSize": "Taille de police",
+      "Visual_FontColor": "Couleur de police",
+      "Visual_SelectionHighlightColor": "Couleur de surbrillance de sélection",
+      "Visual_MaxWidth": "Largeur max",
+      "Visual_MaxWidth_Description": "Largeur maximale des étiquettes de tâches en pixels",
+      "Visual_WordWrap": "Retour à la ligne",
+      "Visual_WordWrap_Description": "Afficher les noms de tâches longs sur plusieurs lignes au lieu de les tronquer",
+      "Visual_GridLines": "Lignes de grille",
+      "Visual_DateHeader": "En-tête de date",
+      "Visual_Categories": "Catégories",
+      "Visual_HeaderColor": "Couleur d'en-tête",
+      "Visual_HeaderFontSize": "Taille de police d'en-tête",
+      "Visual_StartExpanded": "Démarrer développé",
+      "Visual_TodayLine": "Ligne d'aujourd'hui",
+      "Visual_LineColor": "Couleur de ligne",
+      "Visual_LineWidth": "Largeur de ligne",
+      "Visual_LineStyle": "Style de ligne",
+      "Visual_LineStyle_Solid": "Plein",
+      "Visual_LineStyle_Dashed": "Tirets",
+      "Visual_LineStyle_Dotted": "Pointillé",
+      "Visual_ShowLabel": "Afficher l'étiquette",
+      "Visual_LabelText": "Texte de l'étiquette",
+      "Visual_DayOffset": "Décalage en jours",
+      "Visual_DayOffset_Description": "Décaler la ligne de repère de ce nombre de jours (positif = futur, négatif = passé)",
+      "Role_MarkerDate": "Dates de repère",
+      "Role_MarkerDate_Description": "Facultatif. Dates personnalisées à afficher comme lignes de repère verticales. Ajoutez plusieurs mesures qui renvoient des dates.",
+      "Tooltip_TaskId": "ID de tâche",
+      "Tooltip_StartDate": "Date de début",
+      "Tooltip_EndDate": "Date de fin",
+      "Tooltip_Duration": "Durée",
+      "Tooltip_Days": "jours",
+      "Landing_Title": "Diagramme de Gantt",
+      "Landing_Instructions": "Ajoutez des champs de données pour visualiser la chronologie de votre projet:",
+      "Landing_Required": "requis",
+      "Landing_Optional": "facultatif",
+      "Landing_Task_Desc": "Nom ou description de la tâche",
+      "Landing_StartDate_Desc": "Quand la tâche commence",
+      "Landing_EndDate_Desc": "Quand la tâche se termine. Les tâches sans date de fin apparaissent comme des jalons",
+      "Landing_Category_Desc": "Regrouper les tâches dans des sections réductibles",
+      "Landing_TaskId_Desc": "Identifiant unique pour lier les dépendances",
+      "Landing_Dependencies_Desc": "IDs de tâches séparés par des virgules qui doivent être terminées en premier",
+      "Landing_Progress_Desc": "Pourcentage d'achèvement de la tâche (0-100)",
+      "Landing_MarkerDate_Desc": "Mesures de dates pour les lignes de repère verticales",
+      "Landing_Features": "Fonctionnalités: Analyse du chemin critique • Flèches de dépendance • Suivi de progression • Marqueurs personnalisés • Sélection interactive",
+      "CriticalPath_Toggle": "Chemin Critique",
+      "CriticalPath_Summary": "Chemin Critique: {0} tâches, {1} jours au total ({2} - {3})",
+      "Slippage_Toggle": "Glissement",
+      "Slippage_Summary": "Glissement: {0} tâches affectées"
+    },
+    "pt-BR": {
+      "Role_Category": "Categoria",
+      "Role_Category_Description": "Opcional. Agrupa tarefas por categoria em seções recolhíveis.",
+      "Role_TaskId": "ID da Tarefa",
+      "Role_TaskId_Description": "Opcional. Identificador único para cada tarefa, usado para vincular dependências.",
+      "Role_Task": "Tarefa",
+      "Role_StartDate": "Data de início",
+      "Role_EndDate": "Data de término",
+      "Role_EndDate_Description": "Opcional. Se vazio ou igual à data de início, o item é exibido como marco.",
+      "Role_Dependencies": "Dependências",
+      "Role_Dependencies_Description": "Opcional. IDs de tarefas que devem ser concluídas primeiro. Use um único ID ou vários separados por vírgulas.",
+      "Role_Progress": "Progresso %",
+      "Role_Progress_Description": "Opcional. Porcentagem de conclusão da tarefa (0-100). Exibido como uma barra de progresso sobre as barras de tarefas.",
+      "Role_Tooltips": "Dicas de ferramentas",
+      "Visual_TaskBars": "Barras de tarefas",
+      "Visual_UseColorPalette": "Usar paleta de cores do tema",
+      "Visual_UseColorPalette_Description": "Atribuir cores automaticamente do tema do Power BI com base na categoria ou nome da tarefa",
+      "Visual_FillColor": "Cor de preenchimento",
+      "Visual_Opacity": "Opacidade",
+      "Visual_ShowBorder": "Mostrar borda",
+      "Visual_BorderColor": "Cor da borda",
+      "Visual_BorderWidth": "Largura da borda",
+      "Visual_BarHeight": "Altura da barra",
+      "Visual_CornerRadius": "Raio do canto",
+      "Visual_RowSpacing": "Espaçamento entre linhas",
+      "Visual_ShowDuration": "Mostrar duração nas barras",
+      "Visual_DurationFontColor": "Cor da fonte de duração",
+      "Visual_HighlightSlipped": "Destacar tarefas atrasadas",
+      "Visual_SlippedColor": "Cor de tarefa atrasada",
+      "Visual_ShowProgress": "Mostrar progresso",
+      "Visual_ShowProgress_Description": "Exibir porcentagem de progresso como uma barra sobreposta nas barras de tarefas",
+      "Visual_ProgressColor": "Cor do progresso",
+      "Visual_Milestones": "Marcos",
+      "Visual_Shape": "Forma",
+      "Visual_Color": "Cor",
+      "Visual_Size": "Tamanho",
+      "Visual_CriticalPath": "Caminho crítico",
+      "Visual_Show": "Mostrar",
+      "Visual_ShowSummary": "Mostrar resumo",
+      "Visual_TaskLabels": "Rótulos de tarefas",
+      "Visual_FontSize": "Tamanho da fonte",
+      "Visual_FontColor": "Cor da fonte",
+      "Visual_SelectionHighlightColor": "Cor de destaque de seleção",
+      "Visual_MaxWidth": "Largura máx",
+      "Visual_MaxWidth_Description": "Largura máxima dos rótulos de tarefas em pixels",
+      "Visual_WordWrap": "Quebra de linha",
+      "Visual_WordWrap_Description": "Quebrar nomes de tarefas longos em várias linhas em vez de truncar",
+      "Visual_GridLines": "Linhas de grade",
+      "Visual_DateHeader": "Cabeçalho de data",
+      "Visual_Categories": "Categorias",
+      "Visual_HeaderColor": "Cor do cabeçalho",
+      "Visual_HeaderFontSize": "Tamanho da fonte do cabeçalho",
+      "Visual_StartExpanded": "Iniciar expandido",
+      "Visual_TodayLine": "Linha de hoje",
+      "Visual_LineColor": "Cor da linha",
+      "Visual_LineWidth": "Largura da linha",
+      "Visual_LineStyle": "Estilo da linha",
+      "Visual_LineStyle_Solid": "Sólido",
+      "Visual_LineStyle_Dashed": "Tracejado",
+      "Visual_LineStyle_Dotted": "Pontilhado",
+      "Visual_ShowLabel": "Mostrar rótulo",
+      "Visual_LabelText": "Texto do rótulo",
+      "Visual_DayOffset": "Deslocamento de dias",
+      "Visual_DayOffset_Description": "Desloca a linha de marcador por este número de dias (positivo = futuro, negativo = passado)",
+      "Role_MarkerDate": "Datas de marcador",
+      "Role_MarkerDate_Description": "Opcional. Datas personalizadas para exibir como linhas de marcador verticais. Adicione várias medidas que retornam datas.",
+      "Tooltip_TaskId": "ID da Tarefa",
+      "Tooltip_StartDate": "Data de início",
+      "Tooltip_EndDate": "Data de término",
+      "Tooltip_Duration": "Duração",
+      "Tooltip_Days": "dias",
+      "Landing_Title": "Gráfico de Gantt",
+      "Landing_Instructions": "Adicione campos de dados para visualizar a linha do tempo do seu projeto:",
+      "Landing_Required": "obrigatório",
+      "Landing_Optional": "opcional",
+      "Landing_Task_Desc": "Nome ou descrição da tarefa",
+      "Landing_StartDate_Desc": "Quando a tarefa começa",
+      "Landing_EndDate_Desc": "Quando a tarefa termina. Tarefas sem data de término aparecem como marcos",
+      "Landing_Category_Desc": "Agrupar tarefas em seções recolhíveis",
+      "Landing_TaskId_Desc": "Identificador único para vincular dependências",
+      "Landing_Dependencies_Desc": "IDs de tarefas separados por vírgulas que devem ser concluídas primeiro",
+      "Landing_Progress_Desc": "Porcentagem de conclusão da tarefa (0-100)",
+      "Landing_MarkerDate_Desc": "Medidas de data para linhas de marcador verticais",
+      "Landing_Features": "Recursos: Análise de caminho crítico • Setas de dependência • Acompanhamento de progresso • Marcadores personalizados • Seleção interativa",
+      "CriticalPath_Toggle": "Caminho Crítico",
+      "CriticalPath_Summary": "Caminho Crítico: {0} tarefas, {1} dias no total ({2} - {3})",
+      "Slippage_Toggle": "Atraso",
+      "Slippage_Summary": "Atraso: {0} tarefas afetadas"
+    }
+  },
+  "capabilities": {
+    "dataRoles": [
+      {
+        "displayName": "Category",
+        "displayNameKey": "Role_Category",
+        "name": "category",
+        "kind": "Grouping",
+        "description": "Optional. Group tasks by category for collapsible sections.",
+        "descriptionKey": "Role_Category_Description"
+      },
+      {
+        "displayName": "Task ID",
+        "displayNameKey": "Role_TaskId",
+        "name": "taskId",
+        "kind": "Grouping",
+        "description": "Optional. Unique identifier for each task, used for dependency matching.",
+        "descriptionKey": "Role_TaskId_Description"
+      },
+      {
+        "displayName": "Task",
+        "displayNameKey": "Role_Task",
+        "name": "task",
+        "kind": "Grouping"
+      },
+      {
+        "displayName": "Start date",
+        "displayNameKey": "Role_StartDate",
+        "name": "startDate",
+        "kind": "Grouping"
+      },
+      {
+        "displayName": "End date",
+        "displayNameKey": "Role_EndDate",
+        "name": "endDate",
+        "kind": "Grouping",
+        "description": "Optional. If empty or same as start date, the item is treated as a milestone.",
+        "descriptionKey": "Role_EndDate_Description"
+      },
+      {
+        "displayName": "Dependencies",
+        "displayNameKey": "Role_Dependencies",
+        "name": "dependencies",
+        "kind": "Grouping",
+        "description": "Optional. Reference Task IDs that this task depends on. Use a single Task ID or multiple IDs separated by commas (e.g., '1, 2, 3' or 'T1, T2').",
+        "descriptionKey": "Role_Dependencies_Description"
+      },
+      {
+        "displayName": "Progress %",
+        "displayNameKey": "Role_Progress",
+        "name": "progress",
+        "kind": "Measure",
+        "description": "Optional. Percentage of task completion (0-100). Displays as a progress bar overlay on task bars.",
+        "descriptionKey": "Role_Progress_Description"
+      },
+      {
+        "displayName": "Marker dates",
+        "displayNameKey": "Role_MarkerDate",
+        "name": "markerDate",
+        "kind": "Measure",
+        "description": "Optional. Custom dates to display as vertical marker lines. Add multiple measures that return dates.",
+        "descriptionKey": "Role_MarkerDate_Description"
+      },
+      {
+        "displayName": "Tooltips",
+        "displayNameKey": "Role_Tooltips",
+        "name": "tooltips",
+        "kind": "Measure"
+      }
+    ],
+    "objects": {
+      "stylePresets": {
+        "properties": {
+          "preset": {
+            "type": {
+              "enumeration": [
+                {
+                  "value": "default",
+                  "displayName": "Default"
+                },
+                {
+                  "value": "compact",
+                  "displayName": "Compact"
+                },
+                {
+                  "value": "veryCompact",
+                  "displayName": "Very Compact"
+                },
+                {
+                  "value": "spacious",
+                  "displayName": "Spacious"
+                },
+                {
+                  "value": "custom",
+                  "displayName": "Custom"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "taskBars": {
+        "properties": {
+          "show": {
+            "type": {
+              "bool": true
+            }
+          },
+          "useColorPalette": {
+            "type": {
+              "bool": true
+            }
+          },
+          "barColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "barColorRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "barColor",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "barOpacity": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "barOpacityRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "barOpacity",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "showBorder": {
+            "type": {
+              "bool": true
+            }
+          },
+          "borderColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "borderColorRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "borderColor",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "borderWidth": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "borderWidthRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "borderWidth",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "barHeight": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "barHeightRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "barHeight",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "barCornerRadius": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "barCornerRadiusRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "barCornerRadius",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "barPadding": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "barPaddingRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "barPadding",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "showDuration": {
+            "type": {
+              "bool": true
+            }
+          },
+          "durationFontFamily": {
+            "type": {
+              "formatting": {
+                "fontFamily": true
+              }
+            }
+          },
+          "durationFontSize": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "durationFontBold": {
+            "type": {
+              "bool": true
+            }
+          },
+          "durationFontItalic": {
+            "type": {
+              "bool": true
+            }
+          },
+          "durationFontUnderline": {
+            "type": {
+              "bool": true
+            }
+          },
+          "durationFontColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "durationFontColorRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "durationFontColor",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "durationAutoContrastWithBar": {
+            "type": {
+              "bool": true
+            }
+          },
+          "slippedColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "slippedColorRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "slippedColor",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "showProgress": {
+            "type": {
+              "bool": true
+            }
+          },
+          "progressFormat": {
+            "type": {
+              "enumeration": [
+                {
+                  "value": "percent",
+                  "displayName": "Whole number (0-100)"
+                },
+                {
+                  "value": "decimal",
+                  "displayName": "Percentage (0%-100%)"
+                }
+              ]
+            }
+          },
+          "progressColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "progressColorRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "progressColor",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "progressOpacity": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "progressOpacityRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "progressOpacity",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "progressBarHeight": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "progressBarHeightRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "progressBarHeight",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "progressPattern": {
+            "type": {
+              "enumeration": [
+                {
+                  "value": "solid",
+                  "displayName": "Solid"
+                },
+                {
+                  "value": "stripes",
+                  "displayName": "Diagonal stripes"
+                },
+                {
+                  "value": "dots",
+                  "displayName": "Dots"
+                },
+                {
+                  "value": "crosshatch",
+                  "displayName": "Crosshatch"
+                },
+                {
+                  "value": "horizontal",
+                  "displayName": "Horizontal lines"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "criticalPath": {
+        "properties": {
+          "borderColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "borderColorRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "borderColor",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "borderWidth": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "criticalPathBorderWidthRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "borderWidth",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "showSummary": {
+            "type": {
+              "bool": true
+            }
+          }
+        }
+      },
+      "milestones": {
+        "properties": {
+          "show": {
+            "type": {
+              "bool": true
+            }
+          },
+          "shape": {
+            "type": {
+              "text": true
+            }
+          },
+          "color": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "colorRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "color",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "size": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "sizeRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "size",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "taskLabels": {
+        "properties": {
+          "show": {
+            "type": {
+              "bool": true
+            }
+          },
+          "fontFamily": {
+            "type": {
+              "formatting": {
+                "fontFamily": true
+              }
+            }
+          },
+          "fontSize": {
+            "type": {
+              "formatting": {
+                "fontSize": true
+              }
+            }
+          },
+          "fontBold": {
+            "type": {
+              "bool": true
+            }
+          },
+          "fontItalic": {
+            "type": {
+              "bool": true
+            }
+          },
+          "fontUnderline": {
+            "type": {
+              "bool": true
+            }
+          },
+          "fontColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "fontColorRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "fontColor",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "maxWidth": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "maxWidthRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "maxWidth",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "wordWrap": {
+            "type": {
+              "bool": true
+            }
+          },
+          "selectionHighlightColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "selectionHighlightColorRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "selectionHighlightColor",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "gridLines": {
+        "properties": {
+          "show": {
+            "type": {
+              "bool": true
+            }
+          },
+          "showVerticalLines": {
+            "type": {
+              "bool": true
+            }
+          },
+          "verticalLineColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "verticalLineColorRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "verticalLineColor",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "verticalLineStyle": {
+            "type": {
+              "enumeration": [
+                {
+                  "value": "solid",
+                  "displayName": "Solid"
+                },
+                {
+                  "value": "dashed",
+                  "displayName": "Dashed"
+                },
+                {
+                  "value": "dotted",
+                  "displayName": "Dotted"
+                }
+              ]
+            }
+          },
+          "showDivider": {
+            "type": {
+              "bool": true
+            }
+          },
+          "dividerColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "dividerColorRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "dividerColor",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "dividerWidth": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "dividerWidthRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "dividerWidth",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "dividerStyle": {
+            "type": {
+              "enumeration": [
+                {
+                  "value": "solid",
+                  "displayName": "Solid"
+                },
+                {
+                  "value": "dashed",
+                  "displayName": "Dashed"
+                },
+                {
+                  "value": "dotted",
+                  "displayName": "Dotted"
+                }
+              ]
+            }
+          },
+          "showRowBanding": {
+            "type": {
+              "bool": true
+            }
+          },
+          "evenRowColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "evenRowColorRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "evenRowColor",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "oddRowColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "oddRowColorRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "oddRowColor",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "shadeWeekends": {
+            "type": {
+              "bool": true
+            }
+          },
+          "shadeDays": {
+            "type": {
+              "text": true
+            }
+          },
+          "shadeColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "shadeOpacity": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "shadeOpacityRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "shadeOpacity",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "dateHeader": {
+        "properties": {
+          "show": {
+            "type": {
+              "bool": true
+            }
+          },
+          "fontFamily": {
+            "type": {
+              "formatting": {
+                "fontFamily": true
+              }
+            }
+          },
+          "fontSize": {
+            "type": {
+              "formatting": {
+                "fontSize": true
+              }
+            }
+          },
+          "fontBold": {
+            "type": {
+              "bool": true
+            }
+          },
+          "fontItalic": {
+            "type": {
+              "bool": true
+            }
+          },
+          "fontUnderline": {
+            "type": {
+              "bool": true
+            }
+          },
+          "fontColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "fontColorRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "fontColor",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "dependencies": {
+        "properties": {
+          "show": {
+            "type": {
+              "bool": true
+            }
+          },
+          "lineColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "lineColorRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "lineColor",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "lineWidth": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "lineWidthRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "lineWidth",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "lineStyle": {
+            "type": {
+              "text": true
+            }
+          },
+          "pathStyle": {
+            "type": {
+              "text": true
+            }
+          },
+          "arrowSize": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "arrowSizeRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "arrowSize",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "categories": {
+        "properties": {
+          "show": {
+            "type": {
+              "bool": true
+            }
+          },
+          "headerFontFamily": {
+            "type": {
+              "formatting": {
+                "fontFamily": true
+              }
+            }
+          },
+          "headerFontSize": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "headerFontBold": {
+            "type": {
+              "bool": true
+            }
+          },
+          "headerFontItalic": {
+            "type": {
+              "bool": true
+            }
+          },
+          "headerFontUnderline": {
+            "type": {
+              "bool": true
+            }
+          },
+          "headerColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "headerColorRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "headerColor",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "startExpanded": {
+            "type": {
+              "bool": true
+            }
+          }
+        }
+      },
+      "todayLine": {
+        "properties": {
+          "show": {
+            "type": {
+              "bool": true
+            }
+          },
+          "lineColor": {
+            "type": {
+              "fill": {
+                "solid": {
+                  "color": true
+                }
+              }
+            }
+          },
+          "lineWidth": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "lineWidthRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "lineWidth",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          },
+          "lineStyle": {
+            "type": {
+              "text": true
+            }
+          },
+          "showLabel": {
+            "type": {
+              "bool": true
+            }
+          },
+          "labelText": {
+            "type": {
+              "text": true
+            }
+          },
+          "dayOffset": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "dayOffsetRule": {
+            "type": {
+              "fillRule": {}
+            },
+            "rule": {
+              "inputRole": "task",
+              "output": {
+                "property": "dayOffset",
+                "selector": [
+                  "task"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "dataViewMappings": [
+      {
+        "table": {
+          "rows": {
+            "select": [
+              {
+                "for": {
+                  "in": "category"
+                }
+              },
+              {
+                "for": {
+                  "in": "taskId"
+                }
+              },
+              {
+                "for": {
+                  "in": "task"
+                }
+              },
+              {
+                "for": {
+                  "in": "startDate"
+                }
+              },
+              {
+                "for": {
+                  "in": "endDate"
+                }
+              },
+              {
+                "for": {
+                  "in": "dependencies"
+                }
+              },
+              {
+                "for": {
+                  "in": "progress"
+                }
+              },
+              {
+                "for": {
+                  "in": "tooltips"
+                }
+              },
+              {
+                "for": {
+                  "in": "markerDate"
+                }
+              }
+            ],
+            "dataReductionAlgorithm": {
+              "top": {
+                "count": 1000
+              }
+            }
+          }
+        }
+      }
+    ],
+    "supportsHighlight": true,
+    "supportsKeyboardFocus": true,
+    "supportsLandingPage": true,
+    "supportsEmptyDataView": true,
+    "supportsMultiVisualSelection": true,
+    "tooltips": {
+      "supportedTypes": {
+        "default": true,
+        "canvas": true
+      },
+      "roles": [
+        "tooltips"
+      ]
+    },
+    "privileges": []
+  },
+  "content": {
+    "js": "var gantt51446F686266453390398E5631FF15A1;(()=>{\"use strict\";var t={210:t=>{t.exports=null},373:(t,e,i)=>{i.d(e,{S:()=>E}),i(210);var a=i(674),s=a.z.Tn,n=a.z.Kx,r=a.z.St,o=a.z.YJ;const l=\"Segoe UI\";class d extends s{preset=new a.z.PA({name:\"preset\",displayName:\"Layout preset\",description:\"Quick style presets that adjust bar height, spacing, and font sizes\",items:[{value:\"default\",displayName:\"Default\"},{value:\"compact\",displayName:\"Compact\"},{value:\"veryCompact\",displayName:\"Very Compact\"},{value:\"spacious\",displayName:\"Spacious\"},{value:\"custom\",displayName:\"Custom\"}],value:{value:\"default\",displayName:\"Default\"}});name=\"stylePresets\";displayName=\"Style Presets\";slices=[this.preset]}class c extends o{useColorPalette=new a.z.jF({name:\"useColorPalette\",displayName:\"Use theme colors\",description:\"Automatically assign colors from Power BI theme based on category or task name\",value:!1});barColor=new a.z.sk({name:\"barColor\",displayName:\"Fill color\",value:{value:\"#0f6cbd\"},instanceKind:3});barOpacity=new a.z.Ap({name:\"barOpacity\",displayName:\"Opacity\",value:100,options:{minValue:{value:0,type:0},maxValue:{value:100,type:1}},instanceKind:3});name=\"colorGroup\";displayName=\"Color\";slices=[this.useColorPalette,this.barColor,this.barOpacity]}class h extends o{showBorder=new a.z.jF({name:\"showBorder\",displayName:\"Show border\",value:!1});borderColor=new a.z.sk({name:\"borderColor\",displayName:\"Border color\",value:{value:\"#0e4775\"},instanceKind:3});borderWidth=new a.z.iB({name:\"borderWidth\",displayName:\"Border width\",value:1,options:{minValue:{value:0,type:0},maxValue:{value:5,type:1}},instanceKind:3});name=\"borderGroup\";displayName=\"Border\";slices=[this.showBorder,this.borderColor,this.borderWidth]}class u extends o{barHeight=new a.z.iB({name:\"barHeight\",displayName:\"Bar height\",value:24,options:{minValue:{value:10,type:0},maxValue:{value:50,type:1}},instanceKind:3});barCornerRadius=new a.z.iB({name:\"barCornerRadius\",displayName:\"Corner radius\",value:8,options:{minValue:{value:0,type:0},maxValue:{value:20,type:1}},instanceKind:3});barPadding=new a.z.iB({name:\"barPadding\",displayName:\"Row spacing\",value:4,options:{minValue:{value:0,type:0},maxValue:{value:20,type:1}},instanceKind:3});name=\"sizeGroup\";displayName=\"Size\";slices=[this.barHeight,this.barCornerRadius,this.barPadding]}class g extends o{showDuration=new a.z.jF({name:\"showDuration\",displayName:\"Show duration\",value:!0});durationFont=new a.z.tc({name:\"durationFont\",displayName:\"Font\",fontFamily:new a.z.Cx({name:\"durationFontFamily\",displayName:\"Font\",value:l}),fontSize:new a.z.iB({name:\"durationFontSize\",displayName:\"Size\",value:11,options:{minValue:{value:6,type:0},maxValue:{value:24,type:1}}}),bold:new a.z.jF({name:\"durationFontBold\",displayName:\"Bold\",value:!0}),italic:new a.z.jF({name:\"durationFontItalic\",displayName:\"Italic\",value:!1}),underline:new a.z.jF({name:\"durationFontUnderline\",displayName:\"Underline\",value:!1})});durationFontColor=new a.z.sk({name:\"durationFontColor\",displayName:\"Color\",value:{value:\"#ffffff\"},instanceKind:3});autoContrastWithBar=new a.z.jF({name:\"durationAutoContrastWithBar\",displayName:\"Auto-contrast\",description:\"Automatically adjust duration label color based on bar color for better contrast\",value:!0});name=\"durationGroup\";displayName=\"Duration label\";slices=[this.showDuration,this.durationFont,this.durationFontColor,this.autoContrastWithBar]}class p extends o{slippedColor=new a.z.sk({name:\"slippedColor\",displayName:\"Slipped color\",description:\"Color for tasks that have slipped (use the toggle button at the bottom of the chart to enable)\",value:{value:\"#c4314b\"},instanceKind:3});name=\"slippedGroup\";displayName=\"Slipped tasks\";slices=[this.slippedColor]}class m extends o{showProgress=new a.z.jF({name:\"showProgress\",displayName:\"Show progress\",description:\"Display progress percentage as an overlay bar on task bars\",value:!0});progressFormat=new a.z.PA({name:\"progressFormat\",displayName:\"Input format\",description:\"Specify how progress values are provided in your data\",items:[{value:\"percent\",displayName:\"Whole number (0-100)\"},{value:\"decimal\",displayName:\"Percentage (0%-100%)\"}],value:{value:\"percent\",displayName:\"Whole number (0-100)\"}});progressColor=new a.z.sk({name:\"progressColor\",displayName:\"Color\",value:{value:\"#ffffff\"},instanceKind:3});progressOpacity=new a.z.Ap({name:\"progressOpacity\",displayName:\"Opacity\",value:40,options:{minValue:{value:10,type:0},maxValue:{value:100,type:1}},instanceKind:3});progressBarHeight=new a.z.Ap({name:\"progressBarHeight\",displayName:\"Bar height %\",description:\"Height of progress bar as percentage of task bar height\",value:100,options:{minValue:{value:20,type:0},maxValue:{value:100,type:1}},instanceKind:3});progressPattern=new a.z.PA({name:\"progressPattern\",displayName:\"Pattern\",items:[{value:\"solid\",displayName:\"Solid\"},{value:\"stripes\",displayName:\"Diagonal stripes\"},{value:\"dots\",displayName:\"Dots\"},{value:\"crosshatch\",displayName:\"Crosshatch\"},{value:\"horizontal\",displayName:\"Horizontal lines\"}],value:{value:\"solid\",displayName:\"Solid\"}});name=\"progressGroup\";displayName=\"Progress\";slices=[this.showProgress,this.progressFormat,this.progressColor,this.progressOpacity,this.progressBarHeight,this.progressPattern]}class v extends r{colorGroup=new c(Object());borderGroup=new h(Object());sizeGroup=new u(Object());durationGroup=new g(Object());slippedGroup=new p(Object());progressGroup=new m(Object());name=\"taskBars\";displayName=\"Task bars\";groups=[this.colorGroup,this.borderGroup,this.sizeGroup,this.durationGroup,this.slippedGroup,this.progressGroup]}class y extends s{shape=new a.z.PA({name:\"shape\",displayName:\"Shape\",items:[{value:\"diamond\",displayName:\"Diamond\"},{value:\"circle\",displayName:\"Circle\"},{value:\"square\",displayName:\"Square\"},{value:\"triangle\",displayName:\"Triangle\"},{value:\"star\",displayName:\"Star\"}],value:{value:\"diamond\",displayName:\"Diamond\"}});color=new a.z.sk({name:\"color\",displayName:\"Milestone color\",value:{value:\"#c4314b\"},instanceKind:3});size=new a.z.iB({name:\"size\",displayName:\"Milestone size\",value:12,options:{minValue:{value:6,type:0},maxValue:{value:24,type:1}},instanceKind:3});name=\"milestones\";displayName=\"Milestones\";slices=[this.shape,this.color,this.size]}class w extends s{show=new a.z.jF({name:\"show\",displayName:void 0,value:!0});font=new a.z.tc({name:\"font\",displayName:\"Font\",fontFamily:new a.z.Cx({name:\"fontFamily\",displayName:\"Font\",value:l}),fontSize:new a.z.iB({name:\"fontSize\",displayName:\"Size\",value:12,options:{minValue:{value:8,type:0},maxValue:{value:24,type:1}}}),bold:new a.z.jF({name:\"fontBold\",displayName:\"Bold\",value:!1}),italic:new a.z.jF({name:\"fontItalic\",displayName:\"Italic\",value:!1}),underline:new a.z.jF({name:\"fontUnderline\",displayName:\"Underline\",value:!1})});fontColor=new a.z.sk({name:\"fontColor\",displayName:\"Color\",value:{value:\"#242424\"},instanceKind:3});maxWidth=new a.z.iB({name:\"maxWidth\",displayName:\"Max width\",description:\"Maximum width of task labels in pixels\",value:140,options:{minValue:{value:50,type:0},maxValue:{value:500,type:1}},instanceKind:3});wordWrap=new a.z.jF({name:\"wordWrap\",displayName:\"Word wrap\",description:\"Wrap long task names to multiple lines instead of truncating\",value:!1});selectionHighlightColor=new a.z.sk({name:\"selectionHighlightColor\",displayName:\"Selection highlight color\",value:{value:\"#ebf3fc\"},instanceKind:3});name=\"taskLabels\";displayName=\"Task labels\";topLevelSlice=this.show;slices=[this.font,this.fontColor,this.maxWidth,this.wordWrap,this.selectionHighlightColor]}class f extends o{showVerticalLines=new a.z.jF({name:\"showVerticalLines\",displayName:\"Show vertical grid lines\",value:!0});verticalLineColor=new a.z.sk({name:\"verticalLineColor\",displayName:\"Line color\",value:{value:\"#e0e0e0\"}});verticalLineStyle=new a.z.PA({name:\"verticalLineStyle\",displayName:\"Line style\",items:[{value:\"solid\",displayName:\"Solid\"},{value:\"dashed\",displayName:\"Dashed\"},{value:\"dotted\",displayName:\"Dotted\"}],value:{value:\"dashed\",displayName:\"Dashed\"}});name=\"verticalGroup\";displayName=\"Vertical Grid Lines\";slices=[this.showVerticalLines,this.verticalLineColor,this.verticalLineStyle]}class b extends o{showDivider=new a.z.jF({name:\"showDivider\",displayName:\"Show divider line\",description:\"Vertical line separating labels from chart\",value:!0});dividerColor=new a.z.sk({name:\"dividerColor\",displayName:\"Divider color\",value:{value:\"#e0e0e0\"},instanceKind:3});dividerWidth=new a.z.iB({name:\"dividerWidth\",displayName:\"Divider width\",value:1,options:{minValue:{value:1,type:0},maxValue:{value:5,type:1}},instanceKind:3});dividerStyle=new a.z.PA({name:\"dividerStyle\",displayName:\"Divider style\",items:[{value:\"solid\",displayName:\"Solid\"},{value:\"dashed\",displayName:\"Dashed\"},{value:\"dotted\",displayName:\"Dotted\"}],value:{value:\"solid\",displayName:\"Solid\"}});name=\"dividerGroup\";displayName=\"Label Divider\";slices=[this.showDivider,this.dividerColor,this.dividerWidth,this.dividerStyle]}class S extends o{showRowBanding=new a.z.jF({name:\"showRowBanding\",displayName:\"Show row banding\",description:\"Display alternating row colors\",value:!0});evenRowColor=new a.z.sk({name:\"evenRowColor\",displayName:\"Even row color\",value:{value:\"#ffffff\"},instanceKind:3});oddRowColor=new a.z.sk({name:\"oddRowColor\",displayName:\"Odd row color\",value:{value:\"#f9f9f9\"},instanceKind:3});name=\"rowBandingGroup\";displayName=\"Row Banding\";slices=[this.showRowBanding,this.evenRowColor,this.oddRowColor]}class C extends o{shadeWeekends=new a.z.jF({name:\"shadeWeekends\",displayName:\"Shade weekends\",description:\"Highlight Saturday and Sunday with a background color\",value:!1});shadeDays=new a.z.ks({name:\"shadeDays\",displayName:\"Shade specific days\",description:\"Enter day names separated by commas (e.g., Monday, Friday). Accepts full names (Monday) or abbreviations (Mon).\",value:\"\",placeholder:\"\"});shadeColor=new a.z.sk({name:\"shadeColor\",displayName:\"Shade color\",description:\"Background color for shaded days\",value:{value:\"#f0f0f0\"}});shadeOpacity=new a.z.Ap({name:\"shadeOpacity\",displayName:\"Shade opacity\",value:30,options:{minValue:{value:10,type:0},maxValue:{value:100,type:1}},instanceKind:3});name=\"dayShadingGroup\";displayName=\"Day Shading\";slices=[this.shadeWeekends,this.shadeDays,this.shadeColor,this.shadeOpacity]}class A extends r{show=new a.z.jF({name:\"show\",displayName:void 0,value:!0});verticalGroup=new f(Object.create(null));dividerGroup=new b(Object.create(null));rowBandingGroup=new S(Object.create(null));dayShadingGroup=new C(Object.create(null));name=\"gridLines\";displayName=\"Grid Lines\";topLevelSlice=this.show;groups=[this.verticalGroup,this.dividerGroup,this.rowBandingGroup,this.dayShadingGroup]}class N extends s{show=new a.z.jF({name:\"show\",displayName:void 0,value:!0});font=new a.z.tc({name:\"font\",displayName:\"Font\",fontFamily:new a.z.Cx({name:\"fontFamily\",displayName:\"Font\",value:l}),fontSize:new a.z.iB({name:\"fontSize\",displayName:\"Size\",value:14,options:{minValue:{value:10,type:0},maxValue:{value:24,type:1}}}),bold:new a.z.jF({name:\"fontBold\",displayName:\"Bold\",value:!1}),italic:new a.z.jF({name:\"fontItalic\",displayName:\"Italic\",value:!1}),underline:new a.z.jF({name:\"fontUnderline\",displayName:\"Underline\",value:!1})});fontColor=new a.z.sk({name:\"fontColor\",displayName:\"Color\",value:{value:\"#242424\"},instanceKind:3});name=\"dateHeader\";displayName=\"Date header\";topLevelSlice=this.show;slices=[this.font,this.fontColor]}class x extends s{show=new a.z.jF({name:\"show\",displayName:void 0,value:!0});lineColor=new a.z.sk({name:\"lineColor\",displayName:\"Line color\",value:{value:\"#616161\"},instanceKind:3});lineWidth=new a.z.iB({name:\"lineWidth\",displayName:\"Line width\",value:1,options:{minValue:{value:1,type:0},maxValue:{value:5,type:1}},instanceKind:3});lineStyle=new a.z.PA({name:\"lineStyle\",displayName:\"Line style\",items:[{value:\"solid\",displayName:\"Solid\"},{value:\"dashed\",displayName:\"Dashed\"},{value:\"dotted\",displayName:\"Dotted\"}],value:{value:\"solid\",displayName:\"Solid\"}});pathStyle=new a.z.PA({name:\"pathStyle\",displayName:\"Path style\",items:[{value:\"curved\",displayName:\"Curved\"},{value:\"straight\",displayName:\"Straight (elbow)\"},{value:\"straightDown\",displayName:\"Straight down\"}],value:{value:\"straightDown\",displayName:\"Straight down\"}});arrowSize=new a.z.iB({name:\"arrowSize\",displayName:\"Arrow size\",value:8,options:{minValue:{value:4,type:0},maxValue:{value:16,type:1}},instanceKind:3});name=\"dependencies\";displayName=\"Dependency lines\";topLevelSlice=this.show;slices=[this.lineColor,this.lineWidth,this.lineStyle,this.pathStyle,this.arrowSize]}class D extends s{borderColor=new a.z.sk({name:\"borderColor\",displayName:\"Border color\",value:{value:\"#c4314b\"},instanceKind:3});borderWidth=new a.z.iB({name:\"borderWidth\",displayName:\"Border width\",value:2,options:{minValue:{value:1,type:0},maxValue:{value:6,type:1}},instanceKind:3});showSummary=new a.z.jF({name:\"showSummary\",displayName:\"Show duration summary\",value:!0});name=\"criticalPath\";displayName=\"Critical path\";slices=[this.borderColor,this.borderWidth,this.showSummary]}class k extends s{show=new a.z.jF({name:\"show\",displayName:void 0,value:!0});headerFont=new a.z.tc({name:\"headerFont\",displayName:\"Header font\",fontFamily:new a.z.Cx({name:\"headerFontFamily\",displayName:\"Font\",value:l}),fontSize:new a.z.iB({name:\"headerFontSize\",displayName:\"Size\",value:13,options:{minValue:{value:10,type:0},maxValue:{value:24,type:1}}}),bold:new a.z.jF({name:\"headerFontBold\",displayName:\"Bold\",value:!0}),italic:new a.z.jF({name:\"headerFontItalic\",displayName:\"Italic\",value:!1}),underline:new a.z.jF({name:\"headerFontUnderline\",displayName:\"Underline\",value:!1})});headerColor=new a.z.sk({name:\"headerColor\",displayName:\"Header color\",value:{value:\"#424242\"},instanceKind:3});startExpanded=new a.z.jF({name:\"startExpanded\",displayName:\"Start expanded\",value:!0});name=\"categories\";displayName=\"Categories\";topLevelSlice=this.show;slices=[this.headerFont,this.headerColor,this.startExpanded]}class z extends s{show=new a.z.jF({name:\"show\",displayName:void 0,value:!0});lineColor=new a.z.sk({name:\"lineColor\",displayName:\"Line color\",value:{value:\"#c4314b\"},instanceKind:3});lineWidth=new a.z.iB({name:\"lineWidth\",displayName:\"Line width\",value:2,options:{minValue:{value:1,type:0},maxValue:{value:6,type:1}},instanceKind:3});lineStyle=new a.z.PA({name:\"lineStyle\",displayName:\"Line style\",items:[{value:\"solid\",displayName:\"Solid\"},{value:\"dashed\",displayName:\"Dashed\"},{value:\"dotted\",displayName:\"Dotted\"}],value:{value:\"solid\",displayName:\"Solid\"}});showLabel=new a.z.jF({name:\"showLabel\",displayName:\"Show label\",value:!0});labelText=new a.z.ks({name:\"labelText\",displayName:\"Label text\",value:\"Today\",placeholder:\"Today\"});dayOffset=new a.z.iB({name:\"dayOffset\",displayName:\"Day offset\",description:\"Shift the marker line by this number of days (positive = future, negative = past)\",value:0,options:{minValue:{value:-365,type:0},maxValue:{value:365,type:1}},instanceKind:3});name=\"todayLine\";displayName=\"Today line\";topLevelSlice=this.show;slices=[this.lineColor,this.lineWidth,this.lineStyle,this.showLabel,this.labelText,this.dayOffset]}class E extends n{stylePresetsCard=new d;taskBarsCard=new v;milestonesCard=new y;taskLabelsCard=new w;gridLinesCard=new A;dateHeaderCard=new N;dependenciesCard=new x;criticalPathCard=new D;categoriesCard=new k;todayLineCard=new z;cards=[this.stylePresetsCard,this.taskBarsCard,this.milestonesCard,this.taskLabelsCard,this.gridLinesCard,this.dateHeaderCard,this.dependenciesCard,this.criticalPathCard,this.categoriesCard,this.todayLineCard]}},639:(t,e,i)=>{function a(t,e){return{objectName:t,propertyName:e.name,selector:e.selector,altConstantValueSelector:e.altConstantSelector,instanceKind:e.instanceKind}}function s(t,e,i){return null==e||\"object\"==typeof e&&!e.solid?i:e.solid?{value:null==e?void 0:e.solid.color}:\"Dropdown\"===(null==t?void 0:t.type)&&t.items?t.items.find(t=>t.value==e):e}i.d(e,{D:()=>s,y:()=>a})},667:(t,e,i)=>{i.d(e,{A:()=>s});var a=i(754);const s=class{constructor(t){this.localizationManager=t}populateFormattingSettingsModel(t,e){var i,s;const n=new t,r=null===(i=null==e?void 0:e.metadata)||void 0===i?void 0:i.objects;return r&&(null===(s=n.cards)||void 0===s||s.forEach(t=>{var e;t instanceof a.St&&(null===(e=t.topLevelSlice)||void 0===e||e.setPropertiesValues(r,t.name)),(t instanceof a.Tn?[t]:t.groups).forEach(e=>{var i,a,s,n;null===(i=e.topLevelSlice)||void 0===i||i.setPropertiesValues(r,t.name),null===(a=null==e?void 0:e.slices)||void 0===a||a.forEach(e=>{null==e||e.setPropertiesValues(r,t.name)}),null===(n=null===(s=null==e?void 0:e.container)||void 0===s?void 0:s.containerItems)||void 0===n||n.forEach(e=>{var i;null===(i=null==e?void 0:e.slices)||void 0===i||i.forEach(e=>{null==e||e.setPropertiesValues(r,t.name)})})})})),n}buildFormattingModel(t){const e={cards:[]};return t.cards.filter(({visible:t=!0})=>t).forEach(t=>{var i;const s={displayName:this.localizationManager&&t.displayNameKey?this.localizationManager.getDisplayName(t.displayNameKey):t.displayName,description:this.localizationManager&&t.descriptionKey?this.localizationManager.getDisplayName(t.descriptionKey):t.description,groups:[],uid:t.name+\"-card\",analyticsPane:t.analyticsPane},n=t.name;if(t.topLevelSlice){const e=t.topLevelSlice.getFormattingSlice(n,this.localizationManager);e.suppressDisplayName=!0,s.topLevelToggle=e}null===(i=t.onPreProcess)||void 0===i||i.call(t);const r=t instanceof a.Tn;(r?[t].filter(({visible:t=!0})=>t):t.groups.filter(({visible:t=!0})=>t)).forEach(t=>{const e=t.name+\"-group\",i={displayName:r?void 0:this.localizationManager&&t.displayNameKey?this.localizationManager.getDisplayName(t.displayNameKey):t.displayName,description:r?void 0:this.localizationManager&&t.descriptionKey?this.localizationManager.getDisplayName(t.descriptionKey):t.description,slices:[],uid:e,collapsible:t.collapsible,delaySaveSlices:t.delaySaveSlices,disabled:t.disabled,disabledReason:t.disabledReason};s.groups.push(i);const a={};if(t.container){const s=t.container,r=e+\"-container\",o={displayName:this.localizationManager&&s.displayNameKey?this.localizationManager.getDisplayName(s.displayNameKey):s.displayName,description:this.localizationManager&&s.descriptionKey?this.localizationManager.getDisplayName(s.descriptionKey):s.description,containerItems:[],uid:r};s.containerItems.forEach(t=>{const e=t.displayNameKey?t.displayNameKey:t.displayName,i=r+e,s={displayName:this.localizationManager&&t.displayNameKey?this.localizationManager.getDisplayName(t.displayNameKey):t.displayName,slices:[],uid:i};this.buildFormattingSlices({slices:t.slices,objectName:n,sliceNames:a,formattingSlices:s.slices}),o.containerItems.push(s)}),i.container=o}if(t.slices){if(t.topLevelSlice){const e=t.topLevelSlice.getFormattingSlice(n,this.localizationManager);e.suppressDisplayName=!0,(null==i.displayName?s:i).topLevelToggle=e}this.buildFormattingSlices({slices:t.slices,objectName:n,sliceNames:a,formattingSlices:i.slices})}}),s.revertToDefaultDescriptors=this.getRevertToDefaultDescriptor(t),e.cards.push(s)}),e}buildFormattingSlices({slices:t,objectName:e,sliceNames:i,formattingSlices:a}){null==t||t.filter(({visible:t=!0})=>t).forEach(t=>{const s=null==t?void 0:t.getFormattingSlice(e,this.localizationManager);s&&(void 0===i[t.name]?i[t.name]=0:(i[t.name]++,s.uid=`${s.uid}-${i[t.name]}`),a.push(s))})}getRevertToDefaultDescriptor(t){var e;const i={},s=[];let n,r=[];return t instanceof a.St&&t.topLevelSlice&&s.push(...null===(e=t.topLevelSlice)||void 0===e?void 0:e.getRevertToDefaultDescriptor(t.name)),(t instanceof a.Tn?[t].filter(({visible:t=!0})=>t):t.groups.filter(({visible:t=!0})=>t)).forEach(e=>{var a,o;n=this.getSlicesRevertToDefaultDescriptor(t.name,e.slices,i,e.topLevelSlice),null===(o=null===(a=e.container)||void 0===a?void 0:a.containerItems)||void 0===o||o.forEach(e=>{r=r.concat(this.getSlicesRevertToDefaultDescriptor(t.name,e.slices,i))}),s.push(...n.concat(r))}),s}getSlicesRevertToDefaultDescriptor(t,e,i,a){let s=[];return a&&(i[a.name]=!0,s=s.concat(a.getRevertToDefaultDescriptor(t))),null==e||e.forEach(e=>{e&&!i[e.name]&&(i[e.name]=!0,s=s.concat(e.getRevertToDefaultDescriptor(t)))}),s}}},674:(t,e,i)=>{i.d(e,{O:()=>s.A,z:()=>a});var a=i(754),s=i(667)},754:(t,e,i)=>{i.d(e,{Ap:()=>p,Cx:()=>y,Kx:()=>r,PA:()=>m,St:()=>o,Tn:()=>d,YJ:()=>l,iB:()=>g,jF:()=>h,ks:()=>v,sk:()=>u,tc:()=>f});var a=i(639);class s{}class n extends s{}class r{}class o extends s{}class l extends n{constructor(t){super(),Object.assign(this,t)}}class d extends n{}class c extends s{constructor(t){super(),Object.assign(this,t)}getFormattingSlice(t,e){const i=this.type,a=this.name,s={displayName:e&&this.displayNameKey?e.getDisplayName(this.displayNameKey):this.displayName,description:e&&this.descriptionKey?e.getDisplayName(this.descriptionKey):this.description,uid:t+\"-\"+a};return Object.assign(Object.assign({},s),{control:{type:i,properties:this.getFormattingComponent(t,e)}})}getFormattingComponent(t,e){return{descriptor:a.y(t,this),value:this.value}}getRevertToDefaultDescriptor(t){return[{objectName:t,propertyName:this.name}]}setPropertiesValues(t,e){var i;const s=null===(i=null==t?void 0:t[e])||void 0===i?void 0:i[this.name];this.value=a.D(this,s,this.value)}}class h extends c{constructor(t){super(t),this.type=\"ToggleSwitch\"}}class u extends c{constructor(t){super(t),this.type=\"ColorPicker\"}getFormattingComponent(t){return Object.assign(Object.assign({},super.getFormattingComponent(t)),{defaultColor:this.defaultColor,isNoFillItemSupported:this.isNoFillItemSupported})}}class g extends c{constructor(t){super(t),this.type=\"NumUpDown\"}getFormattingComponent(t){return Object.assign(Object.assign({},super.getFormattingComponent(t)),{options:this.options})}}class p extends g{constructor(){super(...arguments),this.type=\"Slider\"}}class m extends c{constructor(t){super(t),this.type=\"Dropdown\"}getFormattingComponent(t){return Object.assign(Object.assign({},super.getFormattingComponent(t)),{items:this.items})}}class v extends c{constructor(t){super(t),this.type=\"TextInput\"}getFormattingComponent(t){return Object.assign(Object.assign({},super.getFormattingComponent(t)),{placeholder:this.placeholder})}}class y extends c{constructor(){super(...arguments),this.type=\"FontPicker\"}}class w extends s{constructor(t){super(),Object.assign(this,t)}getFormattingSlice(t,e){const i=this.type,a=this.name,s={displayName:e&&this.displayNameKey?e.getDisplayName(this.displayNameKey):this.displayName,description:e&&this.descriptionKey?e.getDisplayName(this.descriptionKey):this.description,uid:t+\"-\"+a};return Object.assign(Object.assign({},s),{control:{type:i,properties:this.getFormattingComponent(t)}})}}class f extends w{constructor(t){super(t),this.type=\"FontControl\"}getFormattingComponent(t){var e,i,a;return{fontFamily:this.fontFamily.getFormattingComponent(t),fontSize:this.fontSize.getFormattingComponent(t),bold:null===(e=this.bold)||void 0===e?void 0:e.getFormattingComponent(t),italic:null===(i=this.italic)||void 0===i?void 0:i.getFormattingComponent(t),underline:null===(a=this.underline)||void 0===a?void 0:a.getFormattingComponent(t)}}getRevertToDefaultDescriptor(t){return this.fontFamily.getRevertToDefaultDescriptor(t).concat(this.fontSize.getRevertToDefaultDescriptor(t)).concat(this.bold?this.bold.getRevertToDefaultDescriptor(t):[]).concat(this.italic?this.italic.getRevertToDefaultDescriptor(t):[]).concat(this.underline?this.underline.getRevertToDefaultDescriptor(t):[])}setPropertiesValues(t,e){var i,a,s;this.fontFamily.setPropertiesValues(t,e),this.fontSize.setPropertiesValues(t,e),null===(i=this.bold)||void 0===i||i.setPropertiesValues(t,e),null===(a=this.italic)||void 0===a||a.setPropertiesValues(t,e),null===(s=this.underline)||void 0===s||s.setPropertiesValues(t,e)}}},900:(t,e,i)=>{i.d(e,{b:()=>n});var a=i(674),s=i(373);class n{target;container;formattingSettings;formattingSettingsService;host;selectionManager;selectedRowIndices=new Set;collapsedCategories=new Set;categoriesInitialized=!1;allowInteractions=!0;criticalPathToggleState=null;slippageToggleState=null;customMarkerDates=[];isHighContrast=!1;highContrastForeground=\"\";highContrastBackground=\"\";highContrastForegroundSelected=\"\";isLandingPageOn=!1;landingPageRemoved=!1;landingPage=null;localizationManager;events;constructor(t){this.formattingSettingsService=new a.O,this.target=t.element,this.host=t.host,this.selectionManager=this.host.createSelectionManager(),this.localizationManager=this.host.createLocalizationManager(),this.events=this.host.eventService,this.container=document.createElement(\"div\"),this.container.className=\"gantt-container\",this.target.appendChild(this.container)}update(t){this.events.renderingStarted(t),this.allowInteractions=this.host.hostCapabilities?.allowInteractions??!0,this.formattingSettings=this.formattingSettingsService.populateFormattingSettingsModel(s.S,t.dataViews[0]),this.handleLandingPage(t);const e=t.dataViews[0];if(!e||!e.table||!e.table.rows||0===e.table.rows.length)return void this.events.renderingFinished(t);for(;this.container.firstChild;)this.container.removeChild(this.container.firstChild);const i=this.parseData(e);if(0===i.length)return this.showMessage(\"No valid task data found\"),void this.events.renderingFinished(t);this.adjustTasksForDependencies(i),this.calculateCriticalPath(i),this.renderGantt(i,t.viewport.width,t.viewport.height),this.events.renderingFinished(t)}parseData(t){const e=[],i=t.table;if(!i||!i.columns||i.columns.length<2)return e;let a=-1,s=-1;const n=[];let r=-1,o=-1,l=-1,d=-1;const c=[],h=[];if(i.columns.forEach((t,e)=>{t.roles&&(t.roles.taskId&&(a=e),t.roles.category&&(s=e),t.roles.task&&n.push({index:e,displayName:t.displayName}),t.roles.startDate&&(r=e),t.roles.endDate&&(o=e),t.roles.dependencies&&(l=e),t.roles.progress&&(d=e),t.roles.markerDate&&c.push({index:e,displayName:t.displayName}),t.roles.tooltips&&h.push({index:e,displayName:t.displayName}))}),this.customMarkerDates=[],c.length>0&&i.rows.length>0)for(const t of c){const e=new Set;for(const a of i.rows){const i=a[t.index];if(null!=i){const a=this.parseDate(i);if(a){const i=a.getTime();e.has(i)||(e.add(i),this.customMarkerDates.push({date:a,label:t.displayName}))}}}}if(0===n.length||-1===r)return e;for(let c=0;c<i.rows.length;c++){const u=i.rows[c],g=-1!==a&&null!=u[a]?String(u[a]).trim():null,p=-1!==s&&null!=u[s]?String(u[s]).trim():null,m=n.map(t=>({displayName:t.displayName,value:null!=u[t.index]?String(u[t.index]):\"\"})).filter(t=>\"\"!==t.value),v=m.length>0?m[0].value:\"\",y=this.parseDate(u[r]),w=-1!==o?this.parseDate(u[o]):null;let f=[];if(-1!==l&&null!=u[l]){const t=String(u[l]).trim();t&&(f=t.split(\",\").map(t=>t.trim()).filter(t=>t.length>0))}const b=h.map(t=>({displayName:t.displayName,value:null!=u[t.index]?String(u[t.index]):\"\"}));let S=null;if(-1!==d&&null!=u[d]){const t=Number(u[d]);if(!isNaN(t)){let e;e=\"decimal\"===(this.formattingSettings?.taskBarsCard?.progressGroup?.progressFormat?.value?.value||\"percent\")?100*t:t,S=Math.max(0,Math.min(100,e))}}if(v&&y){const i=w||y,a=!w||y.getTime()===w.getTime(),s=this.host.createSelectionIdBuilder().withTable(t.table,c).createSelectionId(),n=p||v,r=this.host.colorPalette.getColor(n).value;e.push({taskId:g,name:v,category:p,taskLabels:m,startDate:y,endDate:i,originalStartDate:new Date(y),originalEndDate:new Date(i),dependencies:f,tooltipFields:b,isMilestone:a,wasPushed:!1,isOnCriticalPath:!1,earliestStart:0,earliestFinish:0,latestStart:0,latestFinish:0,float:0,selectionId:s,rowIndex:c,color:r,progress:S})}}const u=new Map;return e.forEach(t=>{if(t.category){const e=u.get(t.category);(void 0===e||t.startDate.getTime()<e)&&u.set(t.category,t.startDate.getTime())}}),e.sort((t,e)=>t.category&&!e.category?-1:!t.category&&e.category?1:t.category&&e.category&&t.category!==e.category?(u.get(t.category)||0)-(u.get(e.category)||0):t.startDate.getTime()-e.startDate.getTime()),e}adjustTasksForDependencies(t){const e=new Map;t.forEach(t=>{t.taskId&&e.set(t.taskId,t)});let i=!0,a=0;for(;i&&a<100;){i=!1,a++;for(const a of t){if(0===a.dependencies.length)continue;let t=null;for(const i of a.dependencies){const a=e.get(i);a&&(!t||a.endDate>t)&&(t=a.endDate)}if(t&&t>a.startDate){const e=new Date(t);e.setDate(e.getDate()+1);const s=a.endDate.getTime()-a.startDate.getTime();a.startDate=e,a.endDate=new Date(e.getTime()+s),a.wasPushed=!0,i=!0}}}}getRelativeLuminance(t){const e=t.replace(\"#\",\"\"),i=parseInt(e.substring(0,2),16)/255,a=parseInt(e.substring(2,4),16)/255,s=parseInt(e.substring(4,6),16)/255;return.2126*(i<=.03928?i/12.92:Math.pow((i+.055)/1.055,2.4))+.7152*(a<=.03928?a/12.92:Math.pow((a+.055)/1.055,2.4))+.0722*(s<=.03928?s/12.92:Math.pow((s+.055)/1.055,2.4))}getContrastingTextColor(t){return this.getRelativeLuminance(t)>.179?\"#242424\":\"#ffffff\"}blendColorWithWhite(t,e){const i=t.replace(\"#\",\"\"),a=parseInt(i.substring(0,2),16),s=parseInt(i.substring(2,4),16),n=parseInt(i.substring(4,6),16),r=Math.round(a*e+255*(1-e)),o=Math.round(s*e+255*(1-e)),l=Math.round(n*e+255*(1-e));return`#${r.toString(16).padStart(2,\"0\")}${o.toString(16).padStart(2,\"0\")}${l.toString(16).padStart(2,\"0\")}`}calculateCriticalPath(t){if(0===t.length)return;t.forEach(t=>{t.isOnCriticalPath=!1,t.earliestStart=0,t.earliestFinish=0,t.latestStart=0,t.latestFinish=0,t.float=0});const e=new Map;t.forEach(t=>{t.taskId&&e.set(String(t.taskId).trim(),t)});const i=Math.min(...t.map(t=>t.startDate.getTime())),a=864e5,s=new Set,n=t=>{if(s.has(t))return;for(const i of t.dependencies){const t=e.get(String(i).trim());t&&!s.has(t)&&n(t)}const r=Math.max(1,Math.ceil((t.endDate.getTime()-t.startDate.getTime())/a)+1);let o=0;for(const i of t.dependencies){const t=e.get(String(i).trim());t&&(o=Math.max(o,t.earliestFinish))}t.earliestStart=o>0?o:Math.ceil((t.startDate.getTime()-i)/a),t.earliestFinish=t.earliestStart+r,s.add(t)};t.forEach(t=>n(t));const r=Math.max(...t.map(t=>t.earliestFinish)),o=new Map;for(const e of t)for(const t of e.dependencies){const i=String(t).trim();o.has(i)||o.set(i,[]),o.get(i).push(e)}const l=[...t].sort((t,e)=>e.earliestFinish-t.earliestFinish);for(const t of l){const e=Math.max(1,Math.ceil((t.endDate.getTime()-t.startDate.getTime())/a)+1),i=t.taskId?String(t.taskId).trim():\"\",s=i&&o.get(i)||[];0===s.length?t.latestFinish=r:t.latestFinish=Math.min(...s.map(t=>t.latestStart)),t.latestStart=t.latestFinish-e,t.float=t.latestStart-t.earliestStart,t.isOnCriticalPath=Math.abs(t.float)<1}t.filter(t=>Math.abs(t.earliestFinish-r)<1).forEach(t=>{Math.abs(t.float)<1&&(t.isOnCriticalPath=!0)});const d=t=>{for(const i of t.dependencies){const a=e.get(String(i).trim());if(a){const e=Math.abs(a.earliestFinish-t.earliestStart)<1,i=Math.abs(a.float)<1;!e&&!i||a.isOnCriticalPath||(a.isOnCriticalPath=!0,d(a))}}};t.filter(t=>t.isOnCriticalPath).forEach(t=>d(t))}parseDate(t){if(null==t)return null;const e=new Date(t);return isNaN(e.getTime())?null:e}handleLandingPage(t){if(t.dataViews&&t.dataViews[0]?.table?.rows?.length>0)this.isLandingPageOn&&!this.landingPageRemoved&&(this.landingPageRemoved=!0,this.isLandingPageOn=!1,this.landingPage&&this.landingPage.parentNode&&this.landingPage.parentNode.removeChild(this.landingPage),this.landingPage=null);else if(!this.isLandingPageOn){for(this.isLandingPageOn=!0,this.landingPageRemoved=!1;this.container.firstChild;)this.container.removeChild(this.container.firstChild);this.landingPage=this.createLandingPage(),this.container.appendChild(this.landingPage)}}createLandingPage(){const t=document.createElement(\"div\");t.className=\"gantt-landing-page\";const e=document.createElement(\"div\");e.className=\"gantt-landing-icon\";const i=document.createElementNS(\"http://www.w3.org/2000/svg\",\"svg\");i.setAttribute(\"width\",\"64\"),i.setAttribute(\"height\",\"64\"),i.setAttribute(\"viewBox\",\"0 0 24 24\"),i.setAttribute(\"fill\",\"none\");const a=document.createElementNS(\"http://www.w3.org/2000/svg\",\"rect\");a.setAttribute(\"x\",\"3\"),a.setAttribute(\"y\",\"4\"),a.setAttribute(\"width\",\"18\"),a.setAttribute(\"height\",\"2\"),a.setAttribute(\"rx\",\"1\"),a.setAttribute(\"fill\",\"currentColor\"),a.setAttribute(\"opacity\",\"0.3\"),i.appendChild(a);const s=document.createElementNS(\"http://www.w3.org/2000/svg\",\"rect\");s.setAttribute(\"x\",\"3\"),s.setAttribute(\"y\",\"8\"),s.setAttribute(\"width\",\"12\"),s.setAttribute(\"height\",\"3\"),s.setAttribute(\"rx\",\"1\"),s.setAttribute(\"fill\",\"currentColor\"),i.appendChild(s);const n=document.createElementNS(\"http://www.w3.org/2000/svg\",\"rect\");n.setAttribute(\"x\",\"7\"),n.setAttribute(\"y\",\"13\"),n.setAttribute(\"width\",\"10\"),n.setAttribute(\"height\",\"3\"),n.setAttribute(\"rx\",\"1\"),n.setAttribute(\"fill\",\"currentColor\"),n.setAttribute(\"opacity\",\"0.7\"),i.appendChild(n);const r=document.createElementNS(\"http://www.w3.org/2000/svg\",\"rect\");r.setAttribute(\"x\",\"5\"),r.setAttribute(\"y\",\"18\"),r.setAttribute(\"width\",\"14\"),r.setAttribute(\"height\",\"3\"),r.setAttribute(\"rx\",\"1\"),r.setAttribute(\"fill\",\"currentColor\"),r.setAttribute(\"opacity\",\"0.5\"),i.appendChild(r),e.appendChild(i),t.appendChild(e);const o=document.createElement(\"h2\");o.className=\"gantt-landing-title\",o.textContent=this.localizationManager.getDisplayName(\"Landing_Title\"),t.appendChild(o);const l=document.createElement(\"div\");l.className=\"gantt-landing-instructions\";const d=document.createElement(\"p\");d.textContent=this.localizationManager.getDisplayName(\"Landing_Instructions\"),l.appendChild(d);const c=document.createElement(\"ul\"),h=this.localizationManager.getDisplayName(\"Landing_Required\"),u=this.localizationManager.getDisplayName(\"Landing_Optional\");[{name:this.localizationManager.getDisplayName(\"Role_Task\"),required:!0,desc:this.localizationManager.getDisplayName(\"Landing_Task_Desc\")},{name:this.localizationManager.getDisplayName(\"Role_StartDate\"),required:!0,desc:this.localizationManager.getDisplayName(\"Landing_StartDate_Desc\")},{name:this.localizationManager.getDisplayName(\"Role_EndDate\"),required:!1,desc:this.localizationManager.getDisplayName(\"Landing_EndDate_Desc\")},{name:this.localizationManager.getDisplayName(\"Role_Category\"),required:!1,desc:this.localizationManager.getDisplayName(\"Landing_Category_Desc\")},{name:this.localizationManager.getDisplayName(\"Role_TaskId\"),required:!1,desc:this.localizationManager.getDisplayName(\"Landing_TaskId_Desc\")},{name:this.localizationManager.getDisplayName(\"Role_Dependencies\"),required:!1,desc:this.localizationManager.getDisplayName(\"Landing_Dependencies_Desc\")},{name:this.localizationManager.getDisplayName(\"Role_Progress\"),required:!1,desc:this.localizationManager.getDisplayName(\"Landing_Progress_Desc\")},{name:this.localizationManager.getDisplayName(\"Role_MarkerDate\"),required:!1,desc:this.localizationManager.getDisplayName(\"Landing_MarkerDate_Desc\")}].forEach(t=>{const e=document.createElement(\"li\"),i=document.createElement(\"strong\");i.textContent=t.name,e.appendChild(i);const a=document.createElement(\"span\");a.className=t.required?\"required\":\"optional\",a.textContent=t.required?` (${h})`:` (${u})`,e.appendChild(a),e.appendChild(document.createTextNode(\" - \"+t.desc)),c.appendChild(e)}),l.appendChild(c),t.appendChild(l);const g=document.createElement(\"div\");g.className=\"gantt-landing-features\";const p=document.createElement(\"p\");p.className=\"features-hint\",p.textContent=this.localizationManager.getDisplayName(\"Landing_Features\"),g.appendChild(p),t.appendChild(g);const m=document.createElement(\"div\");return m.className=\"gantt-landing-version\",m.textContent=\"v2.2.0.0\",t.appendChild(m),t}showMessage(t){const e=document.createElement(\"div\");e.className=\"gantt-message\",e.textContent=t,this.container.appendChild(e)}renderGantt(t,e,i){for(;this.container.firstChild;)this.container.removeChild(this.container.firstChild);const a=this.host.colorPalette;this.isHighContrast=a.isHighContrast||!1,this.isHighContrast&&(this.highContrastForeground=a.foreground?.value||\"#ffffff\",this.highContrastBackground=a.background?.value||\"#000000\",this.highContrastForegroundSelected=a.foregroundSelected?.value||\"#00ffff\");const s=this.formattingSettings.stylePresetsCard.preset.value?.value||\"default\",n={default:{barHeight:24,barPadding:8,barCornerRadius:8},compact:{barHeight:18,barPadding:4,barCornerRadius:6},veryCompact:{barHeight:14,barPadding:2,barCornerRadius:4},spacious:{barHeight:32,barPadding:12,barCornerRadius:10},custom:{barHeight:24,barPadding:8,barCornerRadius:8}},r=n[s]||n.default,o=\"custom\"!==s,l=!0,d=!this.isHighContrast&&this.formattingSettings.taskBarsCard.colorGroup.useColorPalette.value,c=this.isHighContrast?this.highContrastBackground:this.formattingSettings.taskBarsCard.colorGroup.barColor.value.value,h=this.isHighContrast?1:this.formattingSettings.taskBarsCard.colorGroup.barOpacity.value/100,u=!!this.isHighContrast||this.formattingSettings.taskBarsCard.borderGroup.showBorder.value,g=this.isHighContrast?this.highContrastForeground:this.formattingSettings.taskBarsCard.borderGroup.borderColor.value.value,p=this.isHighContrast?2:this.formattingSettings.taskBarsCard.borderGroup.borderWidth.value,m=o?r.barHeight:this.formattingSettings.taskBarsCard.sizeGroup.barHeight.value,v=o?r.barCornerRadius:this.formattingSettings.taskBarsCard.sizeGroup.barCornerRadius.value,y=o?r.barPadding:this.formattingSettings.taskBarsCard.sizeGroup.barPadding.value,w=this.formattingSettings.taskBarsCard.durationGroup.showDuration.value,f=this.formattingSettings.taskBarsCard.durationGroup.durationFont.fontFamily.value,b=this.formattingSettings.taskBarsCard.durationGroup.durationFont.fontSize.value,S=this.formattingSettings.taskBarsCard.durationGroup.durationFont.bold.value,C=this.formattingSettings.taskBarsCard.durationGroup.durationFont.italic.value,A=this.formattingSettings.taskBarsCard.durationGroup.durationFont.underline.value,N=this.isHighContrast?this.highContrastForeground:this.formattingSettings.taskBarsCard.durationGroup.durationFontColor.value.value,x=this.formattingSettings.taskBarsCard.durationGroup.autoContrastWithBar.value,D=!this.isHighContrast&&!0===this.slippageToggleState,k=this.formattingSettings.taskBarsCard.slippedGroup.slippedColor.value.value,z=this.isHighContrast?this.highContrastForeground:this.getContrastingTextColor(k),E=this.formattingSettings.taskBarsCard.progressGroup.showProgress.value,F=this.isHighContrast?this.highContrastForegroundSelected:this.formattingSettings.taskBarsCard.progressGroup.progressColor.value.value,M=this.formattingSettings.taskBarsCard.progressGroup.progressOpacity.value/100,L=this.formattingSettings.taskBarsCard.progressGroup.progressBarHeight.value/100,T=String(this.formattingSettings.taskBarsCard.progressGroup.progressPattern.value.value),I=!0,P=this.isHighContrast?this.highContrastForeground:this.formattingSettings.milestonesCard.color.value.value,$=this.formattingSettings.milestonesCard.size.value,R=!0===this.criticalPathToggleState,B=this.isHighContrast?this.highContrastForegroundSelected:this.formattingSettings.criticalPathCard.borderColor.value.value,G=this.isHighContrast?this.highContrastForeground:this.getContrastingTextColor(B),j=this.isHighContrast?3:this.formattingSettings.criticalPathCard.borderWidth.value,O=this.formattingSettings.criticalPathCard.showSummary.value,K=this.formattingSettings.taskLabelsCard.show.value,V=this.formattingSettings.taskLabelsCard.font.fontFamily.value,H=this.formattingSettings.taskLabelsCard.font.fontSize.value,W=this.formattingSettings.taskLabelsCard.font.bold.value,_=this.formattingSettings.taskLabelsCard.font.italic.value,U=this.formattingSettings.taskLabelsCard.font.underline.value,q=this.isHighContrast?this.highContrastForeground:this.formattingSettings.taskLabelsCard.fontColor.value.value,Y=this.formattingSettings.taskLabelsCard.maxWidth.value,X=this.formattingSettings.taskLabelsCard.wordWrap.value,J=this.isHighContrast?this.highContrastForegroundSelected:this.formattingSettings.taskLabelsCard.selectionHighlightColor.value.value,Q=this.formattingSettings.gridLinesCard.show.value,Z=this.formattingSettings.gridLinesCard.verticalGroup.showVerticalLines.value,tt=this.isHighContrast?this.highContrastForeground:this.formattingSettings.gridLinesCard.verticalGroup.verticalLineColor.value.value,et=this.formattingSettings.gridLinesCard.verticalGroup.verticalLineStyle.value?.value||\"dashed\",it=this.formattingSettings.gridLinesCard.dividerGroup.showDivider.value,at=this.isHighContrast?this.highContrastForeground:this.formattingSettings.gridLinesCard.dividerGroup.dividerColor.value.value,st=this.formattingSettings.gridLinesCard.dividerGroup.dividerWidth.value,nt=this.formattingSettings.gridLinesCard.dividerGroup.dividerStyle.value?.value||\"solid\",rt=this.formattingSettings.gridLinesCard.rowBandingGroup.showRowBanding.value,ot=this.isHighContrast?this.highContrastBackground:this.formattingSettings.gridLinesCard.rowBandingGroup.evenRowColor.value.value,lt=this.isHighContrast?this.highContrastBackground:this.formattingSettings.gridLinesCard.rowBandingGroup.oddRowColor.value.value,dt=this.formattingSettings.gridLinesCard.dayShadingGroup.shadeWeekends.value,ct=this.formattingSettings.gridLinesCard.dayShadingGroup.shadeDays.value||\"\",ht=this.isHighContrast?this.highContrastBackground:this.formattingSettings.gridLinesCard.dayShadingGroup.shadeColor.value.value,ut=this.formattingSettings.gridLinesCard.dayShadingGroup.shadeOpacity.value/100,gt=[];if(dt&&gt.push(0,6),ct.trim()){const t=ct.split(\",\").map(t=>t.trim().toLowerCase()),e={sunday:0,sun:0,monday:1,mon:1,tuesday:2,tue:2,wednesday:3,wed:3,thursday:4,thu:4,friday:5,fri:5,saturday:6,sat:6};t.forEach(t=>{void 0===e[t]||gt.includes(e[t])||gt.push(e[t])})}const pt=this.formattingSettings.dateHeaderCard.show.value,mt=this.formattingSettings.dateHeaderCard.font.fontFamily.value,vt=this.formattingSettings.dateHeaderCard.font.fontSize.value,yt=this.formattingSettings.dateHeaderCard.font.bold.value,wt=this.formattingSettings.dateHeaderCard.font.italic.value,ft=this.formattingSettings.dateHeaderCard.font.underline.value,bt=this.isHighContrast?this.highContrastForeground:this.formattingSettings.dateHeaderCard.fontColor.value.value,St=this.formattingSettings.categoriesCard.show.value,Ct=this.isHighContrast?this.highContrastForeground:this.formattingSettings.categoriesCard.headerColor.value.value,At=this.blendColorWithWhite(Ct,.12),Nt=this.isHighContrast?this.highContrastForeground:this.getContrastingTextColor(At),xt=this.formattingSettings.categoriesCard.headerFont.fontFamily.value,Dt=this.formattingSettings.categoriesCard.headerFont.fontSize.value,kt=this.formattingSettings.categoriesCard.headerFont.bold.value,zt=this.formattingSettings.categoriesCard.headerFont.italic.value,Et=this.formattingSettings.categoriesCard.headerFont.underline.value,Ft=this.formattingSettings.categoriesCard.startExpanded.value,Mt=this.formattingSettings.todayLineCard.show.value,Lt=this.isHighContrast?this.highContrastForegroundSelected:this.formattingSettings.todayLineCard.lineColor.value.value,Tt=this.formattingSettings.todayLineCard.lineWidth.value,It=this.formattingSettings.todayLineCard.lineStyle.value?.value||\"solid\",Pt=this.formattingSettings.todayLineCard.showLabel.value,$t=this.formattingSettings.todayLineCard.labelText.value||\"Today\",Rt=this.formattingSettings.todayLineCard.dayOffset.value,Bt=[],Gt=new Set;t.forEach(t=>{t.category&&!Gt.has(t.category)&&(Gt.add(t.category),Bt.push(t.category))}),!this.categoriesInitialized&&Bt.length>0&&(this.categoriesInitialized=!0,Ft||Bt.forEach(t=>this.collapsedCategories.add(t)));const jt=Bt.length>0&&St,Ot=jt?t.filter(t=>!t.category||!this.collapsedCategories.has(t.category)):t,Kt=t.flatMap(t=>[t.startDate,t.endDate]),Vt=new Date(Math.min(...Kt.map(t=>t.getTime()))),Ht=new Date(Math.max(...Kt.map(t=>t.getTime()))),Wt=Math.ceil((Ht.getTime()-Vt.getTime())/864e5)+1,_t=K?Y+10:20,Ut=pt?60:30,qt=m+y+7,Yt=e-_t-27,Xt=jt?Bt.length:0,Jt=Ot.length+Xt,Qt=Jt*qt,Zt=Math.floor(e),te=Math.floor(Ut+Qt+50+50),ee=document.createElementNS(\"http://www.w3.org/2000/svg\",\"svg\");if(ee.setAttribute(\"width\",Zt.toString()),ee.setAttribute(\"height\",te.toString()),ee.setAttribute(\"class\",\"gantt-svg\"),ee.addEventListener(\"click\",()=>{this.allowInteractions&&(this.selectedRowIndices.clear(),this.selectionManager.clear().then(()=>{this.updateSelectionStyles(ee,[])}))}),ee.addEventListener(\"contextmenu\",t=>{this.allowInteractions&&(this.selectionManager.showContextMenu({},{x:t.clientX,y:t.clientY}),t.preventDefault(),t.stopPropagation())}),rt&&!this.isHighContrast)for(let t=0;t<Jt;t++){const e=Ut+t*qt,i=document.createElementNS(\"http://www.w3.org/2000/svg\",\"rect\");i.setAttribute(\"x\",\"0\"),i.setAttribute(\"y\",e.toString()),i.setAttribute(\"width\",Zt.toString()),i.setAttribute(\"height\",qt.toString()),i.setAttribute(\"fill\",t%2==0?ot:lt),ee.appendChild(i)}if(pt){const t=document.createElementNS(\"http://www.w3.org/2000/svg\",\"text\");t.setAttribute(\"x\",(_t+Yt/2).toString()),t.setAttribute(\"y\",\"20\"),t.setAttribute(\"class\",\"gantt-header\");let e=`font-family: ${mt}; font-size: ${vt}px; fill: ${bt};`;yt&&(e+=\" font-weight: bold;\"),wt&&(e+=\" font-style: italic;\"),ft&&(e+=\" text-decoration: underline;\"),t.setAttribute(\"style\",e),t.textContent=`${this.formatDate(Vt)} - ${this.formatDate(Ht)}`,ee.appendChild(t)}if(this.allowInteractions){const a=document.createElementNS(\"http://www.w3.org/2000/svg\",\"g\");a.setAttribute(\"class\",\"critical-path-toggle\"),a.setAttribute(\"cursor\",\"pointer\");const s=document.createElementNS(\"http://www.w3.org/2000/svg\",\"rect\"),n=110,r=22,o=Zt-n-10,l=Ut+Qt+28;s.setAttribute(\"x\",o.toString()),s.setAttribute(\"y\",l.toString()),s.setAttribute(\"width\",n.toString()),s.setAttribute(\"height\",r.toString()),s.setAttribute(\"rx\",\"4\"),s.setAttribute(\"fill\",R?B:\"#e0e0e0\"),s.setAttribute(\"fill-opacity\",R?\"1\":\"0.6\"),a.appendChild(s);const d=o+8,c=l+r/2;if(R){const t=document.createElementNS(\"http://www.w3.org/2000/svg\",\"path\");t.setAttribute(\"d\",`M${d},${c} l3,3 l5,-6`),t.setAttribute(\"stroke\",G),t.setAttribute(\"stroke-width\",\"2\"),t.setAttribute(\"fill\",\"none\"),t.setAttribute(\"stroke-linecap\",\"round\"),t.setAttribute(\"stroke-linejoin\",\"round\"),a.appendChild(t)}else{const t=document.createElementNS(\"http://www.w3.org/2000/svg\",\"circle\");t.setAttribute(\"cx\",(d+4).toString()),t.setAttribute(\"cy\",c.toString()),t.setAttribute(\"r\",\"5\"),t.setAttribute(\"stroke\",\"#616161\"),t.setAttribute(\"stroke-width\",\"1.5\"),t.setAttribute(\"fill\",\"none\"),a.appendChild(t)}const h=document.createElementNS(\"http://www.w3.org/2000/svg\",\"text\");h.setAttribute(\"x\",(o+22).toString()),h.setAttribute(\"y\",(l+r/2+4).toString()),h.setAttribute(\"fill\",R?G:\"#424242\"),h.setAttribute(\"font-size\",\"11\"),h.setAttribute(\"font-weight\",\"500\"),h.textContent=this.localizationManager.getDisplayName(\"CriticalPath_Toggle\"),a.appendChild(h),a.addEventListener(\"click\",a=>{a.stopPropagation(),this.criticalPathToggleState=!this.criticalPathToggleState,this.renderGantt(t,e,i)}),ee.appendChild(a)}if(this.allowInteractions){const a=document.createElementNS(\"http://www.w3.org/2000/svg\",\"g\");a.setAttribute(\"class\",\"slippage-toggle\"),a.setAttribute(\"cursor\",\"pointer\");const s=document.createElementNS(\"http://www.w3.org/2000/svg\",\"rect\"),n=110,r=22,o=Zt-n-10,l=Ut+Qt+28+26;s.setAttribute(\"x\",o.toString()),s.setAttribute(\"y\",l.toString()),s.setAttribute(\"width\",n.toString()),s.setAttribute(\"height\",r.toString()),s.setAttribute(\"rx\",\"4\"),s.setAttribute(\"fill\",D?k:\"#e0e0e0\"),s.setAttribute(\"fill-opacity\",D?\"1\":\"0.6\"),a.appendChild(s);const d=o+8,c=l+r/2;if(D){const t=document.createElementNS(\"http://www.w3.org/2000/svg\",\"path\");t.setAttribute(\"d\",`M${d},${c} l3,3 l5,-6`),t.setAttribute(\"stroke\",z),t.setAttribute(\"stroke-width\",\"2\"),t.setAttribute(\"fill\",\"none\"),t.setAttribute(\"stroke-linecap\",\"round\"),t.setAttribute(\"stroke-linejoin\",\"round\"),a.appendChild(t)}else{const t=document.createElementNS(\"http://www.w3.org/2000/svg\",\"circle\");t.setAttribute(\"cx\",(d+4).toString()),t.setAttribute(\"cy\",c.toString()),t.setAttribute(\"r\",\"5\"),t.setAttribute(\"stroke\",\"#616161\"),t.setAttribute(\"stroke-width\",\"1.5\"),t.setAttribute(\"fill\",\"none\"),a.appendChild(t)}const h=document.createElementNS(\"http://www.w3.org/2000/svg\",\"text\");h.setAttribute(\"x\",(o+22).toString()),h.setAttribute(\"y\",(l+r/2+4).toString()),h.setAttribute(\"fill\",D?z:\"#424242\"),h.setAttribute(\"font-size\",\"11\"),h.setAttribute(\"font-weight\",\"500\"),h.textContent=this.localizationManager.getDisplayName(\"Slippage_Toggle\"),a.appendChild(h),a.addEventListener(\"click\",a=>{a.stopPropagation(),this.slippageToggleState=!this.slippageToggleState,this.renderGantt(t,e,i)}),ee.appendChild(a)}const ie=document.createElementNS(\"http://www.w3.org/2000/svg\",\"g\");ie.setAttribute(\"class\",\"gantt-day-shade-group\"),ee.appendChild(ie),this.calculateDateTicks(Vt,Ht,Yt).forEach(t=>{const e=(t.date.getTime()-Vt.getTime())/864e5,i=_t+e/Wt*Yt;if(Q&&Z){const t=document.createElementNS(\"http://www.w3.org/2000/svg\",\"line\");t.setAttribute(\"x1\",i.toString()),t.setAttribute(\"y1\",Ut.toString()),t.setAttribute(\"x2\",i.toString()),t.setAttribute(\"y2\",(Ut+Qt).toString()),t.setAttribute(\"class\",\"gantt-grid-line\");let e=`stroke: ${tt};`;\"dashed\"===et?e+=\" stroke-dasharray: 4,4;\":\"dotted\"===et&&(e+=\" stroke-dasharray: 1,3;\"),t.setAttribute(\"style\",e),ee.appendChild(t)}const a=document.createElementNS(\"http://www.w3.org/2000/svg\",\"text\");a.setAttribute(\"x\",i.toString()),a.setAttribute(\"y\",(Ut+Qt+18).toString()),a.setAttribute(\"class\",\"gantt-axis-label\"),a.setAttribute(\"style\",`font-size: 10px; fill: ${bt};`),a.textContent=t.label,ee.appendChild(a)});const ae=document.createElementNS(\"http://www.w3.org/2000/svg\",\"line\");ae.setAttribute(\"x1\",_t.toString()),ae.setAttribute(\"y1\",(Ut+Qt).toString()),ae.setAttribute(\"x2\",(_t+Yt).toString()),ae.setAttribute(\"y2\",(Ut+Qt).toString()),ae.setAttribute(\"class\",\"gantt-axis-line\"),ae.setAttribute(\"style\",`stroke: ${tt};`),ee.appendChild(ae);let se=0;const ne=(a,s)=>{const n=this.collapsedCategories.has(a),r=t.filter(t=>t.category===a),o=r.length,l=document.createElementNS(\"http://www.w3.org/2000/svg\",\"rect\");if(l.setAttribute(\"x\",\"0\"),l.setAttribute(\"y\",s.toString()),l.setAttribute(\"width\",Zt.toString()),l.setAttribute(\"height\",qt.toString()),l.setAttribute(\"fill\",Ct),l.setAttribute(\"fill-opacity\",\"0.12\"),ee.appendChild(l),r.length>0){const t=new Date(Math.min(...r.map(t=>t.startDate.getTime()))),e=new Date(Math.max(...r.map(t=>t.endDate.getTime()))),i=(t.getTime()-Vt.getTime())/864e5,n=(e.getTime()-t.getTime())/864e5+1,l=_t+i/Wt*Yt,d=Math.max(n/Wt*Yt,4),c=s+(qt-.6*m)/2,h=.6*m,u=document.createElementNS(\"http://www.w3.org/2000/svg\",\"rect\");u.setAttribute(\"x\",l.toString()),u.setAttribute(\"y\",c.toString()),u.setAttribute(\"width\",d.toString()),u.setAttribute(\"height\",h.toString()),u.setAttribute(\"rx\",\"2\"),u.setAttribute(\"fill\",\"#9E9E9E\"),ee.appendChild(u);const g=[{displayName:\"Category\",value:a,header:\"Category Summary\"},{displayName:\"Tasks\",value:o.toString()},{displayName:\"Start date\",value:this.formatDate(t)},{displayName:\"End date\",value:this.formatDate(e)},{displayName:\"Total duration\",value:`${Math.round(n)} days`}];if(u.style.cursor=\"default\",u.addEventListener(\"mouseover\",t=>{this.host.tooltipService.show({dataItems:g,identities:[],coordinates:[t.clientX,t.clientY],isTouchEvent:!1})}),u.addEventListener(\"mousemove\",t=>{this.host.tooltipService.move({dataItems:g,identities:[],coordinates:[t.clientX,t.clientY],isTouchEvent:!1})}),u.addEventListener(\"mouseout\",()=>{this.host.tooltipService.hide({immediately:!0,isTouchEvent:!1})}),d>50){const t=document.createElementNS(\"http://www.w3.org/2000/svg\",\"text\");t.setAttribute(\"x\",(l+d/2).toString()),t.setAttribute(\"y\",(c+h/2+3).toString()),t.setAttribute(\"text-anchor\",\"middle\"),t.setAttribute(\"style\",\"font-size: 10px; fill: white; font-weight: bold; pointer-events: none;\"),t.textContent=`${Math.round(n)}d`,ee.appendChild(t)}}const d=s+qt/2,c=document.createElementNS(\"http://www.w3.org/2000/svg\",\"text\");c.setAttribute(\"x\",8..toString()),c.setAttribute(\"y\",(d+4).toString()),c.setAttribute(\"style\",`font-size: 12px; fill: ${Nt}; cursor: pointer; user-select: none;`),c.textContent=n?\"▶\":\"▼\",c.setAttribute(\"data-category\",a),c.addEventListener(\"click\",()=>{this.allowInteractions&&(this.collapsedCategories.has(a)?this.collapsedCategories.delete(a):this.collapsedCategories.add(a),this.renderGantt(t,e,i))}),ee.appendChild(c);const h=document.createElementNS(\"http://www.w3.org/2000/svg\",\"text\");h.setAttribute(\"x\",\"24\"),h.setAttribute(\"y\",(d+4).toString());let u=`font-family: ${xt}; font-size: ${Dt}px; fill: ${Nt}; cursor: pointer;`;kt&&(u+=\" font-weight: bold;\"),zt&&(u+=\" font-style: italic;\"),Et&&(u+=\" text-decoration: underline;\"),h.setAttribute(\"style\",u),h.textContent=`${a} (${o})`,h.addEventListener(\"mouseover\",t=>{this.host.tooltipService.show({dataItems:[{displayName:\"Category\",value:a}],identities:[],coordinates:[t.clientX,t.clientY],isTouchEvent:!1})}),h.addEventListener(\"mousemove\",t=>{this.host.tooltipService.move({dataItems:[{displayName:\"Category\",value:a}],identities:[],coordinates:[t.clientX,t.clientY],isTouchEvent:!1})}),h.addEventListener(\"mouseout\",()=>{this.host.tooltipService.hide({immediately:!0,isTouchEvent:!1})}),h.addEventListener(\"click\",()=>{this.allowInteractions&&(this.collapsedCategories.has(a)?this.collapsedCategories.delete(a):this.collapsedCategories.add(a),this.renderGantt(t,e,i))}),ee.appendChild(h)},re=new Map;if(jt?(Bt.forEach(i=>{ne(i,Ut+se*qt),se++,this.collapsedCategories.has(i)||t.filter(t=>t.category===i).forEach(t=>{re.set(t,se),this.drawTaskRow(ee,t,se,Ut,qt,m,_t,Yt,Wt,Vt,e,K,H,q,J,l,c,h,u,g,p,v,w,N,D,k,I,P,$,R,B,j,!0,d,E,F,M,L,T,Y,X,V,W,_,U,f,b,S,C,A,x),se++})}),t.filter(t=>!t.category).forEach(t=>{re.set(t,se),this.drawTaskRow(ee,t,se,Ut,qt,m,_t,Yt,Wt,Vt,e,K,H,q,J,l,c,h,u,g,p,v,w,N,D,k,I,P,$,R,B,j,!1,d,E,F,M,L,T,Y,X,V,W,_,U,f,b,S,C,A,x),se++})):t.forEach(t=>{re.set(t,se),this.drawTaskRow(ee,t,se,Ut,qt,m,_t,Yt,Wt,Vt,e,K,H,q,J,l,c,h,u,g,p,v,w,N,D,k,I,P,$,R,B,j,!1,d,E,F,M,L,T,Y,X,V,W,_,U,f,b,S,C,A,x),se++}),Q&&it&&K){const t=document.createElementNS(\"http://www.w3.org/2000/svg\",\"line\"),e=Y;t.setAttribute(\"x1\",e.toString()),t.setAttribute(\"y1\",Ut.toString()),t.setAttribute(\"x2\",e.toString()),t.setAttribute(\"y2\",(Ut+Qt).toString()),t.setAttribute(\"class\",\"gantt-separator\");let i=`stroke: ${at}; stroke-width: ${st};`;\"dashed\"===nt?i+=\" stroke-dasharray: 4,4;\":\"dotted\"===nt&&(i+=\" stroke-dasharray: 1,3;\"),t.setAttribute(\"style\",i),ee.appendChild(t)}if(gt.length>0){const t=new Date(Vt);for(;t<=Ht;){const e=t.getDay();if(gt.includes(e)){const e=(t.getTime()-Vt.getTime())/864e5,i=_t+e/Wt*Yt,a=1/Wt*Yt,s=document.createElementNS(\"http://www.w3.org/2000/svg\",\"rect\");s.setAttribute(\"x\",i.toString()),s.setAttribute(\"y\",Ut.toString()),s.setAttribute(\"width\",a.toString()),s.setAttribute(\"height\",Qt.toString()),s.setAttribute(\"fill\",ht),s.setAttribute(\"fill-opacity\",ut.toString()),s.setAttribute(\"class\",\"gantt-day-shade\"),ie.appendChild(s)}t.setDate(t.getDate()+1)}}const oe=Array.from(re.keys());if(this.renderDependencyArrows(ee,oe,re,_t,Ut,qt,m,Yt,Wt,Vt,R,B,j),R&&O){const e=t.filter(t=>t.isOnCriticalPath);if(e.length>0){const t=new Date(Math.min(...e.map(t=>t.startDate.getTime()))),i=new Date(Math.max(...e.map(t=>t.endDate.getTime()))),a=Math.ceil((i.getTime()-t.getTime())/864e5)+1,s=Ut+Qt+28,n=22,r=this.localizationManager.getDisplayName(\"CriticalPath_Summary\").replace(\"{0}\",e.length.toString()).replace(\"{1}\",a.toString()).replace(\"{2}\",this.formatDate(t)).replace(\"{3}\",this.formatDate(i)),o=Math.min(6*r.length+20,Zt-140-_t),l=Zt-120-o-10,d=document.createElementNS(\"http://www.w3.org/2000/svg\",\"rect\");d.setAttribute(\"x\",l.toString()),d.setAttribute(\"y\",s.toString()),d.setAttribute(\"width\",o.toString()),d.setAttribute(\"height\",n.toString()),d.setAttribute(\"fill\",B),d.setAttribute(\"fill-opacity\",\"0.15\"),d.setAttribute(\"rx\",\"4\"),ee.appendChild(d);const c=this.blendColorWithWhite(B,.15),h=this.getContrastingTextColor(c),u=document.createElementNS(\"http://www.w3.org/2000/svg\",\"text\");u.setAttribute(\"x\",(l+10).toString()),u.setAttribute(\"y\",(s+n/2+4).toString()),u.setAttribute(\"style\",`font-size: 11px; fill: ${h}; font-weight: 500;`),u.textContent=r,ee.appendChild(u)}}if(D){const e=t.filter(t=>t.wasPushed),i=Ut+Qt+28+26,a=22,s=this.localizationManager.getDisplayName(\"Slippage_Summary\").replace(\"{0}\",e.length.toString()),n=Math.min(6*s.length+20,Zt-140-_t),r=Zt-120-n-10,o=document.createElementNS(\"http://www.w3.org/2000/svg\",\"rect\");o.setAttribute(\"x\",r.toString()),o.setAttribute(\"y\",i.toString()),o.setAttribute(\"width\",n.toString()),o.setAttribute(\"height\",a.toString()),o.setAttribute(\"fill\",k),o.setAttribute(\"fill-opacity\",\"0.15\"),o.setAttribute(\"rx\",\"4\"),ee.appendChild(o);const l=this.blendColorWithWhite(k,.15),d=this.getContrastingTextColor(l),c=document.createElementNS(\"http://www.w3.org/2000/svg\",\"text\");c.setAttribute(\"x\",(r+10).toString()),c.setAttribute(\"y\",(i+a/2+4).toString()),c.setAttribute(\"style\",`font-size: 11px; fill: ${d}; font-weight: 500;`),c.textContent=s,ee.appendChild(c)}const le=(t,e,i,a,s)=>{const n=t.getTime();if(n>=Vt.getTime()&&n<=Ht.getTime()){const r=(n-Vt.getTime())/864e5,o=_t+r/Wt*Yt;let l=\"\";\"dashed\"===s?l=\"8,4\":\"dotted\"===s&&(l=\"2,3\");const d=document.createElementNS(\"http://www.w3.org/2000/svg\",\"line\");d.setAttribute(\"x1\",o.toString()),d.setAttribute(\"y1\",Ut.toString()),d.setAttribute(\"x2\",o.toString()),d.setAttribute(\"y2\",(Ut+Qt).toString()),d.setAttribute(\"class\",\"gantt-marker-line\");let c=`stroke: ${i}; stroke-width: ${a}px;`;if(l&&(c+=` stroke-dasharray: ${l};`),d.setAttribute(\"style\",c),ee.appendChild(d),Pt){const a=`${e}: ${this.formatDate(t)}`,s=4,n=10,r=6*e.length+2*s,l=n+2*s,d=o-r/2,c=Ut-l-2,h=document.createElementNS(\"http://www.w3.org/2000/svg\",\"rect\");h.setAttribute(\"x\",d.toString()),h.setAttribute(\"y\",c.toString()),h.setAttribute(\"width\",r.toString()),h.setAttribute(\"height\",l.toString()),h.setAttribute(\"fill\",i),h.setAttribute(\"rx\",\"3\"),h.setAttribute(\"style\",\"cursor: default;\"),ee.appendChild(h);const u=document.createElementNS(\"http://www.w3.org/2000/svg\",\"title\");u.textContent=a,h.appendChild(u);const g=document.createElementNS(\"http://www.w3.org/2000/svg\",\"text\");g.setAttribute(\"x\",o.toString()),g.setAttribute(\"y\",(c+l/2+n/3).toString()),g.setAttribute(\"text-anchor\",\"middle\"),g.setAttribute(\"style\",`font-size: ${n}px; fill: white; font-weight: 500; cursor: default;`),g.textContent=e,ee.appendChild(g);const p=document.createElementNS(\"http://www.w3.org/2000/svg\",\"title\");p.textContent=a,g.appendChild(p)}}};if(Mt){let t=new Date;t.setHours(0,0,0,0),0!==Rt&&t.setDate(t.getDate()+Rt),le(t,$t,Lt,Tt,String(It))}for(const t of this.customMarkerDates)le(t.date,t.label,Lt,Tt,String(It));this.container.appendChild(ee)}drawTaskRow(t,e,i,a,s,n,r,o,l,d,c,h,u,g,p,m,v,y,w,f,b,S,C,A,N,x,D,k,z,E,F,M,L,T=!1,I=!0,P=\"#ffffff\",$=.4,R=1,B=\"solid\",G=140,j=!1,O=\"Segoe UI\",K=!1,V=!1,H=!1,W=\"Segoe UI\",_=11,U=!0,q=!1,Y=!1,X=!1){const J=a+i*s;if(this.isHighContrast){const e=document.createElementNS(\"http://www.w3.org/2000/svg\",\"rect\");e.setAttribute(\"x\",\"0\"),e.setAttribute(\"y\",J.toString()),e.setAttribute(\"width\",c.toString()),e.setAttribute(\"height\",s.toString()),e.setAttribute(\"fill\",this.highContrastBackground),t.appendChild(e)}const Q=L?20:10;if(h){const i=G-Q,a=.6*u,n=(Math.floor(i/a),t=>t.length*a),r=(t,e)=>{if(n(t)<=e)return t;const i=Math.floor(e/a)-3;return t.substring(0,Math.max(0,i))+\"...\"};let o,l=[],d=u;j?(l=((t,e)=>{const i=t.split(/\\s+/),a=[];let s=\"\";for(const t of i){const i=s?s+\" \"+t:t;n(i)<=e?s=i:(s&&a.push(s),s=n(t)>e?r(t,e):t)}return s&&a.push(s),a.length>0?a:[t]})(e.name,i),o=l[0],d=l.length*(u+2)):(o=r(e.name,i),l=[o]);const c=document.createElementNS(\"http://www.w3.org/2000/svg\",\"rect\"),h=3,m=Math.min(n(j?e.name:o),i);c.setAttribute(\"x\",(Q-h).toString()),c.setAttribute(\"y\",(J+s/2-d/2-h).toString()),c.setAttribute(\"width\",(m+2*h).toString()),c.setAttribute(\"height\",(d+2*h).toString()),c.setAttribute(\"fill\",p),c.setAttribute(\"rx\",\"3\"),c.setAttribute(\"class\",\"gantt-label-highlight\"),c.setAttribute(\"data-label-highlight-id\",e.rowIndex.toString()),c.style.display=\"none\",t.appendChild(c);const v=g,y=document.createElementNS(\"http://www.w3.org/2000/svg\",\"text\");y.setAttribute(\"x\",Q.toString()),y.setAttribute(\"class\",\"gantt-task-label\");let w=`font-family: ${O}; font-size: ${u}px; fill: ${v}; cursor: pointer;`;if(K&&(w+=\" font-weight: bold;\"),V&&(w+=\" font-style: italic;\"),H&&(w+=\" text-decoration: underline;\"),y.setAttribute(\"style\",w),j&&l.length>1){const t=u+2,e=J+s/2-(l.length-1)*t/2+4;y.setAttribute(\"y\",e.toString()),l.forEach((e,i)=>{const a=document.createElementNS(\"http://www.w3.org/2000/svg\",\"tspan\");a.setAttribute(\"x\",Q.toString()),i>0&&a.setAttribute(\"dy\",t.toString()),a.textContent=e,y.appendChild(a)})}else y.setAttribute(\"y\",(J+s/2+4).toString()),y.textContent=o;y.addEventListener(\"click\",i=>{if(!this.allowInteractions)return;const a=i.ctrlKey||i.metaKey,s=this.selectedRowIndices.has(e.rowIndex);a?s?this.selectedRowIndices.delete(e.rowIndex):this.selectedRowIndices.add(e.rowIndex):s&&1===this.selectedRowIndices.size?this.selectedRowIndices.clear():(this.selectedRowIndices.clear(),this.selectedRowIndices.add(e.rowIndex)),0===this.selectedRowIndices.size?this.selectionManager.clear().then(()=>{this.updateSelectionStyles(t,[])}):this.selectionManager.select(e.selectionId,a).then(()=>{this.updateSelectionStyles(t,Array.from(this.selectedRowIndices))}),i.stopPropagation()}),y.setAttribute(\"data-selection-id\",e.rowIndex.toString()),y.addEventListener(\"mouseover\",t=>{this.host.tooltipService.show({dataItems:[{displayName:\"Task\",value:e.name}],identities:[],coordinates:[t.clientX,t.clientY],isTouchEvent:!1})}),y.addEventListener(\"mousemove\",t=>{this.host.tooltipService.move({dataItems:[{displayName:\"Task\",value:e.name}],identities:[],coordinates:[t.clientX,t.clientY],isTouchEvent:!1})}),y.addEventListener(\"mouseout\",()=>{this.host.tooltipService.hide({immediately:!0,isTouchEvent:!1})}),y.setAttribute(\"tabindex\",\"0\"),y.setAttribute(\"role\",\"button\"),y.setAttribute(\"aria-label\",`Task: ${e.name}, ${this.formatDate(e.startDate)} to ${this.formatDate(e.endDate)}`),y.addEventListener(\"keydown\",i=>{if(this.allowInteractions&&(\"Enter\"===i.key||\" \"===i.key)){i.preventDefault();const a=i.ctrlKey||i.metaKey;this.handleTaskSelection(e,t,a)}}),y.addEventListener(\"contextmenu\",t=>{this.allowInteractions&&(this.selectionManager.showContextMenu(e.selectionId,{x:t.clientX,y:t.clientY}),t.preventDefault(),t.stopPropagation())}),t.appendChild(y)}const Z=(e.startDate.getTime()-d.getTime())/864e5,tt=(e.endDate.getTime()-e.startDate.getTime())/864e5+1,et=r+Z/l*o,it=Math.max(tt/l*o,4),at=J+(s-n)/2;if(e.isMilestone&&D){const i=et,a=J+s/2,n=z/2;let r;switch(this.formattingSettings?.milestonesCard?.shape?.value?.value||\"diamond\"){case\"circle\":r=document.createElementNS(\"http://www.w3.org/2000/svg\",\"circle\"),r.setAttribute(\"cx\",i.toString()),r.setAttribute(\"cy\",a.toString()),r.setAttribute(\"r\",n.toString());break;case\"square\":r=document.createElementNS(\"http://www.w3.org/2000/svg\",\"rect\"),r.setAttribute(\"x\",(i-n).toString()),r.setAttribute(\"y\",(a-n).toString()),r.setAttribute(\"width\",z.toString()),r.setAttribute(\"height\",z.toString());break;case\"triangle\":const t=`${i},${a-n} ${i+n},${a+n} ${i-n},${a+n}`;r=document.createElementNS(\"http://www.w3.org/2000/svg\",\"polygon\"),r.setAttribute(\"points\",t);break;case\"star\":const e=n,s=.4*n;let o=\"\";for(let t=0;t<10;t++){const n=t%2==0?e:s,r=Math.PI/2+t*Math.PI/5;o+=`${i+n*Math.cos(r)},${a-n*Math.sin(r)} `}r=document.createElementNS(\"http://www.w3.org/2000/svg\",\"polygon\"),r.setAttribute(\"points\",o.trim());break;default:const l=`${i},${a-n} ${i+n},${a} ${i},${a+n} ${i-n},${a}`;r=document.createElementNS(\"http://www.w3.org/2000/svg\",\"polygon\"),r.setAttribute(\"points\",l)}r.setAttribute(\"class\",\"gantt-milestone\");let o=k;e.wasPushed&&N&&(o=x);let l=`fill: ${o};`;e.isOnCriticalPath&&E&&(l+=` stroke: ${F}; stroke-width: ${M}px;`),r.setAttribute(\"style\",l);const d=[],c=e.taskLabels.length>0?e.taskLabels[0].value:e.taskId||\"Milestone\";d.push({displayName:\"Milestone\",value:c,header:\"Milestone\"}),e.taskId&&d.push({displayName:\"Task ID\",value:e.taskId}),e.taskLabels.forEach((t,e)=>{0!==e&&d.push({displayName:t.displayName,value:t.value})}),d.push({displayName:\"Date\",value:this.formatDate(e.startDate)}),e.wasPushed&&(d.push({displayName:\"Original date\",value:this.formatDate(e.originalStartDate)}),d.push({displayName:\"Slipped\",value:\"Yes (dependency conflict)\"})),e.tooltipFields.forEach(t=>{t.value&&d.push({displayName:t.displayName,value:t.value})}),r.addEventListener(\"mouseover\",t=>{this.host.tooltipService.show({dataItems:d,identities:[],coordinates:[t.clientX,t.clientY],isTouchEvent:!1})}),r.addEventListener(\"mousemove\",t=>{this.host.tooltipService.move({dataItems:d,identities:[],coordinates:[t.clientX,t.clientY],isTouchEvent:!1})}),r.addEventListener(\"mouseout\",()=>{this.host.tooltipService.hide({immediately:!0,isTouchEvent:!1})}),r.style.cursor=\"pointer\",r.addEventListener(\"click\",i=>{if(!this.allowInteractions)return;const a=i.ctrlKey||i.metaKey,s=this.selectedRowIndices.has(e.rowIndex);a?s?this.selectedRowIndices.delete(e.rowIndex):this.selectedRowIndices.add(e.rowIndex):s&&1===this.selectedRowIndices.size?this.selectedRowIndices.clear():(this.selectedRowIndices.clear(),this.selectedRowIndices.add(e.rowIndex)),0===this.selectedRowIndices.size?this.selectionManager.clear().then(()=>{this.updateSelectionStyles(t,[])}):this.selectionManager.select(e.selectionId,a).then(()=>{this.updateSelectionStyles(t,Array.from(this.selectedRowIndices))}),i.stopPropagation()}),r.setAttribute(\"data-selection-id\",e.rowIndex.toString()),r.setAttribute(\"tabindex\",\"0\"),r.setAttribute(\"role\",\"button\"),r.setAttribute(\"aria-label\",`Milestone: ${e.name}, ${this.formatDate(e.startDate)}`),r.addEventListener(\"keydown\",i=>{if(this.allowInteractions&&(\"Enter\"===i.key||\" \"===i.key)){i.preventDefault();const a=i.ctrlKey||i.metaKey;this.handleTaskSelection(e,t,a)}}),r.addEventListener(\"contextmenu\",t=>{this.allowInteractions&&(this.selectionManager.showContextMenu(e.selectionId,{x:t.clientX,y:t.clientY}),t.preventDefault(),t.stopPropagation())}),t.appendChild(r)}else if(!e.isMilestone&&m){const i=document.createElementNS(\"http://www.w3.org/2000/svg\",\"rect\");i.setAttribute(\"x\",et.toString()),i.setAttribute(\"y\",at.toString()),i.setAttribute(\"width\",it.toString()),i.setAttribute(\"height\",n.toString()),i.setAttribute(\"rx\",S.toString()),i.setAttribute(\"class\",\"gantt-bar\");let a=T?e.color:v;e.wasPushed&&N&&(a=x);let s=`fill: ${a}; fill-opacity: ${y};`;e.isOnCriticalPath&&E?s+=` stroke: ${F}; stroke-width: ${M}px;`:w&&b>0&&(s+=` stroke: ${f}; stroke-width: ${b}px;`),i.setAttribute(\"style\",s),i.setAttribute(\"data-task\",e.name);const r=[],o=e.taskLabels.length>0?e.taskLabels[0].value:e.taskId||\"Task\";if(r.push({displayName:\"Task\",value:o,header:\"Task\"}),e.taskId&&r.push({displayName:\"Task ID\",value:e.taskId}),e.taskLabels.forEach((t,e)=>{0!==e&&r.push({displayName:t.displayName,value:t.value})}),r.push({displayName:\"Start date\",value:this.formatDate(e.startDate)}),r.push({displayName:\"End date\",value:this.formatDate(e.endDate)}),r.push({displayName:\"Duration\",value:`${Math.round(tt)} days`}),null!==e.progress&&r.push({displayName:\"Progress\",value:`${Math.round(e.progress)}%`}),e.wasPushed&&(r.push({displayName:\"Original start\",value:this.formatDate(e.originalStartDate)}),r.push({displayName:\"Original end\",value:this.formatDate(e.originalEndDate)}),r.push({displayName:\"Slipped\",value:\"Yes (dependency conflict)\"})),e.tooltipFields.forEach(t=>{t.value&&r.push({displayName:t.displayName,value:t.value})}),i.addEventListener(\"mouseover\",t=>{this.host.tooltipService.show({dataItems:r,identities:[],coordinates:[t.clientX,t.clientY],isTouchEvent:!1})}),i.addEventListener(\"mousemove\",t=>{this.host.tooltipService.move({dataItems:r,identities:[],coordinates:[t.clientX,t.clientY],isTouchEvent:!1})}),i.addEventListener(\"mouseout\",()=>{this.host.tooltipService.hide({immediately:!0,isTouchEvent:!1})}),i.style.cursor=\"pointer\",i.addEventListener(\"click\",i=>{if(!this.allowInteractions)return;const a=i.ctrlKey||i.metaKey,s=this.selectedRowIndices.has(e.rowIndex);a?s?this.selectedRowIndices.delete(e.rowIndex):this.selectedRowIndices.add(e.rowIndex):s&&1===this.selectedRowIndices.size?this.selectedRowIndices.clear():(this.selectedRowIndices.clear(),this.selectedRowIndices.add(e.rowIndex)),0===this.selectedRowIndices.size?this.selectionManager.clear().then(()=>{this.updateSelectionStyles(t,[])}):this.selectionManager.select(e.selectionId,a).then(()=>{this.updateSelectionStyles(t,Array.from(this.selectedRowIndices))}),i.stopPropagation()}),i.addEventListener(\"contextmenu\",t=>{this.allowInteractions&&(this.selectionManager.showContextMenu(e.selectionId,{x:t.clientX,y:t.clientY}),t.preventDefault(),t.stopPropagation())}),i.setAttribute(\"data-selection-id\",e.rowIndex.toString()),i.setAttribute(\"tabindex\",\"0\"),i.setAttribute(\"role\",\"button\"),i.setAttribute(\"aria-label\",`Task: ${e.name}, ${this.formatDate(e.startDate)} to ${this.formatDate(e.endDate)}, ${Math.round(tt)} days`),i.addEventListener(\"keydown\",i=>{if(this.allowInteractions&&(\"Enter\"===i.key||\" \"===i.key)){i.preventDefault();const a=i.ctrlKey||i.metaKey;this.handleTaskSelection(e,t,a)}}),t.appendChild(i),I&&null!==e.progress&&e.progress>0&&it>0){const i=it*e.progress/100,a=n*R,s=at+(n-a)/2,r=document.createElementNS(\"http://www.w3.org/2000/svg\",\"rect\");r.setAttribute(\"x\",et.toString()),r.setAttribute(\"y\",s.toString()),r.setAttribute(\"width\",i.toString()),r.setAttribute(\"height\",a.toString());const o=Math.min(S*R,a/2);r.setAttribute(\"rx\",o.toString()),r.setAttribute(\"class\",\"gantt-progress-bar\");let l=t.querySelector(\"defs\");l||(l=document.createElementNS(\"http://www.w3.org/2000/svg\",\"defs\"),t.insertBefore(l,t.firstChild));let d=`fill: ${P}; fill-opacity: ${$}; pointer-events: none;`;if(\"solid\"!==B){const t=`progress-pattern-${e.rowIndex}`,i=document.createElementNS(\"http://www.w3.org/2000/svg\",\"pattern\");if(i.setAttribute(\"id\",t),i.setAttribute(\"patternUnits\",\"userSpaceOnUse\"),\"stripes\"===B){i.setAttribute(\"width\",\"8\"),i.setAttribute(\"height\",\"8\"),i.setAttribute(\"patternTransform\",\"rotate(45)\");const t=document.createElementNS(\"http://www.w3.org/2000/svg\",\"line\");t.setAttribute(\"x1\",\"0\"),t.setAttribute(\"y1\",\"0\"),t.setAttribute(\"x2\",\"0\"),t.setAttribute(\"y2\",\"8\"),t.setAttribute(\"stroke\",P),t.setAttribute(\"stroke-width\",\"4\"),t.setAttribute(\"stroke-opacity\",$.toString()),i.appendChild(t)}else if(\"dots\"===B){i.setAttribute(\"width\",\"8\"),i.setAttribute(\"height\",\"8\");const t=document.createElementNS(\"http://www.w3.org/2000/svg\",\"circle\");t.setAttribute(\"cx\",\"4\"),t.setAttribute(\"cy\",\"4\"),t.setAttribute(\"r\",\"2\"),t.setAttribute(\"fill\",P),t.setAttribute(\"fill-opacity\",$.toString()),i.appendChild(t)}else if(\"crosshatch\"===B){i.setAttribute(\"width\",\"8\"),i.setAttribute(\"height\",\"8\");const t=document.createElementNS(\"http://www.w3.org/2000/svg\",\"line\");t.setAttribute(\"x1\",\"0\"),t.setAttribute(\"y1\",\"0\"),t.setAttribute(\"x2\",\"8\"),t.setAttribute(\"y2\",\"8\"),t.setAttribute(\"stroke\",P),t.setAttribute(\"stroke-width\",\"1.5\"),t.setAttribute(\"stroke-opacity\",$.toString()),i.appendChild(t);const e=document.createElementNS(\"http://www.w3.org/2000/svg\",\"line\");e.setAttribute(\"x1\",\"8\"),e.setAttribute(\"y1\",\"0\"),e.setAttribute(\"x2\",\"0\"),e.setAttribute(\"y2\",\"8\"),e.setAttribute(\"stroke\",P),e.setAttribute(\"stroke-width\",\"1.5\"),e.setAttribute(\"stroke-opacity\",$.toString()),i.appendChild(e)}else if(\"horizontal\"===B){i.setAttribute(\"width\",\"4\"),i.setAttribute(\"height\",\"6\");const t=document.createElementNS(\"http://www.w3.org/2000/svg\",\"line\");t.setAttribute(\"x1\",\"0\"),t.setAttribute(\"y1\",\"3\"),t.setAttribute(\"x2\",\"4\"),t.setAttribute(\"y2\",\"3\"),t.setAttribute(\"stroke\",P),t.setAttribute(\"stroke-width\",\"2\"),t.setAttribute(\"stroke-opacity\",$.toString()),i.appendChild(t)}l.appendChild(i),d=`fill: url(#${t}); pointer-events: none;`}if(r.setAttribute(\"style\",d),i<it){const t=`progress-clip-${e.rowIndex}`,i=document.createElementNS(\"http://www.w3.org/2000/svg\",\"clipPath\");i.setAttribute(\"id\",t);const a=document.createElementNS(\"http://www.w3.org/2000/svg\",\"rect\");a.setAttribute(\"x\",et.toString()),a.setAttribute(\"y\",at.toString()),a.setAttribute(\"width\",it.toString()),a.setAttribute(\"height\",n.toString()),a.setAttribute(\"rx\",S.toString()),i.appendChild(a),l.appendChild(i),r.setAttribute(\"clip-path\",`url(#${t})`)}t.appendChild(r)}if(C&&it>40){let e=A;if(X){const t=this.blendColorWithWhite(a,y);e=this.getContrastingTextColor(t)}const i=document.createElementNS(\"http://www.w3.org/2000/svg\",\"text\");i.setAttribute(\"x\",(et+it/2).toString()),i.setAttribute(\"y\",(at+n/2+4).toString()),i.setAttribute(\"class\",\"gantt-bar-label\");let s=`font-family: ${W}; font-size: ${_}px; fill: ${e};`;U&&(s+=\" font-weight: bold;\"),q&&(s+=\" font-style: italic;\"),Y&&(s+=\" text-decoration: underline;\"),i.setAttribute(\"style\",s),i.textContent=`${Math.round(tt)}d`,t.appendChild(i)}}}renderDependencyArrows(t,e,i,a,s,n,r,o,l,d,c,h,u){if(!this.formattingSettings.dependenciesCard.show.value)return;const g=this.formattingSettings.dependenciesCard.lineColor.value.value,p=this.formattingSettings.dependenciesCard.lineWidth.value,m=this.formattingSettings.dependenciesCard.lineStyle.value?.value||\"solid\",v=this.formattingSettings.dependenciesCard.pathStyle.value?.value||\"curved\",y=this.formattingSettings.dependenciesCard.arrowSize.value,w=new Map;e.forEach(t=>{t.taskId&&w.set(String(t.taskId).trim(),t)}),e.forEach(e=>{if(0===e.dependencies.length)return;const r=i.get(e);if(void 0===r)return;const f=(e.startDate.getTime()-d.getTime())/864e5,b=a+f/l*o,S=s+r*n+n/2;e.dependencies.forEach(r=>{const f=w.get(String(r).trim());if(!f)return;const C=i.get(f);if(void 0===C)return;const A=!0===f.isOnCriticalPath&&!0===e.isOnCriticalPath,N=!0===c&&A,x=N?h:g,D=N?Math.max(p,u):p,k=(f.endDate.getTime()-f.startDate.getTime())/864e5+1,z=(f.startDate.getTime()-d.getTime())/864e5;let E;if(f.isMilestone)E=a+z/l*o;else{const t=Math.max(k/l*o,4);E=a+z/l*o+t}const F=s+C*n+n/2,M=document.createElementNS(\"http://www.w3.org/2000/svg\",\"path\"),L=E+20;let T,I=L;if(Math.abs(F-S)<5)T=`M${E},${F} L${b},${S}`,I=(E+b)/2;else if(\"curved\"===v){const t=(F+S)/2;T=`M${E},${F} C${L},${F} ${L},${t} ${L},${t} C${L},${t} ${L},${S} ${b},${S}`}else\"straightDown\"===v?(T=`M${E},${F} L${b},${S}`,I=(E+b)/2):T=`M${E},${F} L${L},${F} L${L},${S} L${b},${S}`;M.setAttribute(\"d\",T),M.setAttribute(\"fill\",\"none\"),M.setAttribute(\"stroke\",x),M.setAttribute(\"stroke-width\",D.toString()),\"dashed\"===m?M.setAttribute(\"stroke-dasharray\",\"8,4\"):\"dotted\"===m&&M.setAttribute(\"stroke-dasharray\",\"2,2\"),M.setAttribute(\"class\",\"gantt-dependency-line\"),t.appendChild(M);const P=document.createElementNS(\"http://www.w3.org/2000/svg\",\"circle\");P.setAttribute(\"cx\",E.toString()),P.setAttribute(\"cy\",F.toString()),P.setAttribute(\"r\",4..toString()),P.setAttribute(\"fill\",x),P.setAttribute(\"class\",\"gantt-dependency-connector\"),t.appendChild(P);const $=document.createElementNS(\"http://www.w3.org/2000/svg\",\"circle\");$.setAttribute(\"cx\",b.toString()),$.setAttribute(\"cy\",S.toString()),$.setAttribute(\"r\",4..toString()),$.setAttribute(\"fill\",x),$.setAttribute(\"class\",\"gantt-dependency-connector\"),t.appendChild($);const R=(F+S)/2,B=document.createElementNS(\"http://www.w3.org/2000/svg\",\"polygon\"),G=y/2;let j;j=\"straightDown\"===v||Math.abs(F-S)<5?Math.atan2(S-F,b-E)*(180/Math.PI):S>F?90:-90,B.setAttribute(\"points\",`${-G},${.6*-G} ${G},0 ${-G},${.6*G}`),B.setAttribute(\"fill\",x),B.setAttribute(\"transform\",`translate(${I},${R}) rotate(${j})`),B.setAttribute(\"class\",\"gantt-dependency-arrow\"),t.appendChild(B)})})}calculateDateTicks(t,e,i){const a=[],s=Math.ceil((e.getTime()-t.getTime())/864e5)+1,n=Math.floor(i/60);let r,o;for(s<=14?(r=s<=7?1:2,o={month:\"short\",day:\"numeric\"}):s<=60?(r=7,o={month:\"short\",day:\"numeric\"}):s<=180?(r=s<=90?14:30,o={month:\"short\",day:\"numeric\"}):s<=365?(r=30,o={month:\"short\",year:\"2-digit\"}):(r=90,o={month:\"short\",year:\"2-digit\"});Math.ceil(s/r)>n&&r<s;)r*=2;const l=new Date(t);for(;l<=e;)a.push({date:new Date(l),label:l.toLocaleDateString(\"en-US\",o)}),l.setDate(l.getDate()+r);const d=a[a.length-1];return d&&d.date.getTime()<e.getTime()-.5*r*24*60*60*1e3&&a.push({date:new Date(e),label:e.toLocaleDateString(\"en-US\",o)}),a}formatDate(t){return t.toLocaleDateString(\"en-US\",{month:\"short\",day:\"numeric\",year:\"numeric\"})}updateSelectionStyles(t,e){const i=t.querySelectorAll(\"[data-selection-id]\"),a=t.querySelectorAll(\"[data-label-highlight-id]\"),s=new Set(e.map(t=>t.toString())),n=e.length>0;i.forEach(t=>{const e=t.getAttribute(\"data-selection-id\"),i=t.classList.contains(\"gantt-task-label\");n&&e&&s.has(e)?i||t.classList.add(\"gantt-selected\"):i||t.classList.remove(\"gantt-selected\")}),a.forEach(t=>{const e=t.getAttribute(\"data-label-highlight-id\");n&&e&&s.has(e)?t.style.display=\"block\":t.style.display=\"none\"})}handleTaskSelection(t,e,i){const a=this.selectedRowIndices.has(t.rowIndex);i?a?this.selectedRowIndices.delete(t.rowIndex):this.selectedRowIndices.add(t.rowIndex):a&&1===this.selectedRowIndices.size?this.selectedRowIndices.clear():(this.selectedRowIndices.clear(),this.selectedRowIndices.add(t.rowIndex)),0===this.selectedRowIndices.size?this.selectionManager.clear().then(()=>{this.updateSelectionStyles(e,[])}):this.selectionManager.select(t.selectionId,i).then(()=>{this.updateSelectionStyles(e,Array.from(this.selectedRowIndices))})}getFormattingModel(){return this.formattingSettingsService.buildFormattingModel(this.formattingSettings)}}}},e={};function i(a){var s=e[a];if(void 0!==s)return s.exports;var n=e[a]={exports:{}};return t[a](n,n.exports,i),n.exports}i.n=t=>{var e=t&&t.__esModule?()=>t.default:()=>t;return i.d(e,{a:e}),e},i.d=(t,e)=>{for(var a in e)i.o(e,a)&&!i.o(t,a)&&Object.defineProperty(t,a,{enumerable:!0,get:e[a]})},i.o=(t,e)=>Object.prototype.hasOwnProperty.call(t,e),i.r=t=>{\"undefined\"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:\"Module\"}),Object.defineProperty(t,\"__esModule\",{value:!0})};var a={};i.r(a),i.d(a,{default:()=>o});var s=i(900),n=window.powerbi,r={name:\"gantt51446F686266453390398E5631FF15A1_DEBUG\",displayName:\"Gantt\",class:\"Visual\",apiVersion:\"5.3.0\",create:t=>{if(s.b)return new s.b(t);throw\"Visual instance not found\"},createModalDialog:(t,e,i)=>{const a=globalThis.dialogRegistry;t in a&&new a[t](e,i)},custom:!0};void 0!==n&&(n.visuals=n.visuals||{},n.visuals.plugins=n.visuals.plugins||{},n.visuals.plugins.gantt51446F686266453390398E5631FF15A1_DEBUG=r);const o=r;gantt51446F686266453390398E5631FF15A1=a})();",
+    "css": ".gantt-container {\n  width: 100%;\n  height: 100%;\n  overflow-x: hidden;\n  overflow-y: auto;\n  font-family: \"Segoe UI Variable\", \"Segoe UI\", -apple-system, BlinkMacSystemFont, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  box-sizing: border-box;\n}\n.gantt-svg {\n  display: block;\n  max-width: 100%;\n}\n.gantt-message {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n  color: #616161;\n  font-size: 14px;\n  font-weight: 400;\n  text-align: center;\n  padding: 20px;\n}\n.gantt-landing-page {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n  padding: 32px;\n  text-align: center;\n  color: #424242;\n  box-sizing: border-box;\n}\n.gantt-landing-icon {\n  color: #0f6cbd;\n  margin-bottom: 16px;\n}\n.gantt-landing-icon svg {\n  display: block;\n}\n.gantt-landing-title {\n  font-size: 24px;\n  font-weight: 600;\n  color: #242424;\n  margin: 0 0 16px 0;\n}\n.gantt-landing-instructions {\n  text-align: left;\n  max-width: 480px;\n  font-size: 13px;\n  line-height: 1.5;\n}\n.gantt-landing-instructions p {\n  margin: 0 0 12px 0;\n  color: #424242;\n}\n.gantt-landing-instructions ul {\n  margin: 0;\n  padding-left: 20px;\n}\n.gantt-landing-instructions ul li {\n  margin-bottom: 8px;\n  color: #424242;\n}\n.gantt-landing-instructions ul li strong {\n  color: #242424;\n  font-weight: 600;\n}\n.gantt-landing-instructions ul li .required {\n  color: #0f6cbd;\n  font-size: 11px;\n  font-weight: 500;\n}\n.gantt-landing-instructions ul li .optional {\n  color: #616161;\n  font-size: 11px;\n}\n.gantt-landing-features {\n  margin-top: 20px;\n  padding-top: 16px;\n  border-top: 1px solid #e0e0e0;\n}\n.gantt-landing-features .features-hint {\n  font-size: 12px;\n  color: #616161;\n  margin: 0;\n}\n.gantt-landing-version {\n  margin-top: 16px;\n  font-size: 11px;\n  color: #616161;\n  opacity: 0.7;\n}\n.gantt-svg {\n  display: block;\n}\n.gantt-header {\n  fill: #242424;\n  font-size: 14px;\n  font-weight: 600;\n  text-anchor: middle;\n}\n.gantt-row-even {\n  fill: #fafafa;\n}\n.gantt-row-odd {\n  fill: #ffffff;\n}\n.gantt-task-label {\n  fill: #242424;\n  font-size: 12px;\n  font-weight: 400;\n}\n.gantt-bar {\n  fill: #0f6cbd;\n  cursor: pointer;\n  transition: all 0.1s ease-out;\n}\n.gantt-bar:hover {\n  fill: #115ea3;\n  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.14), 0 0 2px rgba(0, 0, 0, 0.12));\n}\n.gantt-bar:active {\n  fill: #0e4775;\n}\n.gantt-bar-label {\n  fill: #ffffff;\n  font-size: 11px;\n  font-weight: 600;\n  text-anchor: middle;\n  pointer-events: none;\n}\n.gantt-axis-label {\n  fill: #616161;\n  font-size: 10px;\n  font-weight: 400;\n  text-anchor: middle;\n}\n.gantt-axis-line {\n  stroke: #e0e0e0;\n  stroke-width: 1;\n}\n.gantt-grid-line {\n  stroke: #e0e0e0;\n  stroke-width: 1;\n}\n.gantt-separator {\n  stroke: #d1d1d1;\n  stroke-width: 1;\n}\n.gantt-milestone {\n  fill: #c4314b;\n  cursor: pointer;\n  transition: all 0.1s ease-out;\n}\n.gantt-milestone:hover {\n  filter: brightness(1.1) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.14), 0 0 2px rgba(0, 0, 0, 0.12));\n}\n.gantt-selected {\n  stroke: #242424 !important;\n  stroke-width: 2px !important;\n  stroke-dasharray: none !important;\n  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.14), 0 0 2px rgba(0, 0, 0, 0.12));\n}\n.gantt-label-highlight {\n  pointer-events: none;\n}\n.gantt-category-header {\n  cursor: pointer;\n}\n.gantt-category-header:hover {\n  opacity: 0.9;\n}\n.gantt-dependency-line {\n  fill: none;\n}\n.critical-path-toggle {\n  transition: opacity 0.15s ease-out;\n}\n.critical-path-toggle:hover {\n  opacity: 0.85;\n}\n.critical-path-toggle:active {\n  opacity: 0.7;\n}\n.gantt-bar:focus,\n.gantt-task-label:focus,\n[role=\"button\"]:focus {\n  outline: 2px solid #0f6cbd;\n  outline-offset: 2px;\n}\n@media (forced-colors: active) {\n  .gantt-bar:focus,\n  .gantt-task-label:focus,\n  [role=\"button\"]:focus {\n    outline: 3px solid CanvasText;\n    outline-offset: 2px;\n  }\n}\n\n",
+    "iconBase64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAARNJREFUOI1j5M3ZE8D0n6GegZHRgIES8J/hwT/G/4WM/Nl7HzAwMshTZBjc0P8XmKhmGAMDAwMjowET1QyDAhZkzsMuOwZ+ThYMRQK5+4g2EMWF2AwjBHSleRiizCWxu7Bj+30MDR+//cFr4NI0PQY5IQ6GI7ffMzx694OBkT9n73+SnYXmQl0ZXoZlJ59juhAZRJpJMPBw4A6C2YeeMDAwMDBcfvqF4fLTL3BxnDqK3BTwugxmIDogK9l8+fkXpxzFYYgOaJuwcYG5CdoMXGzMOOUjZ12Cs4lyIT7D0AFRLlxz9iVOuW+/UCOIKAPX4jEQHVA9UpgY/jM8pKJ5F5n+Mf4vYGBguEixUf8ZHv5j+N8AAGd0R8zNFlVpAAAAAElFTkSuQmCC"
+  },
+  "visualEntryPoint": "",
+  "externalJS": [],
+  "assets": {
+    "icon": "assets/icon.png"
+  }
+}

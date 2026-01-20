@@ -1,0 +1,29 @@
+{
+  "version": "1.2.4.0",
+  "author": {
+    "name": "Zoe Douglas",
+    "email": "zoe@datazoepowerbi.com"
+  },
+  "resources": [
+    {
+      "resourceId": "rId0",
+      "sourceType": 5,
+      "file": "resources/gradientCard0614168B0BDC476586916478EE5959D1.pbiviz.json"
+    }
+  ],
+  "visual": {
+    "guid": "gradientCard0614168B0BDC476586916478EE5959D1",
+    "name": "gradientCard",
+    "displayName": "Gradient Card",
+    "version": "1.2.4.0",
+    "description": "A new card",
+    "supportUrl": "https://datazoepowerbi.com",
+    "gitHubUrl": "",
+    "visualClassName": "Visual"
+  },
+  "metadata": {
+    "pbivizjson": {
+      "resourceId": "rId0"
+    }
+  }
+}

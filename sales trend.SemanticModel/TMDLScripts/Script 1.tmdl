@@ -1,0 +1,7 @@
+createOrReplace
+      perspective SalesView
+        perspectiveTable Sales
+            perspectiveMeasure 'Total Sales'
+            perspectiveMeasure 'Total Units'
+            perspectiveColumn 'Country'
+            perspectiveColumn 'Sales Channel'

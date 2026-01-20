@@ -1,0 +1,50 @@
+createOrReplace
+
+	function Santa = ```
+			( SantaSize :anyval numeric ,SantaMAX:anyval numeric) =>
+			
+			VAR MetricValue = SantaSize
+			
+			-- Max per product (important: MAXX, not SUM)
+			VAR MetricMax =SantaMAX
+			   
+			-- scale range inside the cell
+			VAR ScaleMin = 0.35
+			VAR ScaleMax = 1.00
+			
+			VAR Norm = DIVIDE(MetricValue, MetricMax, 0)
+			VAR Clamped = MAX(0, MIN(1, Norm))
+			VAR Scale = ScaleMin + Clamped * (ScaleMax - ScaleMin)
+			
+			-- IMPORTANT: use dot decimal in SVG (avoid comma locale)
+			VAR ScaleTxt = SUBSTITUTE(FORMAT(Scale, "0.00"), ",", ".")
+			
+			-- fixed image size (cell container)
+			VAR BoxPx = 220
+			VAR BoxTxt = FORMAT(BoxPx, "0")
+			
+			-- we draw Santa in a 520x520 coordinate system
+			-- and scale around the center to keep it centered
+			VAR Svg =
+			"data:image/svg+xml;utf8," &
+			"<svg xmlns='http://www.w3.org/2000/svg' width='" & BoxTxt & "' height='" & BoxTxt & "' viewBox='0 0 520 520'>" &
+			"<g transform='translate(260 260) scale(" & ScaleTxt & ") translate(-260 -260)'>" &
+			"<g stroke='%23101010' stroke-width='10' stroke-linejoin='round' stroke-linecap='round'>" &
+			"<path d='M120 190 C150 80 250 60 320 80 C400 105 435 170 410 215 C395 242 360 240 325 225 C290 210 225 235 180 235 C140 235 110 220 120 190 Z' fill='%23d81f26'/>" &
+			"<path d='M135 235 C185 190 325 190 405 235 C425 248 420 278 395 286 C325 308 215 308 145 286 C120 278 115 248 135 235 Z' fill='%23ffffff'/>" &
+			"<circle cx='430' cy='210' r='26' fill='%23ffffff'/>" &
+			"<circle cx='260' cy='300' r='120' fill='%23f2c7a5'/>" &
+			"<ellipse cx='220' cy='285' rx='26' ry='30' fill='%23ffffff'/>" &
+			"<ellipse cx='300' cy='285' rx='26' ry='30' fill='%23ffffff'/>" &
+			"<circle cx='228' cy='292' r='9' fill='%23101010' stroke='none'/>" &
+			"<circle cx='308' cy='292' r='9' fill='%23101010' stroke='none'/>" &
+			"<ellipse cx='260' cy='322' rx='22' ry='16' fill='%23e9b28f'/>" &
+			"<path d='M175 345 C205 315 235 318 260 338 C285 318 315 315 345 345 C320 370 292 382 260 375 C228 382 200 370 175 345 Z' fill='%23ffffff'/>" &
+			"<path d='M245 385 C255 398 265 398 275 385' fill='none' stroke='%237b1e1e' stroke-width='12'/>" &
+			"<path d='M150 360 C130 410 165 485 260 492 C355 485 390 410 370 360 C350 410 315 450 260 456 C205 450 170 410 150 360 Z' fill='%23ffffff'/>" &
+			"</g></g></svg>"
+			
+			RETURN
+			Svg
+			```
+		

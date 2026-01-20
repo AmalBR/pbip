@@ -1,0 +1,176 @@
+table Sales
+	lineageTag: 28ac13a5-09b2-4b46-94af-40462d863bad
+
+	measure 'Total Sales' = SUM(Sales[Sum of Unit Price])
+		formatString: #,0\ "€";-#,0\ "€";#,0\ "€"
+		lineageTag: 8e119cdc-43fb-438d-84bb-39c10c2a5886
+
+	measure 'Total Units' = SUM(Sales[Sum of Units Sold])
+		formatString: 0
+		lineageTag: a4a8563f-5f72-4c95-a9b0-a707d9cfb969
+
+	measure 'Total sales with Tax' = Add_Tax([Total Sales], TAX[TAX Value])
+		formatString: #,0\ "€";-#,0\ "€";#,0\ "€"
+		lineageTag: fe54d696-f9a1-4fd2-94f1-7b442e63c0a7
+
+	measure 'Total sales with Discount' = Add_Discount([Total sales with Tax], DISCOUNT[Dsicount Value])
+		formatString: #,0\ "€";-#,0\ "€";#,0\ "€"
+		lineageTag: 8366004c-448d-48d2-aa33-36dc5bfc981b
+
+	/// Total orders (count of order IDs)
+	measure 'Total Orders' = SUM ( Sales[Count of Order ID] )
+		formatString: #,0
+		lineageTag: 3d7924e2-53d5-493b-a3ea-d513ec31a37a
+
+	/// Average revenue per order
+	measure 'Average Order Value' = DIVIDE ( [Total Sales], [Total Orders] )
+		formatString: #,0.00
+		lineageTag: 1310100b-0ec2-4b8a-b881-5854d2a96a38
+
+	/// Year-over-year sales difference
+	measure 'Sales YOY' =
+			VAR Cur = [Total Sales]
+			VAR Prev = CALCULATE ( [Total Sales], DATEADD ( 'LocalDateTable_0738d114-d431-41f5-b273-bcd0534cb58b'[Date], -1, YEAR ) )
+			RETURN Cur - Prev
+		formatString: #,0
+		lineageTag: 1bb655d2-f0d9-43e5-b8aa-583633a05fb2
+
+	/// Year-over-year sales percentage change
+	measure 'Sales YOY %' = DIVIDE ( [Sales YOY], CALCULATE ( [Total Sales], DATEADD ( 'LocalDateTable_0738d114-d431-41f5-b273-bcd0534cb58b'[Date], -1, YEAR ) ) )
+		formatString: 0.00%
+		lineageTag: 57a5178d-db7b-4fac-b49d-b7520e46cd0e
+
+	measure santa = Santa(50000003,10000)
+		lineageTag: af30c6ea-05b8-468f-9242-a3f94c57455f
+		dataCategory: ImageUrl
+
+	column Country
+		dataType: string
+		lineageTag: e3b4b63e-9658-4751-90c4-52a61b938570
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Item Type'
+		dataType: string
+		lineageTag: 4987886b-41f9-4d83-af5d-60d010ee9018
+		summarizeBy: none
+		sourceColumn: Item Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Channel'
+		dataType: string
+		lineageTag: 79ae074b-09b4-459d-9601-2bebebaca1be
+		summarizeBy: none
+		sourceColumn: Sales Channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Priority'
+		dataType: string
+		lineageTag: 2e0efb98-5764-4c22-b929-d27637ab256d
+		summarizeBy: none
+		sourceColumn: Order Priority
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9cbe615e-a11b-4233-be94-0415daeec6aa
+		summarizeBy: none
+		sourceColumn: Order Date
+
+		variation Variation
+			isDefault
+			relationship: e0c6a594-2df4-4fa6-b4ac-32129965813b
+			defaultHierarchy: LocalDateTable_0738d114-d431-41f5-b273-bcd0534cb58b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Ship Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6cb976fa-ae28-48db-85d4-eb15da7eeec7
+		summarizeBy: none
+		sourceColumn: Ship Date
+
+		variation Variation
+			isDefault
+			relationship: 887a5464-4488-476a-82fc-39affc1a8f9d
+			defaultHierarchy: LocalDateTable_038b907f-44bc-4e2f-ad09-fc56aff08e95.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Sum of Unit Cost'
+		dataType: double
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 82419fe2-1ac2-4ad5-91cb-946360bb9e09
+		summarizeBy: sum
+		sourceColumn: Sum of Unit Cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sum of Unit Price'
+		dataType: double
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: d07823ae-d88e-4ce9-9d0d-a41a886766f9
+		summarizeBy: sum
+		sourceColumn: Sum of Unit Price
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sum of Units Sold'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6598b4c4-ef2e-42ad-b9c5-c94130690c64
+		summarizeBy: sum
+		sourceColumn: Sum of Units Sold
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Count of Order ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: f8b6a56f-a88c-47ed-8f5a-2db913bb69ff
+		summarizeBy: count
+		sourceColumn: Count of Order ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Sales = m
+		mode: import
+		source =
+				// let
+				//     Source = Excel.Workbook(File.Contents("D:\DatasetSample\SalesData.xlsx"), null, true),
+				//     Sales_Sheet = Source{[Item="Sales",Kind="Sheet"]}[Data],
+				//     #"Promoted Headers" = Table.PromoteHeaders(Sales_Sheet, [PromoteAllScalars=true]),
+				//     #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Country", type text}, {"Item Type", type text}, {"Sales Channel", type text}, {"Order Priority", type text}, {"Order Date", type date}, {"Order ID", Int64.Type}, {"Ship Date", type date}, {"Units Sold", Int64.Type}, {"Unit Price", type number}, {"Unit Cost", type number}}),
+				//     #"Replaced Value" = Table.ReplaceValue(#"Changed Type","L","Low",Replacer.ReplaceText,{"Order Priority"}),
+				//     #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","H","High",Replacer.ReplaceText,{"Order Priority"}),
+				//     #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","M","Medium",Replacer.ReplaceText,{"Order Priority"}),
+				//     #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","C","Medium",Replacer.ReplaceText,{"Order Priority"})
+				// in
+				//     #"Replaced Value3"
+				
+				
+				let
+				    Source = Excel.Workbook(Web.Contents("https://testfabric10-my.sharepoint.com/personal/amal_ben-rebai_testfabric10_onmicrosoft_com/Documents/data2.xlsx"), null, true),
+				    in_Sheet = Source{[Item="in",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(in_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Promoted Headers", {{"Order Date", type datetime}}, "en-GB"),
+				    #"Changed Type with Locale1" = Table.TransformColumnTypes(#"Changed Type with Locale", {{"Ship Date", type datetime}}, "en-GB"),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Changed Type with Locale1",{{"Country", type text}, {"Item Type", type text}, {"Order Date", type date}, {"Order Priority", type text}, {"Sales Channel", type text}, {"Ship Date", type date}, {"Sum of Unit Cost", type number}, {"Sum of Unit Price", type number}, {"Sum of Units Sold", Int64.Type}, {"Count of Order ID", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

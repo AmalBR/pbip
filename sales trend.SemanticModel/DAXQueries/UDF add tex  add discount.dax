@@ -1,0 +1,20 @@
+DEFINE
+   /// AddTax takes in amount and returns amount including tax
+    FUNCTION Add_Tax = 
+        (
+			amount : NUMERIC,
+			tax : NUMERIC
+		) =>
+            amount * tax 
+
+	FUNCTION Add_Discount = 
+        (
+			amount : NUMERIC,
+			discountPercent : NUMERIC
+		) =>
+		   amount * (1 - discountPercent )
+		    
+		    
+
+EVALUATE
+{ Add_Discount ( 100, 0.4 ) }

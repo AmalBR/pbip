@@ -1,0 +1,149 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 231.60000610351563,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 909.366106132903,
+            "y": 634.5
+          },
+          "nodeIndex": "Sales",
+          "nodeLineageTag": "28ac13a5-09b2-4b46-94af-40462d863bad",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 1610.3830500146937,
+            "y": 787.35000610351563
+          },
+          "nodeIndex": "Products",
+          "nodeLineageTag": "5c58b00a-2005-40e6-b53c-a9c9f9ff9705",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 1757.3830500146937,
+            "y": 0
+          },
+          "nodeIndex": "DISCOUNT",
+          "nodeLineageTag": "ea74cce3-15dd-4bf6-b255-3925650817f2",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1520.3830500146937,
+            "y": 31.75
+          },
+          "nodeIndex": "TAX",
+          "nodeLineageTag": "ab137880-7d92-4535-9e95-5c5aed2cef34",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 930.38305001469359,
+            "y": 0
+          },
+          "nodeIndex": "ProductDescription",
+          "size": {
+            "height": 176,
+            "width": 284
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 151,
+            "y": 249.06276179967512
+          },
+          "nodeIndex": "ProductModel",
+          "size": {
+            "height": 207,
+            "width": 352
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 411.20156119318506,
+            "y": 0
+          },
+          "nodeIndex": "ProductModelProductDescription",
+          "size": {
+            "height": 200,
+            "width": 371
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 536.38305001469371,
+            "y": 368.75
+          },
+          "nodeIndex": "Product",
+          "nodeLineageTag": "c58caa21-6769-4611-b5ba-e3d8d9da3e7a",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1743.3830500146937,
+            "y": 429.67500305175781
+          },
+          "nodeIndex": "country",
+          "nodeLineageTag": "e727b7d4-819c-446c-b423-f80c521f8919",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1302.3830500146937,
+            "y": 469.67500305175781
+          },
+          "nodeIndex": "Software Development Project",
+          "nodeLineageTag": "9a5b01af-4fc1-473a-a861-b09646f189c3",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 50,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

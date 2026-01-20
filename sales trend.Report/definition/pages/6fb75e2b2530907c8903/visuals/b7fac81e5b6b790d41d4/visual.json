@@ -1,0 +1,33 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "b7fac81e5b6b790d41d4",
+  "position": {
+    "x": 769.3292504326987,
+    "y": 687.12022367194777,
+    "z": 9000,
+    "height": 33.1290107841832,
+    "width": 510.43216615630411,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "https://bibb.pro/post/dax-and-user-defined-functions-the-react-of-power-bi/"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

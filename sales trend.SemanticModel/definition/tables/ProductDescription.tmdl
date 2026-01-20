@@ -1,0 +1,58 @@
+table ProductDescription
+	lineageTag: 2ec34997-3772-4771-b0fd-0882c487fe84
+
+	column ProductDescriptionID
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 17dca156-f8af-4d90-a141-2340a7280ac6
+		summarizeBy: none
+		sourceColumn: ProductDescriptionID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(400)
+		lineageTag: 3edf486f-82a3-4269-9c16-c7fd24169d01
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		isNullable: false
+		sourceProviderType: uniqueidentifier
+		lineageTag: bd8955e0-c2f2-4a4d-a5fb-4f41f17d85f7
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		isNullable: false
+		formatString: General Date
+		sourceProviderType: datetime
+		lineageTag: 4bdcdd63-9af3-4498-83d7-ac9c5ea25b48
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ProductDescription = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("fblhol4oadquni2oc6zuopm3pq-5fimjfz54uyubfamqauku4sq6q.database.fabric.microsoft.com", "sql_db_products-80026177-0ce2-4a1e-9f89-850d83eb3db7"),
+				    SalesLT_ProductDescription = Source{[Schema="SalesLT",Item="ProductDescription"]}[Data]
+				in
+				    SalesLT_ProductDescription
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

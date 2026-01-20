@@ -1,0 +1,50 @@
+expression data =
+		let
+		    Source = Csv.Document(Web.Contents("https://testfabric10-my.sharepoint.com/personal/amal_ben-rebai_testfabric10_onmicrosoft_com/Documents/data.csv"),[Delimiter=",", Columns=10, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+		    #"Renamed Columns" = Table.RenameColumns(#"Promoted Headers",{{"Sum of Units Sold", "Units Sold"}, {"Sum of Unit Price", "Unit Price"}, {"Sum of Unit Cost", "Unit Cost"}, {"Count of Order ID", "Order ID"}}),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"Country", type text}, {"Item Type", type text}, {"Order Date", type datetime}, {"Order Priority", type text}, {"Sales Channel", type text}, {"Ship Date", type datetime}, {"Unit Cost", Currency.Type}, {"Unit Price", Currency.Type}, {"Units Sold", Int64.Type}, {"Order ID", Int64.Type}})
+		in
+		    #"Changed Type"
+	lineageTag: df8c5a16-fec6-444f-992a-aaa2ad7f1fdd
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'SalesLT ProductModelProductDescription' =
+		let
+		    Source = Sql.Database("fblhol4oadquni2oc6zuopm3pq-5fimjfz54uyubfamqauku4sq6q.database.fabric.microsoft.com", "products_sql_db-ad393a2e-2dd7-4010-9ad0-bf2acb2bf8f8"),
+		    SalesLT_ProductModelProductDescription = Source{[Schema="SalesLT",Item="ProductModelProductDescription"]}[Data]
+		in
+		    SalesLT_ProductModelProductDescription
+	lineageTag: e6a06c93-37da-4fcd-b4ac-28fcb296f931
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'SalesLT ProductModel' =
+		let
+		    Source = Sql.Database("fblhol4oadquni2oc6zuopm3pq-5fimjfz54uyubfamqauku4sq6q.database.fabric.microsoft.com", "products_sql_db-ad393a2e-2dd7-4010-9ad0-bf2acb2bf8f8"),
+		    SalesLT_ProductModel = Source{[Schema="SalesLT",Item="ProductModel"]}[Data]
+		in
+		    SalesLT_ProductModel
+	lineageTag: ebfdc91d-5c51-489b-a621-a051513f24c6
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'SalesLT ProductDescription' =
+		let
+		    Source = Sql.Database("fblhol4oadquni2oc6zuopm3pq-5fimjfz54uyubfamqauku4sq6q.database.fabric.microsoft.com", "products_sql_db-ad393a2e-2dd7-4010-9ad0-bf2acb2bf8f8"),
+		    SalesLT_ProductDescription = Source{[Schema="SalesLT",Item="ProductDescription"]}[Data]
+		in
+		    SalesLT_ProductDescription
+	lineageTag: f2b2a622-1e64-497e-aef2-102cc2087721
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,67 @@
+table Products
+	lineageTag: 5c58b00a-2005-40e6-b53c-a9c9f9ff9705
+
+	measure 'KPI Cards HTML' =
+			
+			VAR Cards =
+			    ADDCOLUMNS(
+			        Products,
+			        "__html", BuildCard(Products[Product], Products[Units], Products[Target])
+			    )
+			RETURN
+			    "<div style='display:flex;flex-wrap:wrap;gap:12px'>" &
+			        CONCATENATEX(Cards, [__html], "") &
+			    "</div>"
+		lineageTag: 9dc0a4c6-bce7-4918-9089-c1fcdcf75f2f
+
+	measure 'count sales' = COUNTROWS(Sales)
+		formatString: 0
+		lineageTag: a2c8b840-baa0-4ad1-ad58-dd81eb6b437b
+
+	measure buildcard = BuildCard("Product A", 50, 100)
+		lineageTag: 5607921c-dfbe-4ba3-a48d-355748cbece3
+
+	column Product
+		lineageTag: b9a6c278-5ef0-4dfc-a968-3a9c71eca2a4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Product]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Units
+		formatString: 0
+		lineageTag: 6b8fdc1e-d008-4515-a5bf-0c109184db24
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Units]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Target
+		formatString: 0
+		lineageTag: 2aa54691-d1b3-442a-a8f5-f9dfa323f7cd
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Target]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Products = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "Product", STRING,
+				    "Units", INTEGER,
+				    "Target", INTEGER,
+				    {
+				        {"Widget A", 85, 100},
+				        {"Widget B", 50, 100},
+				        {"Widget C", 120, 100},
+				        {"Widget D", 95, 100}
+				    }
+				)
+
+	annotation PBI_Id = 19edb445ae0a484691acfef1693e4e3d
+

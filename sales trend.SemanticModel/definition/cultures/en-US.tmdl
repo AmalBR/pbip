@@ -1,0 +1,113 @@
+cultureInfo en-US
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "saleslt_productmodel.name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "SalesLT ProductModel",
+			          "ConceptualProperty": "Name"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "saleslt_productdescription.description": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "SalesLT ProductDescription",
+			          "ConceptualProperty": "Description"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "saleslt_productmodel_2.name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ProductModel",
+			          "ConceptualProperty": "Name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Product Model": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "saleslt_productdescription_2.description": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ProductDescription",
+			          "ConceptualProperty": "Description"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Product Description": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "saleslt_productmodel_2.productmodelid": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ProductModel",
+			          "ConceptualProperty": "ProductModelID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ID": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "product.listprice": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Product",
+			          "ConceptualProperty": "ListPrice"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Price": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+
