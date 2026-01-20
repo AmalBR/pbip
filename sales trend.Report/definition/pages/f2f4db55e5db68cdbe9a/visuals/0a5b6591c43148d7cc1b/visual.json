@@ -6,7 +6,8 @@
     "y": 296.40831758034028,
     "z": 2000,
     "height": 422.95652173913044,
-    "width": 352
+    "width": 352,
+    "tabOrder": 17000
   },
   "visualGroup": {
     "displayName": "Layout",
